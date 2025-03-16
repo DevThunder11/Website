@@ -130,17 +130,13 @@ button:hover{
     position: relative;
     z-index: 3;
 }
-.slope_info{
+.slope_text{
     font-family: "Markazi Text", serif;
     font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 30;
-    margin-left: 15px;
-    margin-top: 10px;
-    margin-bottom: 0;
-    width: 50%;
-    height: 100%;
+    font-size: 24;
+}
+.slope_info{
+    width: 75%;
 }
 .slope{
     width: 90%;
