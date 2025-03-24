@@ -1,6 +1,6 @@
 import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
 
-export function GenRandomQ12(){
+export function GenRandomQ13(){
 
     let Ans = [];
     let TF = [false,false,false,false]
