@@ -2,9 +2,9 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 
 // input
 
-let equation  = "u/(2*x*(u*t-1))";
-let limitRandom = {u:[40,100],x:[20,50],t:[5,10]}
-const question_text_Default = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสีบเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น "
+let equation  = "((-1)*(u**2))/(2*(x-u*t))";
+let limitRandom = {u:[40,100],x:[500,1000],t:[2,6]}
+const question_text_Default = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสียเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น "
 
 //--//
 let variables = [];
@@ -111,11 +111,11 @@ export function GenRandomQ4(){
     let choiceAmount = 4;
     while (choice.length < choiceAmount) {
         // Generate a random number to add or subtract from the correct answer
-        let randomOffset = getRandomIntMN(1, 5); // Random number between 1 and 5
+        let randomOffset = getRandomIntMN(5, 15); // Random number between 1 and 5
         let WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
         
         while (WrongChoice <= 0) {
-            randomOffset = getRandomIntMN(1, 5); // Regenerate random offset if necessary
+            randomOffset = getRandomIntMN(5, 15); // Regenerate random offset if necessary
             WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
         }
     
