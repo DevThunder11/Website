@@ -2,9 +2,9 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 
 // input
 
-let equation  = "v";
+let equation  = "v+(0*m)+(0*s)";
 let limitRandom = {m:[1,25],v:[1,30],s:[1,20]}
-const question_text_Default = "ปล่อยวัตถุ ก มวล m และวัตถุ ข มวล 2m ให้ตกลงมาตรง ๆ จากที่สูงแห่งหนึ่ง พร้อมกันที่ระยะ s เมตร ก่อนกระทบพื้นดิน วัตถุ ก มีความเร็ว v วัตถุ ข จะมี ความเร็วเท่าใด"
+const question_text_Default = "ปล่อยวัตถุ ก มวล m กิโลกรัม และวัตถุ ข มวล 2m กิโลกรัม ให้ตกลงมาตรงๆ พร้อมกันที่ระยะ s เมตร จากที่แห่งหนึ่งที่(อาจ)มีแรงโน้มถ่วงต่างจากโลก ก่อนกระทบพื้นดิน วัตถุ ก มีความเร็ว v เมตรต่อวินาที วัตถุ ข จะมี ความเร็วกี่เมตรต่อวินาที"
 
 //--//
 let variables = [];
@@ -101,6 +101,9 @@ export function GenRandomQ15(){
             }
             else if (question_text[i] == variable){
                 question_text[i] = randomValues[variable]
+            }
+            else if (question_text[i] == `2${variable}`) { // Handle the case for 2m
+                question_text[i] = 2 * randomValues[variable];
             }
         }
     });
