@@ -506,19 +506,24 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 
         // Update Firestore document
 
-        const questionData = userData.linear_1Data;
-        console.log(questionData);
+        let questionData = userData.linear_1Data;
 
-        if (questionData == undefined){
-            await updateDoc(userDocRef, {
-                linear_1Data: [userData.linear_1Current_Data],
-            });
+
+        if (questionData == undefined) {
+            questionData = [];
         }
-        else{
-            await updateDoc(userDocRef, {
-                linear_1Data: [...questionData,userData.linear_1Current_Data],
-            });
+
+        // Ensure the length of linear_1Data is at most 9
+        while (questionData.length >= 10) {
+            questionData.shift(); // Remove the first element
         }
+
+        // Add the new data
+        questionData.push(userData.linear_1Current_Data);
+
+        await updateDoc(userDocRef, {
+            linear_1Data: questionData,
+        });
 
         // Redirect to test page
         window.location.href = "../../Home/Home.html";
