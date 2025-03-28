@@ -3,7 +3,7 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 // input
 
 let equation  = "((18**2)*10) / (2*(u^2))";
-let limitRandom = {u:[10,25]}
+let limitRandom = {u:[5,50]}
 const question_text_Default = "วัตถุก้อนหนึ่งถูกปล่อยให้ตกลงมาในแนวดิ่งอีกก้อนตกลงมาด้วยความเร็วต้น u m/s จงหาว่าอีกนานเท่าไรวัตถุทั้งสองจึงจะอยู่ห่างกัน 18 เมตร (กำหนดค่าแรงโน้มถ่วง เท่ากับ 10 เมตร/วินาทีกำลังสอง)"
 
 //--//
@@ -144,7 +144,8 @@ export function GenRandomQ18(){
 
     let box = {
         question: questionPrint,
-        answers: Ans
+        answers: Ans,
+        template: "Q18"
     };
 
     // console.log(box) // check

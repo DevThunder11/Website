@@ -12,11 +12,11 @@ export function GenRandomQ21(){
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
     let x = (getRandomIntMN(1, 100))
-    let h = (getRandomIntMN(1, 100))
+    let t = (getRandomIntMN(1, 100))
 
     while (!Number.isInteger(x/(t-((2*x/10)**(1/2))))) {
         x = (getRandomIntMN(1, 100));
-        h = (getRandomIntMN(1, 100));
+        t = (getRandomIntMN(1, 100));
     }
 
 
@@ -27,8 +27,8 @@ export function GenRandomQ21(){
         else if (question_text[i] == "x"){
             question_text[i] = x
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "t"){
+            question_text[i] = t
         }
     }
 
@@ -73,7 +73,8 @@ export function GenRandomQ21(){
 
     let box = {
         question: questionPrint,
-        answers: Ans
+        answers: Ans,
+        template: "Q21"
     };
     // console.log(box) // check
 

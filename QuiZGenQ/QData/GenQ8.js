@@ -74,7 +74,8 @@ export function GenRandomQ8(){
 
     let box = {
         question: questionPrint,
-        answers: Ans
+        answers: Ans,
+        template: "Q8"
     };
     // console.log(box) // check
 

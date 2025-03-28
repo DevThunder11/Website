@@ -152,7 +152,8 @@ export function GenRandomQ3(){
 
     let box = {
         question: questionPrint,
-        answers: Ans
+        answers: Ans,
+        template: "Q3",
     };
 
     // console.log(box) // check

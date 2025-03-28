@@ -101,7 +101,8 @@ export function GenRandomQ0(){
             { text: Ans2, correct: TF[1]},
             { text: Ans3, correct: TF[2]},
             { text: Ans4, correct: TF[3]}
-        ]
+        ],
+        template: "Q0"
     };
 
     return box ;

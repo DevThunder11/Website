@@ -144,7 +144,8 @@ export function GenRandomQ22(){
 
     let box = {
         question: questionPrint,
-        answers: Ans
+        answers: Ans,
+        template: "Q22"
     };
 
     // console.log(box) // check
