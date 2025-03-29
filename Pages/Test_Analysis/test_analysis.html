@@ -12,7 +12,8 @@
     <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
 </head>
-<body class="background">
+<body class="background" style="visibility: hidden;">
+    <div id="loader" class="loader"></div>
     <nav class="top_bar">
         <ul>
             <li class="GenQ"><img class="logo" src="../../Picture/Logo_White.png"></li>
@@ -24,5 +25,12 @@
         </ul>
     </nav>
     
+    <div class="test-info">
+        <h2>Test Analysis</h2>
+        <div id="test-date"></div>
+        <div id="test-score"></div>
+    </div>
+    
+    <div id="questions-container"></div>
 </body>
 </html>
