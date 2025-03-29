@@ -5,6 +5,15 @@ import{getFirestore, getDoc, doc, updateDoc} from "https://www.gstatic.com/fireb
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+// Loader functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // Hide loader and show content after 2 seconds
+  setTimeout(function() {
+    document.getElementById('loader').style.display = 'none';
+    document.body.style.visibility = 'visible';
+  }, 1500);
+});
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
