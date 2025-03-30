@@ -49,6 +49,10 @@ document.getElementById("startButton").addEventListener("click", async (event) =
         alert("Please enter a valid time greater than 0.");
         return;
     }
+    if (inputMinutes > 180) {
+        alert("The maximum time allowed is 180 minutes (3 hours).");
+        return;
+    }
     else {
         // Generate questions
     const questions = RunAll(NumberOfQuestion);
