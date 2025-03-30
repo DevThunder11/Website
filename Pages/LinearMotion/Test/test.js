@@ -15,11 +15,18 @@ import{getFirestore, getDoc, doc, updateDoc} from "https://www.gstatic.com/fireb
 
 //timer
 
-// Get the countdown duration from localStorage
+// Get or initialize timer state from localStorage
+let targetTime = localStorage.getItem("targetTime");
 const inputMinutes = parseInt(localStorage.getItem("countdownMinutes"));
-        
-// Calculate the target time
-const targetTime = new Date().getTime() + inputMinutes * 60 * 1000;
+
+// If no target time exists or if inputMinutes has changed, set a new target time
+if (!targetTime || localStorage.getItem("lastInputMinutes") !== localStorage.getItem("countdownMinutes")) {
+    targetTime = new Date().getTime() + inputMinutes * 60 * 1000;
+    localStorage.setItem("targetTime", targetTime);
+    localStorage.setItem("lastInputMinutes", inputMinutes.toString());
+} else {
+    targetTime = parseInt(targetTime);
+}
 
 // Start the countdown
 const timerInterval = setInterval(() => {
@@ -44,6 +51,9 @@ const timerInterval = setInterval(() => {
     } else {
         clearInterval(timerInterval);
         document.getElementById("countdown").innerHTML = "Time's up!";
+        // Clear timer state when time's up
+        localStorage.removeItem("targetTime");
+        localStorage.removeItem("lastInputMinutes");
     }
 }, 1000);
 
