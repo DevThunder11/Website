@@ -54,6 +54,8 @@ const timerInterval = setInterval(() => {
         // Clear timer state when time's up
         localStorage.removeItem("targetTime");
         localStorage.removeItem("lastInputMinutes");
+        // Trigger end button click when timer runs out
+        document.getElementById('Endbutton').click();
     }
 }, 1000);
 
@@ -90,7 +92,33 @@ let limit = parseInt(localStorage.getItem('NumQ'));
 let section = 0; // Current question index
 let score = 0; // User's score
 
-let your_answer = Array(limit).fill(0);
+// Check if we need to initialize a fresh array or use the stored one
+let your_answer;
+
+// Check if we're coming from test_setting page
+if (localStorage.getItem('from_test_setting') === 'true') {
+    // Create a fresh array if coming from test_setting
+    your_answer = Array(limit).fill(0);
+    // Save the fresh array to localStorage
+    localStorage.setItem('your_answer', JSON.stringify(your_answer));
+    // Reset the flag
+    localStorage.setItem('from_test_setting', 'false');
+} else {
+    // Try to get the stored array from localStorage
+    const storedAnswers = localStorage.getItem('your_answer');
+    if (storedAnswers) {
+        your_answer = JSON.parse(storedAnswers);
+        // Make sure the array is the correct length
+        if (your_answer.length !== limit) {
+            your_answer = Array(limit).fill(0);
+            localStorage.setItem('your_answer', JSON.stringify(your_answer));
+        }
+    } else {
+        // If no stored array, initialize a new one
+        your_answer = Array(limit).fill(0);
+        localStorage.setItem('your_answer', JSON.stringify(your_answer));
+    }
+}
 
 // Function to update the question and answers based on the current section
 function updateQuestionAndAnswers(userData) {
@@ -151,6 +179,8 @@ ChoiceList.forEach((button, index) => {
     button.addEventListener('click',()=>{
         your_answer[section] = index+1;
         console.log(your_answer)
+        // Save to localStorage to persist across page reloads
+        localStorage.setItem('your_answer', JSON.stringify(your_answer));
         makeItDarker()
     })
 })
@@ -265,7 +295,6 @@ function handleButton(buttonNumber) {
             section = section + 1;
         }
     }
-    console.log("section:", section);
 }
 
 // Set up event listeners for the buttons
@@ -544,6 +573,9 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
             linear_1Data: questionData,
         });
 
+        // Clear the stored array when navigating away
+        localStorage.removeItem('your_answer');
+
         // Redirect to test page
         window.location.href = "../../Home/Home.html";
     } catch (error) {
@@ -553,5 +585,6 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 });
 
 document.getElementById('cancle').addEventListener("click", () => {
+    // No need to clear localStorage for your_answer as we're not using it anymore
     window.location.href = "Home.html";
 });
