@@ -74,6 +74,8 @@ document.getElementById("startButton").addEventListener("click", async (event) =
         // Save data in localStorage
         localStorage.setItem("countdownMinutes", inputMinutes);
         localStorage.setItem("NumQ", NumberOfQuestion);
+        // Set flag to indicate we're coming from test_setting page
+        localStorage.setItem("from_test_setting", "true");
 
         // Redirect to test page
         window.location.href = "../Test/test.html";
