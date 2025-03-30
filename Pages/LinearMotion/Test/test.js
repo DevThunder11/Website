@@ -404,49 +404,68 @@ function TopQuestion(){
 
 document.getElementById('Endbutton').addEventListener('click',()=>{
     const loggedInUserId = localStorage.getItem('loggedInUserId');
-        if (loggedInUserId) {
-            const docRef = doc(db, "users", loggedInUserId);
+    if (loggedInUserId) {
+        const docRef = doc(db, "users", loggedInUserId);
 
-            getDoc(docRef)
-                .then((docSnap) => {
-                    if (docSnap.exists()) {
-                        const userData = docSnap.data();
-                        let QA = userData.linear_1Current_Data.Question
-                        QA.forEach((sec,index) => {
-                            if(your_answer[index] > 0 && sec.answers[your_answer[index]-1].correct){
-                                score++;
-                                // console.log(score);
-                            }
-                        })
-
-                        const questionData = userData.linear_1Current_Data;
-
-                        questionData.Answer = your_answer 
-                        questionData.score = score
-
-                        updateDoc(docRef, {
-                            linear_1Current_Data : questionData,
-                        });
-
-                        console.log(score);
-                        document.getElementById('Question').style.display='none';
-                        document.getElementById('point').innerText = `score = ${score}`;
-                        document.getElementById('confirm').style.display='block';
-                        document.getElementById('cancle').style.display='block';
-                        document.getElementById('Ans1').style.display='none';
-                        document.getElementById('Ans2').style.display='none';
-                        document.getElementById('Ans3').style.display='none';
-                        document.getElementById('Ans4').style.display='none';
-                        document.getElementById('doyou').style.display='block';
+        getDoc(docRef)
+            .then((docSnap) => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    let limit = userData.linear_1Current_Data.Question.length;
+                    let score = 0;
+                    let summaryHtml = '';
+                    
+                    for(let i = 0; i < limit; i++){
+                        const question = userData.linear_1Current_Data.Question[i];
+                        const userAnswer = your_answer[i];
+                        const isCorrect = userAnswer > 0 && question.answers[userAnswer-1].correct;
+                        if(isCorrect) score++;
+                        
+                        const correctAnswer = question.answers.find(ans => ans.correct);
+                        summaryHtml += `
+                            <div class="question-review ${isCorrect ? 'correct' : 'incorrect'}">
+                                <h3>Question ${i + 1}</h3>
+                                <p>${question.question}</p>
+                                <p>Your answer: ${userAnswer ? question.answers[userAnswer-1].text : 'Not answered'}</p>
+                                <p>Correct answer: ${correctAnswer.text}</p>
+                            </div>
+                        `;
                     }
-                })  
-                .catch((error) => {
-                    console.error("Error fetching document:", error);
-                });
-        }  
-        else {
-            console.error("User ID not found in localStorage.");
-        }
+                    
+                    const questionData = userData.linear_1Current_Data;
+                    questionData.Answer = your_answer;
+                    questionData.score = score;
+
+                    // Store the summary and score in localStorage for the score page
+                    localStorage.setItem('testSummary', summaryHtml);
+                    localStorage.setItem('testScore', score);
+                    localStorage.setItem('totalQuestions', limit);
+
+                    updateDoc(docRef, {
+                        linear_1Current_Data: questionData
+                    }).then(() => {
+                        // Redirect to score page
+                        window.location.href = 'score.html';
+                    });
+
+                    // document.getElementById('Question').innerHTML = conclusionHtml;
+                    // document.getElementById('Question').style.display = 'block';
+                    // document.getElementById('point').innerHTML = `<h2>Final Score: ${score} out of ${limit}</h2>`;
+                    // document.getElementById('confirm').style.display = 'block';
+                    // document.getElementById('cancle').style.display = 'block';
+                    // document.getElementById('Ans1').style.display = 'none';
+                    // document.getElementById('Ans2').style.display = 'none';
+                    // document.getElementById('Ans3').style.display = 'none';
+                    // document.getElementById('Ans4').style.display = 'none';
+                    // document.getElementById('doyou').style.display = 'block';
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching document:", error);
+            });
+    } else {
+        console.error("User ID not found in localStorage.");
+    }
 });
 
 //////
