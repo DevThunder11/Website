@@ -27,6 +27,22 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Intersection Observer for question items
+const observerOptions = {
+    root: null,
+    threshold: 0.1,
+    rootMargin: '0px'
+};
+
+const questionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            questionObserver.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Get the logged-in user's ID and selected test index
@@ -69,16 +85,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     const userAnswer = testData.Answer[index];
                     const correctAnswer = testData.Question[index].answers.find(answer => answer.correct === true).text;
-                    const isCorrect = userAnswer === correctAnswer;
+                    const correctAnswerChoice = parseInt(correctAnswer.match(/^(\d+)\)/)?.[1]);
+                    const isCorrect = userAnswer === correctAnswerChoice;
                     
                     questionDiv.innerHTML = `
                         <h3>Question ${index + 1}</h3>
                         <p>${question.question}</p>
-                        <p>Your Answer: <span class="${isCorrect ? 'correct' : 'incorrect'}">${userAnswer} (${isCorrect ? 'correct' : 'incorrect'})</span></p>
+                        <p>Your Answer: <span class="${isCorrect ? 'correct' : 'incorrect'}">${userAnswer} ( ${isCorrect ? 'correct' : 'incorrect'} )</span></p>
                         <p>Correct Answer: <span class="correct_answer">${correctAnswer}</span></p>
+                        <div class="explanation">Click to see explanation</div>
                     `;
                     
+                    // Add click event listener to toggle explanation
+                    questionDiv.addEventListener('click', function() {
+                        const explanation = this.querySelector('.explanation');
+                        explanation.classList.toggle('active');
+                    });
+                    
+                    
                     questionsContainer.appendChild(questionDiv);
+                    // Observe the question div for animation
+                    questionObserver.observe(questionDiv);
                 });
             } else {
                 console.error("Document does not exist in Firestore!");

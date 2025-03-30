@@ -268,9 +268,13 @@ const observer_outer_div = new MutationObserver(() => {
             const innerButton = outerDiv.querySelector('.inner-button');
             innerButton.style.backgroundColor = "#72b5d8";
             innerButton.style.color = "white";
-            innerButton.style.width = "10%";
+            innerButton.style.width = "12%";
             innerButton.style.height = "60%";
-            innerButton.style.marginLeft = "55%";
+            innerButton.style.marginLeft = "auto";
+            innerButton.style.marginRight = "3%";
+            innerButton.style.display = "flex";
+            innerButton.style.justifyContent = "center";
+            innerButton.style.alignItems = "center";
             innerButton.style.borderRadius = "8px";
             innerButton.style.fontSize = "1rem";
             innerButton.style.fontWeight = "bold";
