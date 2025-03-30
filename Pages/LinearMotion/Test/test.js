@@ -476,17 +476,6 @@ document.getElementById('Endbutton').addEventListener('click',()=>{
                         // Redirect to score page
                         window.location.href = 'score.html';
                     });
-
-                    // document.getElementById('Question').innerHTML = conclusionHtml;
-                    // document.getElementById('Question').style.display = 'block';
-                    // document.getElementById('point').innerHTML = `<h2>Final Score: ${score} out of ${limit}</h2>`;
-                    // document.getElementById('confirm').style.display = 'block';
-                    // document.getElementById('cancle').style.display = 'block';
-                    // document.getElementById('Ans1').style.display = 'none';
-                    // document.getElementById('Ans2').style.display = 'none';
-                    // document.getElementById('Ans3').style.display = 'none';
-                    // document.getElementById('Ans4').style.display = 'none';
-                    // document.getElementById('doyou').style.display = 'block';
                 }
             })
             .catch((error) => {

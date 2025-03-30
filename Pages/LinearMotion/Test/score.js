@@ -1,6 +1,7 @@
 // Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
+import { getFirestore, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -16,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+const db = getFirestore();
 
 // Get test results from localStorage
 const score = localStorage.getItem('testScore');
@@ -42,3 +44,49 @@ localStorage.removeItem('testSummary');
 localStorage.removeItem('totalQuestions');
 localStorage.removeItem('questions');
 localStorage.removeItem('userAnswers');
+
+document.getElementById('confirm').addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    try {
+        // Reference to the user's Firestore document
+        const userId = localStorage.getItem("loggedInUserId");
+        const userDocRef = doc(db, "users", userId);
+        const docSnap = await getDoc(userDocRef);
+        const userData = docSnap.data();
+
+        // Update Firestore document
+
+        let questionData = userData.linear_1Data || [];
+        const currentData = userData.linear_1Current_Data || {};
+
+
+        if (questionData == undefined) {
+            questionData = [];
+        }
+
+        // Ensure the length of linear_1Data is at most 9
+        while (questionData.length >= 10) {
+            questionData.shift(); // Remove the first element
+        }
+
+        // Add the new data if it exists
+        if (userData.linear_1Current_Data) {
+            questionData.push(userData.linear_1Current_Data);
+        }
+
+        await updateDoc(userDocRef, {
+            linear_1Data: questionData,
+        });
+
+        // Redirect to test page
+        window.location.href = "../../Home/Home.html";
+    } catch (error) {
+        console.error("Error updating user info: ", error);
+        alert("Failed to update number of questions. Please try again.");
+    }
+});
+
+document.getElementById('cancle').addEventListener("click", () => {
+    window.location.href = "../../Home/Home.html";
+});
