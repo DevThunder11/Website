@@ -232,6 +232,8 @@ const observer_button = new MutationObserver(() => {
             button.dataset.listener = "true";
             button.addEventListener("click", () => {
                 console.log("Button clicked:", i);
+                localStorage.setItem('selectedTestIndex', i);
+                window.location.href = '../Test_Analysis/test_analysis.html';
             });
         }
     }
