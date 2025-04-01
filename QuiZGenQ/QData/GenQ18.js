@@ -13,7 +13,7 @@ export function GenRandomQ18(){
     let Name = namelist[getRandomInt((namelist.length)-1)]
     let u = (getRandomIntMN(5, 30))
 
-    while (!Number.isInteger(((18**2)*10) / (2*(u^2)))) {
+    while (!Number.isInteger(18/u)) {
         u = (getRandomIntMN(5, 30));
     }
 
@@ -29,7 +29,7 @@ export function GenRandomQ18(){
 
     // Anscode
 
-    let result = ((18**2)*10) / (2*(u^2))
+    let result = 18/u
     let choice = [result]
 
     // RandomAnsCode

@@ -19,15 +19,15 @@ import { GenRandomQ22 } from "/QuiZGenQ/QData/GenQ22.js";
 
 export function RunAll(NumberOfQuestion) {
     let questions = [];
-    let availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];  // The available numbers to choose from
-    // let availableNumbers = [15,12,16,18]; // test function
+    // let availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];  // The available numbers to choose from
+    // let availableNumbers = [4]; // test function
 
     for (let k = 0; k < NumberOfQuestion; k++) {
         // Check if there are any unused numbers
         if (availableNumbers.length === 0) {
             // Reset available numbers
-            availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];
-            // availableNumbers = [15];// test function
+            // availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];
+            // availableNumbers = [4];// test function
         }
 
         // Pick a random number from available numbers
