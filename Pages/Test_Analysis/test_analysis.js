@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const correctAnswer = testData.Question[index].answers.find(answer => answer.correct === true).text;
                     const correctAnswerChoice = parseInt(correctAnswer.match(/^(\d+)\)/)?.[1]);
                     const isCorrect = userAnswer === correctAnswerChoice;
+                    const template_choice = testData.Question[index].template_choice;
                     
                     questionDiv.innerHTML = `
                         <h3>Question ${index + 1}</h3>

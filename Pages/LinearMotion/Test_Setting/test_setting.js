@@ -71,11 +71,15 @@ document.getElementById("startButton").addEventListener("click", async (event) =
             linear_1Current_Data: { Question: questions, Answer: [] ,score: 0,Topic: "LinearMotion",Date: thailandDate },
         });
 
+        // Delete timer old data
+        localStorage.removeItem("countdownMinutes");
+        localStorage.removeItem("targetTime");
         // Save data in localStorage
         localStorage.setItem("countdownMinutes", inputMinutes);
         localStorage.setItem("NumQ", NumberOfQuestion);
 
         // Redirect to test page
+        localStorage.removeItem("your_answer");
         window.location.href = "../Test/test.html";
     } catch (error) {
         console.error("Error updating user info: ", error);

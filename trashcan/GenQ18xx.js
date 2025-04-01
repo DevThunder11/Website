@@ -2,9 +2,9 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 
 // input
 
-let equation  = "(2*(x-25))/(a+b)";
-let limitRandom = {x:[175,1025],a:[50,75],b:[50,75]}
-const question_text_Default = "รถไฟ 2 ขบวนวิ่งเข้าหากันในรางเดียวกัน รถขบวนที่ 1 วิ่งด้วยความเร็ว a เมตร/วินาที ส่วนรถขบวนที่ 2 วิ่งด้วยความเร็ว b เมตร/วินาที ขณะที่อยู่ท่างกัน x เมตร รถไฟทั้ง 2 ขบวนต่างเบรกรถและหยุดได้พอดีพร้อมกัน โดยอยู่ห่างกัน 25 เมตร เวลาที่รถทั้งสองใช้เป็นเท่าใด"
+let equation  = "((18**2)*10) / (2*(u^2))";
+let limitRandom = {u:[5,50]}
+const question_text_Default = "วัตถุก้อนหนึ่งถูกปล่อยให้ตกลงมาในแนวดิ่งอีกก้อนตกลงมาด้วยความเร็วต้น u m/s จงหาว่าอีกนานเท่าไรวัตถุทั้งสองจึงจะอยู่ห่างกัน 18 เมตร (กำหนดค่าแรงโน้มถ่วง เท่ากับ 10 เมตร/วินาทีกำลังสอง)"
 
 //--//
 let variables = [];
@@ -19,7 +19,7 @@ function generateRandomValues() {
 
     // Generate random values for each variable
     variables.forEach((variable) => {
-        const randomValue = Math.floor(Math.random() * limitRandom[variable][1]) + limitRandom[variable][0];  // Random value between 1 and 10
+        const randomValue = Math.floor(Math.random() * limitRandom[variable]) + 1;  // Random value between 1 and 10
         randomValues[variable] = randomValue;
         // console.log(variable) //check
     });
@@ -77,7 +77,7 @@ function calculateAnswerNotInt() {
     }
 }
 
-export function GenRandomQ22(){
+export function GenRandomQ18(){
 
     generateRandomValues();
     calculateAnswer();
@@ -145,7 +145,7 @@ export function GenRandomQ22(){
     let box = {
         question: questionPrint,
         answers: Ans,
-        template: "Q22"
+        template: "Q18"
     };
 
     // console.log(box) // check

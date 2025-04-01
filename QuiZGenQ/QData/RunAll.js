@@ -71,7 +71,7 @@ export function RunAll(NumberOfQuestion) {
             questions = [...questions, GenRandomQ16()];
         } 
         else if (NQ == 18) {
-            questions = [...questions, GenRandomQ18()];// NaN bug
+            questions = [...questions, GenRandomQ18()];// Wrong Answer
         }
         else if (NQ == 19) {
             questions = [...questions, GenRandomQ19()];

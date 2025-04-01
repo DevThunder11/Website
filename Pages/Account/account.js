@@ -36,13 +36,24 @@ onAuthStateChanged(auth, (user)=>{
       .then((docSnap)=>{
           if(docSnap.exists()){
               const userData=docSnap.data();
-              document.getElementById('loggedUserFName').innerText=userData.firstName;
-              document.getElementById('loggedUserEmail').innerText=userData.email;
-              document.getElementById('loggedUserLName').innerText=userData.lastName;
-              document.getElementById('tellephonenum').innerText = userData.tel;
-              document.getElementById('tellephonenum').style.display = 'block';  
-          }
-          else{
+              if (userData.firstName) document.getElementById('loggedUserFName').innerText=userData.firstName;
+              if (userData.email) document.getElementById('loggedUserEmail').innerText=userData.email;
+              if (userData.lastName) document.getElementById('loggedUserLName').innerText=userData.lastName;
+              
+              // Check if telephone exists
+              const telForm = document.getElementById('Tel');
+              const telNumElement = document.getElementById('tellephonenum');
+              
+              if (userData.tel && telNumElement) {
+                  telNumElement.innerText = userData.tel;
+                  telNumElement.style.display = 'block';
+                  if (telForm) telForm.style.display = 'none';
+                  submitButton.style.display = 'none'
+              } else {
+                  if (telNumElement) telNumElement.style.display = 'none';
+                  if (telForm) telForm.style.display = 'block';
+              }
+          } else {
               console.log("no document found matching id")
           }
       })
@@ -62,7 +73,9 @@ onAuthStateChanged(auth, (user)=>{
 // Update with your actual method to fetch user ID
 
 // Event listener for submit button
-document.getElementById('submit').addEventListener('click', async (event) => {
+const submitButton = document.getElementById('submit');
+if (submitButton) {
+    submitButton.addEventListener('click', async (event) => {
     event.preventDefault();
 
     // Get input values
@@ -80,8 +93,15 @@ document.getElementById('submit').addEventListener('click', async (event) => {
         });
 
         // Display success message
-        document.getElementById('tellephonenum').innerText = `Updated Tel: ${telephone}`;
-        document.getElementById('tellephonenum').style.display = 'block';
+        const telNumElement = document.getElementById('tellephonenum');
+        const telInput = document.getElementById('Tel');
+        
+        if (telNumElement && telInput) {
+            telNumElement.textContent = telephone;
+            telNumElement.style.display = 'inline-block';
+            telInput.style.display = 'none';
+            submitButton.style.display = 'none';
+        }
 
         alert("Telephone Number updated successfully!");
     } catch (error) {
@@ -89,3 +109,4 @@ document.getElementById('submit').addEventListener('click', async (event) => {
         alert("Failed to update user information. Please try again.");
     }
 });
+}
