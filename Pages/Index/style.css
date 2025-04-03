@@ -6,16 +6,20 @@
 }
 body{
     background-color: #c0e6f9;
-    background:linear-gradient(to right,#daf3ff,#b8e7ff);
+    background: linear-gradient(135deg, #e0f4ff 0%, #87ceeb 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .container{
     background:#fff;
     width:450px;
-    padding:1.5rem;
-    margin:50px auto;
-    border-radius:10px;
-    box-shadow:0 20px 35px rgba(0, 0, 1, 0.34);
-    margin-top: 70px;
+
+    padding:2rem;
+    border-radius:15px;
+    box-shadow:0 20px 35px rgba(0, 0, 1, 0.15);
+    backdrop-filter: blur(10px);
 }
 form{
     margin:0 2rem;
@@ -30,11 +34,12 @@ form{
 input{
     width: 100%;
     outline: none;
-    border: 1px solid white;
+    border: 2px solid #e3e3e3;
     padding: 12px 20px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    background: rgb(227, 227, 227);
+    margin-bottom: 15px;
+    border-radius: 25px;
+    background: rgba(227, 227, 227, 0.5);
+    transition: all 0.3s ease;
 }
 .input-group{
     padding:1% 0;
@@ -57,12 +62,12 @@ label{
     color:#757575;
     position:relative;
     left:1.0em;
-    top:-2.4em;
+    top:-2.8em;
     cursor:auto;
     transition:0.3s ease all;
 }
 input:focus~label,input:not(:placeholder-shown)~label{
-    top:-4em;
+    top:-5em;
     color:hsl(221, 90%, 28%);
     font-size:15px;
 }
@@ -82,72 +87,103 @@ input:focus~label,input:not(:placeholder-shown)~label{
 }
 button{
     font-size:1.1rem;
-    padding:8px 0;
-    border-radius:5px;
+    padding:12px 0;
+    border-radius:25px;
     outline:none;
     border:none;
     width:100%;
-    background:#68abc4;
+    background:linear-gradient(to right, #68abc4, #4a90a8);
     color:white;
     cursor:pointer;
-    transition:0.9s;
+    transition:0.3s ease;
+    box-shadow: 0 4px 15px rgba(104, 171, 196, 0.2);
 }
 button:hover{
     background:#075680;
 }
-.or{
-    font-size:1.1rem;
-    margin-top:0.5rem;
-    text-align:center;
+.icons {
+    text-align: center;
+    margin: 1.5rem 0;
 }
-.icons{
-    text-align:center;
-}
-.icons i{
-    color:#68abc4;
-    padding:0.8rem 1.5rem;
-    border-radius:10px;
-    font-size:1.5rem;
-    cursor:pointer;
-    border:2px solid #dfe9f5;
-    margin:0 15px;
-    transition:1s;
-}
-.icons i:hover{
-    background:#000000;
-    font-size:1.6rem;
-    border:2px solid #ffffff;
-}
-.links{
-    display:flex;
-    justify-content:space-around;
-    padding:0 4rem;
-    margin-top:0.9rem;
-    font-weight:bold;
-}
- #signUpButton, #signInButton{
-    color:#68abc4;
-    border:none;
-    background-color:transparent;
-    font-size:1rem;
-    font-weight:bold;
-}
-#signUpButton:hover, #signInButton:hover {
-    text-decoration:underline;
-    color:#3b819a;
-} 
-.messageDiv{
-    background-color:hsl(327,90%,28%);
-    color:white;
-    padding:10px 20px;
-    margin:10px;
-    border-radius: 5px;
-    font-size:1rem;
-    opacity:0;
-    animation:fadeOut 7s forwards;
 
+.icons i {
+    color: #68abc4;
+    padding: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+    margin: 0 10px;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
-i{
-    top: 1em;
-    left: 19em;
+
+.input-group i{
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    right: 15px;
+}
+
+.icons i {
+    position: static;
+    transform: none;
+    color: #68abc4;
+    padding: 0.8rem;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+    margin: 0 10px;
+    transition: 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    width: 45px;
+    height: 45px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icons i:hover {
+    background: #68abc4;
+    color: #f4f4f4;
+    font-size: 1.6rem;
+    border: 2px solid #ffffff;
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4rem;
+    margin-top: 0.9rem;
+    font-weight: bold;
+}
+
+#signUpButton, #signInButton {
+    color: #ffffff;
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#signUpButton:hover, #signInButton:hover {
+    text-decoration: none;
+    color: #3b819a;
+}
+
+.messageDiv {
+    background-color: hsl(327,90%,28%);
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: 0;
+    animation: fadeOut 7s forwards;
 }

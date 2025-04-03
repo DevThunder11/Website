@@ -11,12 +11,20 @@ export function GenRandomQ7(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
-    let u = (getRandomIntMN(1, 100))
-    let t = (getRandomIntMN(1, 100))
+    let u = (getRandomIntMN(20, 100))
+    let t = (getRandomIntMN(1, 5))
 
+    let maxAttempts = 50;
+    let attempts = 0;
     while (!Number.isInteger(((u**2)/20)-((5/4)*(t**2)))) {
-        u = (getRandomIntMN(1, 100));
-        t = (getRandomIntMN(1, 100));
+        u = (getRandomIntMN(20, 100));
+        t = (getRandomIntMN(1, 5));
+        attempts++;
+        if (attempts >= maxAttempts) {
+            u = 20;
+            t = 2;
+            break;
+        }
     }
 
 
@@ -77,6 +85,6 @@ export function GenRandomQ7(){
         template: "Q7"
     };
     // console.log(box) // check
-
+    console.log(attempts , "attempts")
     return box ;
 }

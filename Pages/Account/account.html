@@ -34,7 +34,7 @@
                     </ul>
                 </nav>
             </div>
-            <div class="right_box">
+            <div class="right_box" id="profile">
                 <div class="top_info">
                     <img class="icon" src="../../Picture/icon.png">
                     <div class="name"><span id="loggedUserFName"></span></div>
@@ -48,6 +48,18 @@
                     <button id="submit" type="submit">submit</button>
                 </div>
             </div>
+            <div class="right_box" style="display: none;" id="privacy"></div>
+            <div class="right_box" style="display: none;" id="friend"></div>
+            <div class="right_box" style="display: none;" id="feedback">
+                <div class="feedback-container">
+                    <h2>Your Feedback</h2>
+                    <form class="feedback-form" id="feedbackForm">
+                        <textarea id="feedbackInput" placeholder="Please enter your feedback here..."></textarea>
+                        <button id="submitfeedback" type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+            <div class="right_box" style="display: none;" id="setting"></div>
         </div>
     </body>
 </html>

@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import {getAuth, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
-import{getFirestore, getDoc, doc, updateDoc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+import{getFirestore, getDoc, doc, updateDoc,collection,addDoc,setDoc} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -27,6 +27,35 @@ const analytics = getAnalytics(app);
 const auth=getAuth();
 const db=getFirestore();
 
+// Add menu selection functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all menu items
+    const menuItems = document.querySelectorAll('.left_bar li');
+    // Get all right boxes
+    const rightBoxes = document.querySelectorAll('.right_box');
+
+    // Add click event listener to each menu item
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Remove selected class from all items
+            menuItems.forEach(i => i.classList.remove('selected'));
+            // Add selected class to clicked item
+            this.classList.add('selected');
+
+            // Hide all right boxes
+            rightBoxes.forEach(box => box.style.display = 'none');
+            // Show the corresponding right box
+            const boxId = this.querySelector('a').textContent.toLowerCase();
+            document.getElementById(boxId).style.display = 'block';
+        });
+    });
+
+    // Set Profile as default selected and show profile box
+    document.querySelector('.profile').classList.add('selected');
+    document.getElementById('profile').style.display = 'block';
+});
+
+//Show user information in profile window
 onAuthStateChanged(auth, (user)=>{
     const loggedInUserId=localStorage.getItem('loggedInUserId');
     if(loggedInUserId){
@@ -66,12 +95,6 @@ onAuthStateChanged(auth, (user)=>{
   }
 })
 
-/////updated infomation/////
-
-//db already been declaer
-// Get the logged-in user's ID (assumes user ID is stored in localStorage after login)
-// Update with your actual method to fetch user ID
-
 // Event listener for submit button
 const submitButton = document.getElementById('submit');
 if (submitButton) {
@@ -110,3 +133,45 @@ if (submitButton) {
     }
 });
 }
+
+//Feedback
+async function addFeedbackToUser(userId, feedbackData) {
+    try {
+      const userDocRef = doc(db, "users", userId);
+      const feedbackCollectionRef = collection(userDocRef, "--Feedback--");
+      const docRef = await addDoc(feedbackCollectionRef, feedbackData);
+      console.log("Feedback document added with ID: ", docRef.id);
+      alert("Feedback submitted successfully!");
+    } catch (error) {
+      console.error("Error adding feedback document: ", error);
+      alert("Failed to submit feedback. Please try again.");
+    }
+  }
+
+  // Listen for DOM to load
+  window.addEventListener("DOMContentLoaded", () => {
+    const feedbackForm = document.getElementById("feedbackForm");
+    feedbackForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      // Get the feedback text
+      const feedbackText = document.getElementById("feedbackInput").value.trim();
+      if (!feedbackText) {
+        alert("Please enter a feedback comment before submitting.");
+        return;
+      }
+
+      // Example user ID; replace with your actual user doc ID
+      const userId = "someUserDocId";
+      const feedbackData = {
+        comment: feedbackText,
+        timestamp: new Date(),
+      };
+
+      // Send to Firestore
+      await addFeedbackToUser(userId, feedbackData);
+
+      // Reset form
+      feedbackForm.reset();
+    });
+  });

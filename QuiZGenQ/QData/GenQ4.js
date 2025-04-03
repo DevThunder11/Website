@@ -140,7 +140,7 @@ export function GenRandomQ4(){
     };
     console.log(a , "attempt") // check
     // console.log(box) // check
-
+    a = 0;
     return box ;
 }
 
