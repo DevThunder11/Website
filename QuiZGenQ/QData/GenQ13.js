@@ -1,5 +1,8 @@
 import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
 
+// Set to track used h-t combinations
+const usedCombinations = new Set();
+
 export function GenRandomQ13(){
 
     let Ans = [];
@@ -11,13 +14,40 @@ export function GenRandomQ13(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
-    let h = (getRandomIntMN(1, 100))
-    let t = (getRandomIntMN(1, 100))
+    // Define valid h values and their corresponding t ranges
+    const hTMapping = {
+        20: [1],
+        45: [1, 2],
+        80: [1, 2, 3],
+        125: [1, 2, 3, 4],
+        180: [1, 2, 3, 4, 5]
+    };
+    const hValues = Object.keys(hTMapping).map(Number);
+    
+    // Function to get total possible combinations
+    const getTotalCombinations = () => {
+        return Object.entries(hTMapping).reduce((total, [h, tValues]) => total + tValues.length, 0);
+    };
 
-    while (!Number.isInteger(h-(5*(((2*h/10)**(1/2)-t)**2)))) {
-        h = (getRandomIntMN(1, 100));
-        t = (getRandomIntMN(1, 100));
+    // Reset usedCombinations if all combinations have been used
+    if (usedCombinations.size >= getTotalCombinations()) {
+        usedCombinations.clear();
     }
+
+    // Select unused h-t combination
+    let h, t;
+    do {
+        h = hValues[getRandomInt(hValues.length - 1)];
+        let validTValues = hTMapping[h];
+        t = validTValues[getRandomInt(validTValues.length - 1)];
+    } while (usedCombinations.has(`${h}-${t}`));
+
+    // Add the new combination to used set
+    usedCombinations.add(`${h}-${t}`);
+
+    
+    // Calculate result (this will always be an integer with our valid h-t pairs)
+    let result = (t*((8*10*h)**(1/2)-10*t))/2;
 
 
     for (let i = 0; i < question_text.length; i++) {
@@ -34,7 +64,6 @@ export function GenRandomQ13(){
 
     // Anscode
 
-    let result = (h-(5*(((2*h/10)**(1/2)-t)**2)))
     let choice = [result]
 
     // RandomAnsCode

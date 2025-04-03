@@ -5,7 +5,7 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 let equation  = "((-1)*(u**2))/(2*(x-u*t))";
 let limitRandom = {u:[40,80],x:[500,700],t:[2,3]}
 const question_text_Default = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสียเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น "
-
+let a = 0;
 //--//
 let variables = [];
 let randomValues = {};
@@ -19,44 +19,35 @@ function generateRandomValues() {
 
     // Generate random values for each variable
     variables.forEach((variable) => {
-        const randomValue = Math.floor(Math.random() * limitRandom[variable][1]) + limitRandom[variable][0];  // Random value between 1 and 10
+        const range = limitRandom[variable];
+        const randomValue = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
         randomValues[variable] = randomValue;
-        // console.log(variable) //check
     });
 }
 
 function calculateAnswer() {
-    console.log("Generating new number")
-    // Continuously try until the result is an integer
-    do {
-        let evalEquation = equation;
+    a++;
+    let evalEquation = equation;
 
-        // Replace variables with their random values
-        for (const [key, value] of Object.entries(randomValues)) {
-            evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
+    // Replace variables with their random values
+    for (const [key, value] of Object.entries(randomValues)) {
+        evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
+    }
+
+    try {
+        // Evaluate the modified equation
+        result = eval(evalEquation);
+
+        // Check if the result is an integer
+        if (!Number.isInteger(result)) {
+            // If the result is not an integer, adjust random values
+            generateRandomValues();
+            calculateAnswer();
         }
-
-        try {
-            // Evaluate the modified equation
-            result = eval(evalEquation);
-
-            // Check if the result is an integer
-            if (Number.isInteger(result)) {
-                break;  // If result is an integer, exit the loop
-            } else {
-                // If the result is not an integer, generate new random values
-                generateRandomValues();
-            }
-        } catch (error) {
-            console.log("There was an error evaluating the equation.");
-            return;
-        }
-    } while (!Number.isInteger(result));  // Loop until an integer result is found
-
-    // variables.forEach((variable) => {   
-    //     console.log(randomValues[variable]) // check
-    //     console.log(variable) // check
-    // }); 
+    } catch (error) {
+        console.log("There was an error evaluating the equation.");
+        return;
+    }
 }
 
 function calculateAnswerNotInt() {
@@ -147,7 +138,7 @@ export function GenRandomQ4(){
         answers: Ans,
         template: "Q4",
     };
-
+    console.log(a , "attempt") // check
     // console.log(box) // check
 
     return box ;
