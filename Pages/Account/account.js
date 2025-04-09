@@ -27,8 +27,30 @@ const analytics = getAnalytics(app);
 const auth=getAuth();
 const db=getFirestore();
 
+// Function to show/hide loader and content
+function toggleLoader(show) {
+    const loaders = document.querySelectorAll('.loader');
+    const rightBoxes = document.querySelectorAll('.right_box');
+    
+    rightBoxes.forEach(box => {
+        const children = Array.from(box.children);
+        children.forEach(child => {
+            if (!child.classList.contains('loader')) {
+                child.style.display = show ? 'none' : '';
+            }
+        });
+    });
+    
+    loaders.forEach(loader => {
+        loader.style.display = show ? 'block' : 'none';
+    });
+}
+
 // Add menu selection functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Hide all loaders initially
+    toggleLoader(false);
+
     // Get all menu items
     const menuItems = document.querySelectorAll('.left_bar li');
     // Get all right boxes
@@ -37,6 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add click event listener to each menu item
     menuItems.forEach(item => {
         item.addEventListener('click', function() {
+            // Show loader and hide content
+            toggleLoader(true);
+
             // Remove selected class from all items
             menuItems.forEach(i => i.classList.remove('selected'));
             // Add selected class to clicked item
@@ -47,6 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show the corresponding right box
             const boxId = this.querySelector('a').textContent.toLowerCase();
             document.getElementById(boxId).style.display = 'block';
+
+            // Hide loader and show content after 1.5 seconds
+            setTimeout(() => toggleLoader(false), 500);
         });
     });
 
@@ -57,6 +85,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //Show user information in profile window
 onAuthStateChanged(auth, (user)=>{
+    // Show loader while fetching user data
+    toggleLoader(true);
+
     const loggedInUserId=localStorage.getItem('loggedInUserId');
     if(loggedInUserId){
       console.log(user);
@@ -85,13 +116,19 @@ onAuthStateChanged(auth, (user)=>{
           } else {
               console.log("no document found matching id")
           }
+          // Hide loader after data is loaded
+          toggleLoader(false);
       })
       .catch((error)=>{
           console.log("Error getting document");
+          // Hide loader on error
+          toggleLoader(false);
       })
   }
   else{
       console.log("User Id not Found in Local storage")
+      // Hide loader if no user ID
+      toggleLoader(false);
   }
 })
 
