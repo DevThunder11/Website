@@ -92,7 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     const question_text = testData.Question[index].question;
 
                     // Get explanation text
-                    const explanation_text = explanation(template , question_text);
+                    let explanation_text = explanation(template , question_text);
+                    if (explanation_text === undefined) {
+                        explanation_text = template; 
+                    }
 
                     // Display question, user answer, correct answer, and explanation
                     questionDiv.innerHTML = `
