@@ -162,10 +162,10 @@ if (loggedInUserId) {
                         inner_button.innerText = `${score} / ${full_score}`;
                         
                         // graph
-                        let percent = (score/full_score)*100
+                        let percent = ((score/full_score)*100).toFixed(2)
                         console.log(percent)
 
-                        chartOptions.series[0].data.push(percent);
+                        chartOptions.series[0].data.push(parseFloat(percent));
 
                         // graph
                         console.log(chartOptions.series[0].data)
@@ -182,7 +182,7 @@ if (loggedInUserId) {
                     let averagePercent = calculateAverage(chartOptions.series[0].data);
                     // console.log("Average Percent:", averagePercent);
                     
-                    document.getElementById("average").innerText = `${averagePercent}%`;
+                    document.getElementById("average").innerText = `${averagePercent.toFixed(2)}%`;
                     if (averagePercent >= 80) {
                       document.getElementById("average").style.color = "#90D5FF";
                       document.getElementById("standard").innerText = "ผลการเรียนยอดเยี่ยม";
