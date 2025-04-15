@@ -48,7 +48,7 @@ export function RunAll(NumberOfQuestion) {
             questions = [...questions, GenRandomQ3()];
         } 
         else if (NQ == 4) {
-            questions = [...questions, GenRandomQ4()]; //too much attempts
+            questions = [...questions, GenRandomQ4()];
         } 
         else if (NQ == 5) {
             questions = [...questions, GenRandomQ5()];
@@ -57,7 +57,7 @@ export function RunAll(NumberOfQuestion) {
             questions = [...questions, GenRandomQ6()];
         } 
         else if (NQ == 7) {
-            questions = [...questions, GenRandomQ7()]; //bug
+            questions = [...questions, GenRandomQ7()]; 
         }
         else if (NQ == 8) {
             questions = [...questions, GenRandomQ8()];
