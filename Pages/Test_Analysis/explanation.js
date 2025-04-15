@@ -1,7 +1,12 @@
 export function explanation(template , question_text){
     let explanation_text;
     let extract = question_text.split(" ");
-    if (template == "Q1") {
+    if (template == "Q0") {
+        
+        explanation_text = `เฉลย `
+
+    }
+    else if (template == "Q1") {
         let x = extract[3]
         let result = (x/5)**(1/2)
         explanation_text = `เฉลย จากโจทย์สามารถคำนวณจากสูตร s(แอปเปิ้ล -> พื้น) = ut + (1/2)at^2 
