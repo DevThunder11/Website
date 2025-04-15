@@ -5,7 +5,7 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม","แซค"]
 let equation  = "(s/5)**(1/2)";
 let limitRandom = {s:[25,100]}
-const question_text_Default = "name นอนอยู่บนพื้น มองเห็นแอปเปิ้ลอยู่เหนือหัวตัวเอง s เมตร เริ่มหล่นลงมาจากต้น name ต้องหลบภายในเวลากี่วินาทีเพิ่อให้ลูกแอปเปิ้ลไม่หล่นลงมากระทบเขา"
+const question_text_Default = "name นอนอยู่บนพื้น มองเห็นแอปเปิ้ลอยู่เหนือหัวตัวเอง s เมตร เริ่มหล่นลงมาจากต้น name ต้องหลบภายในเวลากี่วินาทีเพิ่อให้ลูกแอปเปิ้ลไม่หล่นลงมากระทบเขา (กำหนดให้ g = 10 เมตรต่อวินาทีกำลังสอง)"
 
 //--//
 let variables = [];
