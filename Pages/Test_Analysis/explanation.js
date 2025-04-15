@@ -50,6 +50,11 @@ export function explanation(template , question_text){
         S = S₁ + S₂ = ${s1} + ${s2} = ${result} เมตร`
 
     }
+    else if (template == "Q7") {
+        
+        explanation_text = `เฉลย `
+
+    }
     else if (template == "Q12") {
         let x = extract[5]
         let h = extract[1]
