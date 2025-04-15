@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recover Password</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="recover.css">
+    <script type="module" src="recover.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Recover Password</h1>
+        <form method="post" action="">
+            <div id="recoverMessage" class="messageDiv" style="display:none;"></div>
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required>
+                <label for="email">Email</label>
+            </div>
+            <button class="btn" id="reset">Send Recovery Link</button>
+        </form>
+        <div class="links">
+            <p>Remember your password?</p>
+            <a href="../Index/index.html" class="back-to-login">Back to Login</a>
+        </div>
+    </div>
+</body>
+</html>

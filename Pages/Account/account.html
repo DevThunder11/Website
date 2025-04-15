@@ -31,10 +31,12 @@
                         <li class="friend"><a href="#">Friend</a></li>
                         <li class="feedback"><a href="#">Feedback</a></li>
                         <li class="setting"><a href="#">Setting</a></li>
+                        <li class="help"><a href="#">Help</a></li>
                     </ul>
                 </nav>
             </div>
-            <div class="right_box">
+            <div class="right_box" id="profile">
+                <div class="loader"></div>
                 <div class="top_info">
                     <img class="icon" src="../../Picture/icon.png">
                     <div class="name"><span id="loggedUserFName"></span></div>
@@ -47,6 +49,28 @@
                     <hr class="line">
                     <button id="submit" type="submit">submit</button>
                 </div>
+            </div>
+            <div class="right_box" style="display: none;" id="privacy">
+                <div class="loader"></div>
+            </div>
+            <div class="right_box" style="display: none;" id="friend">
+                <div class="loader"></div>
+            </div>
+            <div class="right_box" style="display: none;" id="feedback">
+                <div class="loader"></div>
+                <div class="feedback-container">
+                    <h2>Your Feedback</h2>
+                    <form class="feedback-form" id="feedbackForm">
+                        <textarea id="feedbackInput" placeholder="Please enter your feedback here..."></textarea>
+                        <button id="submitfeedback" type="submit">Submit Feedback</button>
+                    </form>
+                </div>
+            </div>
+            <div class="right_box" style="display: none;" id="setting">
+                <div class="loader"></div>
+            </div>
+            <div class="right_box" style="display: none;" id="help">
+                <div class="loader"></div>
             </div>
         </div>
     </body>

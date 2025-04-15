@@ -2,10 +2,10 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 
 // input
 
-let equation  = "((-1)*(u**2))/(2*(x-u*t))";
-let limitRandom = {u:[40,80],x:[500,700],t:[2,3]}
-const question_text_Default = "รถยนต์คันหนึ่งวิ่งด้วยความเรื่องคงที่ u เมตรต่อวินาที ขณะที่อยู่ห่างสิ่งกีดขวางเป็นระยะทาง x เมตร คนขับตัดสินใจห้ามล้อรถโดยเสียเวลา t วินาที ก่อนที่ห้ามล้อจะทำงาน เมื่อห้ามล้อทำงานแล้ว รถจะต้องลดความเร็วในอัตราเท่าใด จึงทำให้รถหยุดพอดีเมื่อสิ่งขีดขวางนั้น "
-let a = 0;
+let equation  = "((18**2)*10) / (2*(u^2))";
+let limitRandom = {u:[5,50]}
+const question_text_Default = "วัตถุก้อนหนึ่งถูกปล่อยให้ตกลงมาในแนวดิ่งอีกก้อนตกลงมาด้วยความเร็วต้น u m/s จงหาว่าอีกนานเท่าไรวัตถุทั้งสองจึงจะอยู่ห่างกัน 18 เมตร (กำหนดค่าแรงโน้มถ่วง เท่ากับ 10 เมตร/วินาทีกำลังสอง)"
+
 //--//
 let variables = [];
 let randomValues = {};
@@ -19,35 +19,44 @@ function generateRandomValues() {
 
     // Generate random values for each variable
     variables.forEach((variable) => {
-        const range = limitRandom[variable];
-        const randomValue = Math.floor(Math.random() * (range[1] - range[0] + 1)) + range[0];
+        const randomValue = Math.floor(Math.random() * limitRandom[variable]) + 1;  // Random value between 1 and 10
         randomValues[variable] = randomValue;
+        // console.log(variable) //check
     });
 }
 
 function calculateAnswer() {
-    a++;
-    let evalEquation = equation;
+    console.log("Generating new number")
+    // Continuously try until the result is an integer
+    do {
+        let evalEquation = equation;
 
-    // Replace variables with their random values
-    for (const [key, value] of Object.entries(randomValues)) {
-        evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
-    }
-
-    try {
-        // Evaluate the modified equation
-        result = eval(evalEquation);
-
-        // Check if the result is an integer
-        if (!Number.isInteger(result)) {
-            // If the result is not an integer, adjust random values
-            generateRandomValues();
-            calculateAnswer();
+        // Replace variables with their random values
+        for (const [key, value] of Object.entries(randomValues)) {
+            evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
         }
-    } catch (error) {
-        console.log("There was an error evaluating the equation.");
-        return;
-    }
+
+        try {
+            // Evaluate the modified equation
+            result = eval(evalEquation);
+
+            // Check if the result is an integer
+            if (Number.isInteger(result)) {
+                break;  // If result is an integer, exit the loop
+            } else {
+                // If the result is not an integer, generate new random values
+                generateRandomValues();
+            }
+        } catch (error) {
+            console.log("There was an error evaluating the equation.");
+            return;
+        }
+    } while (!Number.isInteger(result));  // Loop until an integer result is found
+
+    // variables.forEach((variable) => {   
+    //     console.log(randomValues[variable]) // check
+    //     console.log(variable) // check
+    // }); 
 }
 
 function calculateAnswerNotInt() {
@@ -68,7 +77,7 @@ function calculateAnswerNotInt() {
     }
 }
 
-export function GenRandomQ4(){
+export function GenRandomQ18(){
 
     generateRandomValues();
     calculateAnswer();
@@ -102,11 +111,11 @@ export function GenRandomQ4(){
     let choiceAmount = 4;
     while (choice.length < choiceAmount) {
         // Generate a random number to add or subtract from the correct answer
-        let randomOffset = getRandomIntMN(5, 15); // Random number between 1 and 5
+        let randomOffset = getRandomIntMN(1, 5); // Random number between 1 and 5
         let WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
         
         while (WrongChoice <= 0) {
-            randomOffset = getRandomIntMN(5, 15); // Regenerate random offset if necessary
+            randomOffset = getRandomIntMN(1, 5); // Regenerate random offset if necessary
             WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
         }
     
@@ -136,11 +145,11 @@ export function GenRandomQ4(){
     let box = {
         question: questionPrint,
         answers: Ans,
-        template: "Q4",
+        template: "Q18"
     };
-    console.log(a , "attempt") // check
+
     // console.log(box) // check
-    a = 0;
+
     return box ;
 }
 

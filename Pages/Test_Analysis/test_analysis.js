@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import {explanation} from "/Pages/Test_analysis/explanation.js"
 
 // Loader functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -87,13 +88,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     const correctAnswer = testData.Question[index].answers.find(answer => answer.correct === true).text;
                     const correctAnswerChoice = parseInt(correctAnswer.match(/^(\d+)\)/)?.[1]);
                     const isCorrect = userAnswer === correctAnswerChoice;
-                    
+                    const template = testData.Question[index].template;
+                    const question_text = testData.Question[index].question;
+
+                    // Get explanation text
+                    let explanation_text = explanation(template , question_text);
+                    if (explanation_text === undefined) {
+                        explanation_text = template; 
+                    }
+
+                    // Display question, user answer, correct answer, and explanation
                     questionDiv.innerHTML = `
                         <h3>Question ${index + 1}</h3>
                         <p>${question.question}</p>
                         <p>Your Answer: <span class="${isCorrect ? 'correct' : 'incorrect'}">${userAnswer} ( ${isCorrect ? 'correct' : 'incorrect'} )</span></p>
                         <p>Correct Answer: <span class="correct_answer">${correctAnswer}</span></p>
-                        <div class="explanation">Click to see explanation</div>
+                        <div class="explanation"><p>${explanation_text}</p></div>
                     `;
                     
                     // Add click event listener to toggle explanation

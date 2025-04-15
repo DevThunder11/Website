@@ -6,6 +6,7 @@ import { GenRandomQ3 } from "/QuiZGenQ/QData/GenQ3.js";
 import { GenRandomQ4 } from "/QuiZGenQ/QData/GenQ4.js";
 import { GenRandomQ5 } from "/QuiZGenQ/QData/GenQ5.js";
 import { GenRandomQ6 } from "/QuiZGenQ/QData/GenQ6.js";
+import { GenRandomQ7 } from "/QuiZGenQ/QData/GenQ7.js";
 import { GenRandomQ8 } from "/QuiZGenQ/QData/GenQ8.js";
 import { GenRandomQ12 } from "/QuiZGenQ/QData/GenQ12.js";
 import { GenRandomQ13 } from "/QuiZGenQ/QData/GenQ13.js";
@@ -19,15 +20,15 @@ import { GenRandomQ22 } from "/QuiZGenQ/QData/GenQ22.js";
 
 export function RunAll(NumberOfQuestion) {
     let questions = [];
-    let availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];  // The available numbers to choose from
-    // let availableNumbers = [15,12,16,18]; // test function
+    let availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,18,19,20,21,22];  // The available numbers to choose from
+    // let availableNumbers = [4]; // test function
 
     for (let k = 0; k < NumberOfQuestion; k++) {
         // Check if there are any unused numbers
         if (availableNumbers.length === 0) {
             // Reset available numbers
-            availableNumbers = [0,1,2,3,5,6,8,12,15,16,18,19,20,21,22];
-            // availableNumbers = [15];// test function
+            availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,18,19,20,21,22];
+            // availableNumbers = [4];// test function
         }
 
         // Pick a random number from available numbers
@@ -46,24 +47,27 @@ export function RunAll(NumberOfQuestion) {
         else if (NQ == 3) {
             questions = [...questions, GenRandomQ3()];
         } 
-        // else if (NQ == 4) {
-        //     questions = [...questions, GenRandomQ4()]; //bug
-        // } 
+        else if (NQ == 4) {
+            questions = [...questions, GenRandomQ4()];
+        } 
         else if (NQ == 5) {
             questions = [...questions, GenRandomQ5()];
         } 
         else if (NQ == 6) {
             questions = [...questions, GenRandomQ6()];
         } 
+        else if (NQ == 7) {
+            questions = [...questions, GenRandomQ7()]; 
+        }
         else if (NQ == 8) {
             questions = [...questions, GenRandomQ8()];
         } 
         else if (NQ == 12) {
             questions = [...questions, GenRandomQ12()];
         } 
-        // else if (NQ == 13) {
-        //     questions = [...questions, GenRandomQ13()]; //bug
-        // }
+        else if (NQ == 13) {
+            questions = [...questions, GenRandomQ13()]; 
+        }
         else if (NQ == 15) {
             questions = [...questions, GenRandomQ15()];
         }  
@@ -71,7 +75,7 @@ export function RunAll(NumberOfQuestion) {
             questions = [...questions, GenRandomQ16()];
         } 
         else if (NQ == 18) {
-            questions = [...questions, GenRandomQ18()];// NaN bug
+            questions = [...questions, GenRandomQ18()];
         }
         else if (NQ == 19) {
             questions = [...questions, GenRandomQ19()];
