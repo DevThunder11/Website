@@ -1,7 +1,17 @@
 export function explanation(template , question_text){
     let explanation_text;
     let extract = question_text.split(" ");
-    if (template == "Q1") {
+    if (template == "Q0") {
+        let s1 = extract[3]
+        let t1 = extract[6]
+        let s2 = extract[9]
+        let t2 = extract[12]
+        let ans1 = (Number(s1)+Number(s2))/(Number(t1)+Number(t2))
+        let ans2 = (Number(s1)-Number(s2))/(Number(t1)+Number(t2))
+        explanation_text = `เฉลย อัตราเร็วเฉลี่ยหาได้โดยใช้สูตร อัตราเร็วเฉลี่ย = ระยะทาง / เวลา = (${s1}+${s2})/(${t1}+${t2}) = ${ans1} เมตร/วินาที
+        ความเร็วเฉลี่ยหาได้โดยใช้สูตร ความเร็วเฉลี่ย = ระยะทาง / เวลา = (${s1}-${s2})/(${t1}+${t2}) = ${ans2} เมตร/วินาที`
+    }
+    else if (template == "Q1") {
         let x = extract[3]
         let result = (x/5)**(1/2)
         explanation_text = `เฉลย จากโจทย์สามารถคำนวณจากสูตร s(แอปเปิ้ล -> พื้น) = ut + (1/2)at^2 
@@ -32,7 +42,8 @@ export function explanation(template , question_text){
         let result = Number(((x**2+s**2)**(1/2))/((Number(a)+Number(b))/60)).toFixed(2)
         explanation_text = `เฉลย จากโจทย์เครื่องบินบินจากเชียงรายไปเชียงใหม่ระยะทาง ${x} กิโลเมตร ใช้เวลา ${a} นาที 
         และบินจากเชียงใหม่ไปแม่ฮ่องสอนระยะทาง ${s} กิโลเมตร ใช้เวลา ${b} นาที ถ้าต้องการบินตรงจากเชียงรายไปแม่ฮ่องสอน 
-        ระยะทางจะเท่ากับ √(${x}² + ${s}²) = ${Number((x**2+s**2)**(1/2)).toFixed(2)} กิโลเมตร และใช้เวลาเท่าเดิมคือ ${Number(a)+Number(b)} นาที หรือ ${((Number(a)+Number(b))/60).toFixed(2)} ชั่วโมง 
+        ระยะทางจะเท่ากับ √(${x}² + ${s}²) = ${Number((x**2+s**2)**(1/2)).toFixed(2)} กิโลเมตร และใช้เวลาเท่าเดิมคือ
+         ${Number(a)+Number(b)} นาที หรือ ${((Number(a)+Number(b))/60).toFixed(2)} ชั่วโมง 
         ดังนั้นความเร็วที่ต้องใช้คือ ${result} กิโลเมตร/ชั่วโมง`
     }
     else if (template == "Q6") {
