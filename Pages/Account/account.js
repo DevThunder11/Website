@@ -46,6 +46,15 @@ function toggleLoader(show) {
     });
 }
 
+// Logout functionality
+document.getElementById('logoutButton').addEventListener('click', function() {
+    signOut(auth).then(() => {
+        window.location.href = '../../index.html';
+    }).catch((error) => {
+        console.error('Error signing out:', error);
+    });
+});
+
 // Add menu selection functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Hide all loaders initially
