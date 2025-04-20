@@ -169,8 +169,12 @@ function makeItDarker(){
     ChoiceList.forEach((button, index) => {
         if (!isNaN(your_answer[section]) && your_answer[section] === index + 1){
             button.style.backgroundColor = "#25739b";
+            button.style.outline = "2px solid #25739b";
+            button.style.outlineOffset = "2px";
         } else{
-            button.style.backgroundColor = ""
+            button.style.backgroundColor = "";
+            button.style.outline = "none";
+            button.style.outlineOffset = "0";
         }
     })
 }
