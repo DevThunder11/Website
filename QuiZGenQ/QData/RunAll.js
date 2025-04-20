@@ -12,6 +12,7 @@ import { GenRandomQ12 } from "/QuiZGenQ/QData/GenQ12.js";
 import { GenRandomQ13 } from "/QuiZGenQ/QData/GenQ13.js";
 import { GenRandomQ15 } from "/QuiZGenQ/QData/GenQ15.js";
 import { GenRandomQ16 } from "/QuiZGenQ/QData/GenQ16.js";
+import { GenRandomQ17 } from "/QuiZGenQ/QData/GenQ17.js";
 import { GenRandomQ18 } from "/QuiZGenQ/QData/GenQ18.js";
 import { GenRandomQ19 } from "/QuiZGenQ/QData/GenQ19.js";
 import { GenRandomQ20 } from "/QuiZGenQ/QData/GenQ20.js";
@@ -20,15 +21,15 @@ import { GenRandomQ22 } from "/QuiZGenQ/QData/GenQ22.js";
 
 export function RunAll(NumberOfQuestion) {
     let questions = [];
-    // let availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,18,19,20,21,22];  // The available numbers to choose from
-    let availableNumbers = [7]; // test function
+    let availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,17,18,19,20,21,22];  // The available numbers to choose from
+    // let availableNumbers = [7]; // test function
 
     for (let k = 0; k < NumberOfQuestion; k++) {
         // Check if there are any unused numbers
         if (availableNumbers.length === 0) {
             // Reset available numbers
-            // availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,18,19,20,21,22];
-            availableNumbers = [7];// test function
+            availableNumbers = [0,1,2,3,4,5,6,7,8,12,13,15,16,17,18,19,20,21,22];
+            // availableNumbers = [7];// test function
         }
 
         // Pick a random number from available numbers
@@ -74,6 +75,9 @@ export function RunAll(NumberOfQuestion) {
         else if (NQ == 16) {
             questions = [...questions, GenRandomQ16()];
         } 
+        else if (NQ == 17) {
+            questions = [...questions, GenRandomQ17()];
+        }
         else if (NQ == 18) {
             questions = [...questions, GenRandomQ18()];
         }
