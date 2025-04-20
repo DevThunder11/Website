@@ -25,6 +25,7 @@ export function GenRandomQ7(){
             t = 2;
             break;
         }
+        console.log(attempts) // check attempts
     }
 
 

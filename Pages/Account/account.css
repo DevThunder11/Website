@@ -310,3 +310,44 @@ button#submit:hover {
     border-top: 1px solid #e3e3e3;
     margin: 15px 0;
 }
+
+.password-change-container {
+    padding: 20px;
+}
+
+.password-change-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.password-change-container p {
+    color: #555;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.password-change-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.change-password-btn {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #549abd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.change-password-btn:hover {
+    background-color: #5c9cbc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
