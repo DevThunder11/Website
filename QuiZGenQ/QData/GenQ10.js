@@ -11,9 +11,9 @@ export function GenRandomQ10(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
-    let u = getRandomIntMN(1, 20) * 5
+    let u = getRandomIntMN(1, 20) * 5;
 
-    while (!Number.isInteger(u*3.6)) {
+    while (!Number.isInteger(u*5/18)) {
         u = getRandomIntMN(1, 20) * 5;
     }
 
@@ -30,7 +30,7 @@ export function GenRandomQ10(){
 
     // Anscode
 
-    let result = (u*3.6)
+    let result = (u*5/18)
     let choice = [result]
 
     // RandomAnsCode

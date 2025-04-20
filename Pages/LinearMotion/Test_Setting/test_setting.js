@@ -41,6 +41,10 @@ document.getElementById("startButton").addEventListener("click", async (event) =
         alert("Please enter a valid number of questions.");
         return;
     }
+    if (NumberOfQuestion > 0 && NumberOfQuestion <= 4) {
+        alert("Each test must have at least 5 questions.");
+        return;
+    }
     if (NumberOfQuestion > 100) {
         alert("The maximum number of questions that can be generated is 100.");
         return;

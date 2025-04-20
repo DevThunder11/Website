@@ -93,6 +93,12 @@ export function explanation(template , question_text){
         
         explanation_text = `เฉลย ขนาดความเร็วเฉลี่ยเท่ากับ = x(t₁) + x(t₂) / (t₁ + t₂) = (t₁-t₁²)-(t₂-t₂²))/(t₂-t₁) จะได้เท่ากับ  ${ans} เมตร/วินาที  [ซึ่งคำว่าขนาดนั้นหมายความว่า ค่าของเราจะเป็นบวกเสมอเพราะเนื่องจากเป็นสเกลาร์] `
     }
+    else if (template == "Q10") {
+        let t1 = extract[15]
+        let t2 = extract[18]
+
+        explanation_text = `เฉลย `
+    }
     else if (template == "Q12") {
         let x = extract[5]
         let h = extract[1]
