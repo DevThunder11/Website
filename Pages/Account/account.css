@@ -111,6 +111,7 @@
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-left: 20px;
+    height: 100%;
 }
 
 .left_bar li.selected {
