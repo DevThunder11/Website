@@ -1,0 +1,142 @@
+body { 
+  background: linear-gradient(135deg, #68abc4 0%, #4a90a8 100%);
+  color: rgba(0,0,0,0.87);
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.error-icon {
+  font-size: 48px;
+  color: #4a90a8;
+  margin-bottom: 20px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+#message ul li {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+#message ul li:hover {
+  transform: translateX(5px);
+}
+
+#message ul li i {
+  margin-right: 10px;
+  color: #4a90a8;
+  font-size: 1.1em;
+}
+
+#message a {
+  color: #4a90a8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+#message a:hover {
+  color: #075680;
+}
+
+#message {
+  background: rgba(255, 255, 255, 0.95);
+  max-width: 600px;
+  height: 580px;
+  width: 90%;
+  margin: 20px;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transition: background 0.3s ease;
+}
+
+#message:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+#message h3 {
+  color: #4a90a8;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 24px 0 16px;
+}
+
+#message h2 {
+  color: #68abc4;
+  font-weight: bold;
+  font-size: 72px;
+  margin: 0;
+  line-height: 1;
+}
+
+#message h1 {
+  font-size: 28px;
+  font-weight: 500;
+  color: #333;
+  margin: 16px 0 24px;
+}
+
+#message p {
+  line-height: 1.6;
+  margin: 16px 0 24px;
+  font-size: 16px;
+  color: #666;
+}
+
+#message a {
+  display: inline-block;
+  text-align: center;
+  background: #4a90a8;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  padding: 16px 32px;
+  border-radius: 25px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: background 0.3s ease;
+}
+
+#message a:hover {
+  background: #075680;
+}
+
+code {
+  background: rgba(104, 171, 196, 0.1);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #4a90a8;
+}
+
+@media (max-width: 600px) {
+  #message {
+    margin: 15px;
+    padding: 30px;
+  }
+  #message h2 {
+    font-size: 56px;
+  }
+}
