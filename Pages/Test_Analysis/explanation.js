@@ -123,11 +123,18 @@ export function explanation(template , question_text){
         จากนั้น พิจารณาช่วงแรก(ช่วงรถเร่งขึ้น) โดยตั้งสมการ s = (v+u)t/2  และกำหนดระยะทางช่วงแรก = x จะได้ x = ${v}×t₁/2 ----(2) และ รู้ว่า t₂ = (ระยะทางทั้งหมด ลบ สองระยะทางช่วงแรก)หารด้วยเวลาทั้งหมด = (${x}-2x)/${v} 
         จากนั้น แทน t₂ เข้าสมการที่ (2) และ (1) จะได้ t₂ = 2×${x}/${v} - ${t} = ${result}  `
     }
+    else if (template == "Q18") {
+        let u = extract[1]
+        
+        explanation_text = ``
+
+    }
+
     else if (template == "Q19") {
         let x = extract[3]
         let t = extract[6]
-        let u = (x/t)-(5*t)
-        let result = (u**2/20)
+        let u = (Number(x)/Number(t))-(5*Number(t))
+        let result = (u**(2))/20
         let ans = (Number(result)+Number(x)).toFixed(2)
         explanation_text = `เฉลย กระถางใช้เวลาในการเคลื่อนที่ผ่านหน้าต่างสูง x เมตร ในเวลา t วินาที 
         จากสูตร s (ขอบบน -> ขอบล่าง) = ut + (1/2)at² แทนค่าจะได้ว่า ${x} = (${t})u + (1/2)(10)(${t}²) 
@@ -159,6 +166,18 @@ export function explanation(template , question_text){
         หลังจากได้เวลาช่วงแรก จากนั้นให้นำมาลบกับเวลาทั้งหมด จะได้ ${t} - ${t1} = ${t2} และรู้ว่า เสียงนั้นเคลื่อนที่ด้วยความเร็วคงที่ ดังนั้นสามารถใช้สูตร s = vt ได้เลย จะได้ v(เสียง) = ${x}/${t2} = ${v} m/s `
 
     }
+    
+    else if (template == "Q22") {
+        let v1 = extract[6]
+        let v2 = extract[11]
+        let x = extract[14]
+        let ans = 2*(x-25)/(Number(v1)+Number(v2)).toFixed(2)
+
+        explanation_text = `เฉลย พิจารณารถไฟคันหนึ่ง จากสูตร s = (v+u)t/2 จะได้ x = ( ${v1} + 0 )t/2 ---(1) และพิจารณารถไฟอีกคัน จะพบว่า เวลาทั้งสองเท่ากัน และระยะทางจะห่างเท่ากับ
+         ${x} - x -25 = x₂ และใช้สมการเดิม ได้เท่ากับ ${x} - x -25  = (${v2} + 0)t/2 ---(2) แล้วนำสมการ (1) และ (2) แก้หา t จะเท่ากับ 2×(${x}-25)/(${v1}+${v2}) = ${ans} วินาที `
+
+    } 
+    
     console.log(extract);
     return explanation_text;
 }
