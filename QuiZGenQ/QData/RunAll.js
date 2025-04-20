@@ -10,6 +10,7 @@ import { GenRandomQ7 } from "/QuiZGenQ/QData/GenQ7.js";
 import { GenRandomQ8 } from "/QuiZGenQ/QData/GenQ8.js";
 import { GenRandomQ9 } from "/QuiZGenQ/QData/GenQ9.js";
 import { GenRandomQ10 } from "/QuiZGenQ/QData/GenQ10.js";
+import { GenRandomQ10 } from "/QuiZGenQ/QData/GenQ10.js";
 import { GenRandomQ12 } from "/QuiZGenQ/QData/GenQ12.js";
 import { GenRandomQ13 } from "/QuiZGenQ/QData/GenQ13.js";
 import { GenRandomQ15 } from "/QuiZGenQ/QData/GenQ15.js";
@@ -64,9 +65,6 @@ export function RunAll(NumberOfQuestion) {
         }
         else if (NQ == 8) {
             questions = [...questions, GenRandomQ8()];
-        } 
-        else if (NQ == 9) {
-            questions = [...questions, GenRandomQ9()];
         } 
         else if (NQ == 9) {
             questions = [...questions, GenRandomQ9()];
