@@ -6,21 +6,20 @@ export function GenRandomQ5(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "เครื่องบินลำหนึ่งบินจากสนามบินเชียงรายมาที่สนามบินเชียงใหม่ใช้เวลา a นาที แล้วบินจากสนามเชียงใหม่ไปสนามบินแม่ฮ่องสอนใช้เวลา b นาที ถ้าสนามบินเชียงรายอยู่ทางทิศตะวันออกเฉียงหนือของสนามบินเชียงใหม่เป็นระยะทางตรง x กิโลเมตร และ สนามบินแม่ฮ่องสอนอยู่ทางทิศตะวันตกเฉียงเหนือของสนามบิน เชียงใหม่เป็นระยะทางตรง s กิโลเมตร จงหาว่าถ้าเครื่องบินนี้ตรงจากสนามบินเชียงรายไปยังสนามบินแม่ฮ่องสอน โดยใช้เวลาบินเท่าเดิม จะต้องบินด้วยอัตราเร็วกี่กิโลเมตร/ชั่วโมง".split(" ")
+    const question_text = "จรวดลำหนึ่งทะยานขึ้นจากพื้นโลกในแนวดิ่งด้วยความเร่ง a เมตร/วินาที² เมื่อเวลาผ่านไป t วินาที จรวดลำนี้จะอยู่สูงจากพื้นโลกเท่าไหร่".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
     let attempts = 0;
 
-    let x = (getRandomIntMN(240, 260))
-    let s = (getRandomIntMN(140, 160))
-    let a = 40;
-    let b = 40;
+    let a = (getRandomIntMN(5, 30)) * 2
+    let t = (getRandomIntMN(20, 60))
 
-    while (!Number.isInteger(60*((x**2+s**2)**(1/2))/((a+b)))) {
-        x = (getRandomIntMN(240, 260))
-        s = (getRandomIntMN(140, 160))
+
+    while (!Number.isInteger((1/2)*a*(t**2))) {
+        a = (getRandomIntMN(5, 30)) * 2
+        t = (getRandomIntMN(20, 60))
         attempts++;
     }
     console.log(attempts)
@@ -29,23 +28,16 @@ export function GenRandomQ5(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "x"){
-            question_text[i] = x
-        }
-        else if (question_text[i] == "s"){
-            question_text[i] = s
-        }
         else if (question_text[i] == "a"){
             question_text[i] = a
         }
-        else if (question_text[i] == "b"){
-            question_text[i] = b
+        else if (question_text[i] == "t"){
+            question_text[i] = t
         }
     }
-
     // Anscode
 
-    let result = 60*((x**2+s**2)**(1/2))/((a+b))
+    let result = (1/2)*a*(t**2)
     let choice = [result]
 
     // RandomAnsCode
