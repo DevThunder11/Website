@@ -10,7 +10,6 @@ import { GenRandomQ7 } from "/QuiZGenQ/QData/GenQ7.js";
 import { GenRandomQ8 } from "/QuiZGenQ/QData/GenQ8.js";
 import { GenRandomQ9 } from "/QuiZGenQ/QData/GenQ9.js";
 import { GenRandomQ10 } from "/QuiZGenQ/QData/GenQ10.js";
-import { GenRandomQ10 } from "/QuiZGenQ/QData/GenQ10.js";
 import { GenRandomQ12 } from "/QuiZGenQ/QData/GenQ12.js";
 import { GenRandomQ13 } from "/QuiZGenQ/QData/GenQ13.js";
 import { GenRandomQ15 } from "/QuiZGenQ/QData/GenQ15.js";
@@ -25,14 +24,14 @@ import { GenRandomQ22 } from "/QuiZGenQ/QData/GenQ22.js";
 export function RunAll(NumberOfQuestion) {
     let questions = [];
     // let availableNumbers = [0,1,2,3,4,5,6,7,8,9,10,12,13,15,16,17,18,19,20,21,22];  // The available numbers to choose from
-    let availableNumbers = [9]; // test function
+    // let availableNumbers = [10]; // test function
 
     for (let k = 0; k < NumberOfQuestion; k++) {
         // Check if there are any unused numbers
         if (availableNumbers.length === 0) {
             // Reset available numbers
             // availableNumbers = [0,1,2,3,4,5,6,7,8,9,10,12,13,15,16,17,18,19,20,21,22];
-            availableNumbers = [9];// test function
+            // availableNumbers = [10];// test function
         }
 
         // Pick a random number from available numbers
