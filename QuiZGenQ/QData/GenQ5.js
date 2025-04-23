@@ -11,6 +11,7 @@ export function GenRandomQ5(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
+    let attempts = 0;
 
     let x = (getRandomIntMN(220, 270))
     let s = (getRandomIntMN(130, 180))
@@ -22,8 +23,9 @@ export function GenRandomQ5(){
         s = (getRandomIntMN(130, 180))
         a = (getRandomIntMN(30, 60))
         b = (getRandomIntMN(20, 60))
+        attempts++;
     }
-
+    console.log(attempts)
 
     for (let i = 0; i < question_text.length; i++) {
         if (question_text[i] == "name"){

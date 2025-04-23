@@ -21,14 +21,16 @@ export function GenRandomQ0(){
     let t1 = (getRandomIntMN(1, 10))
     let s2 = (getRandomIntMN(1, 10))*10
     let t2 = (getRandomIntMN(1, 10))
+    let attempts = 0;
 
     while (((s1+s2)%(t1+t2)) != 0 || ((s1-s2)%(t1+t2)) != 0) {
         s1 = (getRandomIntMN(1, 10))*10
         t1 = (getRandomIntMN(1, 10))
         s2 = (getRandomIntMN(1, 10))*10
         t2 = (getRandomIntMN(1, 10))
+        attempts++;
     }
-
+    console.log(attempts);
 
     for (let i = 0; i < question_text.length; i++) {
         if (question_text[i] == "name"){

@@ -4,7 +4,7 @@ import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/Qui
 let equation  = "v*t";
 let limitRandom = {v:120 ,t:5}
 const question_text_Defalt = "รถไฟเคลื่อนที่ผ่าน name ด้วยความเร็ว v เมตร/วินาที ถ้าใช้เวลา t วินาที รถไฟจะเลย name พอดี รถไฟยาวกี่เมตร"
-
+let attempts = 0;
 //--//
 
 let variables = [];
@@ -26,7 +26,7 @@ function generateRandomValues() {
 }
 
 function calculateAnswer() {
-    console.log("Generating new number")
+    attempts++;
     // Continuously try until the result is an integer
     do {
         let evalEquation = equation;
@@ -42,6 +42,7 @@ function calculateAnswer() {
 
             // Check if the result is an integer
             if (Number.isInteger(result)) {
+                console.log(attempts)
                 break;  // If result is an integer, exit the loop
             } else {
                 // If the result is not an integer, generate new random values
