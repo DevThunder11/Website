@@ -10,6 +10,7 @@ const question_text_Default = "name ขับรถจากบ้านไป�
 let variables = [];
 let randomValues = {};
 let result;
+let attempts = 0;
 
 function generateRandomValues() {
     // Extract variables (letters) from the equation
@@ -26,7 +27,6 @@ function generateRandomValues() {
 }
 
 function calculateAnswer() {
-    console.log("Generating new number")
     // Continuously try until the result is an integer
     do {
         let evalEquation = equation;
@@ -46,12 +46,15 @@ function calculateAnswer() {
             } else {
                 // If the result is not an integer, generate new random values
                 generateRandomValues();
+                attempts++;
             }
         } catch (error) {
             console.log("There was an error evaluating the equation.");
             return;
         }
     } while (!Number.isInteger(result));  // Loop until an integer result is found
+
+    console.log(attempts); // Log attempts
 
     // variables.forEach((variable) => {   
     //     console.log(randomValues[variable]) // check

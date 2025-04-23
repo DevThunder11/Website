@@ -10,6 +10,7 @@ const question_text_Default = "name จุดบั้งไฟขึ้นไ�
 let variables = [];
 let randomValues = {};
 let result;
+let attempts = 0;
 
 function generateRandomValues() {
     // Extract variables (letters) from the equation
@@ -26,7 +27,6 @@ function generateRandomValues() {
 }
 
 function calculateAnswer() {
-    console.log("Generating new number")
     // Continuously try until the result is an integer
     do {
         let evalEquation = equation;
@@ -42,9 +42,11 @@ function calculateAnswer() {
 
             // Check if the result is an integer
             if (Number.isInteger(result)) {
+                console.log(attempts)
                 break;  // If result is an integer, exit the loop
             } else {
                 // If the result is not an integer, generate new random values
+                attempts++;
                 generateRandomValues();
             }
         } catch (error) {

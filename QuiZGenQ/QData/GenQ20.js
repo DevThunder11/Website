@@ -14,11 +14,14 @@ export function GenRandomQ20(){
     let x = (getRandomIntMN(1, 100))
     let t = (getRandomIntMN(1, 100))
 
+    let attempts = 0;
+
     while (!Number.isInteger((((x/t)-(5*t))**2)/20)) {
         x = (getRandomIntMN(1, 100));
         t = (getRandomIntMN(1, 100));
+        attempts++;
     }
-
+    console.log(attempts);
 
     for (let i = 0; i < question_text.length; i++) {
         if (question_text[i] == "name"){

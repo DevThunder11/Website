@@ -14,11 +14,15 @@ export function GenRandomQ9(){
     let t1 = (getRandomIntMN(1, 100))
     let t2 = (getRandomIntMN(1, 100))
 
+    let attempts = 0;
+
     while (!Number.isInteger(((t1-t1**2)-(t2-t2**2))/(t2-t1))) {
         t1 = (getRandomIntMN(5, 50));
         t2 = (getRandomIntMN(5, 50));
+        attempts++;
     }
 
+    console.log(attempts); // Log attempts
 
     for (let i = 0; i < question_text.length; i++) {
         if (question_text[i] == "name"){

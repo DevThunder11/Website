@@ -15,10 +15,15 @@ export function GenRandomQ8(){
     let t = (getRandomIntMN(1, 20))
     let h = (getRandomIntMN(1, 100))
 
+    let attempts = 0;
+
     while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
         t = (getRandomIntMN(1, 20));
         h = (getRandomIntMN(1, 100));
+        attempts++;
     }
+
+    console.log(attempts); // Log attempts
 
 
     for (let i = 0; i < question_text.length; i++) {

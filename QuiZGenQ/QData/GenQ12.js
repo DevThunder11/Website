@@ -14,10 +14,15 @@ export function GenRandomQ12(){
     let x = (getRandomIntMN(1, 100))
     let h = (getRandomIntMN(1, 100))
 
+    let attempts = 0;
+
     while (!Number.isInteger(((((5/h)*x*x)+(20*x))**(1/2)))) {
         x = (getRandomIntMN(1, 100));
         h = (getRandomIntMN(1, 100));
+        attempts++;
     }
+
+    console.log(attempts); // Log attempts
 
 
     for (let i = 0; i < question_text.length; i++) {

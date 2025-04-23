@@ -13,9 +13,13 @@ export function GenRandomQ18(){
     let Name = namelist[getRandomInt((namelist.length)-1)]
     let u = (getRandomIntMN(5, 30))
 
+    let attempts = 0;
+
     while (!Number.isInteger(18/u)) {
         u = (getRandomIntMN(5, 30));
+        attempts++;
     }
+    console.log(attempts);
 
 
     for (let i = 0; i < question_text.length; i++) {

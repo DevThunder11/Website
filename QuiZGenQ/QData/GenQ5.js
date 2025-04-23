@@ -13,16 +13,14 @@ export function GenRandomQ5(){
     let Name = namelist[getRandomInt((namelist.length)-1)]
     let attempts = 0;
 
-    let x = (getRandomIntMN(220, 270))
-    let s = (getRandomIntMN(130, 180))
-    let a = (getRandomIntMN(30, 60))
-    let b = (getRandomIntMN(20, 60))
+    let x = (getRandomIntMN(240, 260))
+    let s = (getRandomIntMN(140, 160))
+    let a = 40;
+    let b = 40;
 
-    while (!Number.isInteger(((x**2+s**2)**(1/2))/((a+b)/60))) {
-        x = (getRandomIntMN(220, 270))
-        s = (getRandomIntMN(130, 180))
-        a = (getRandomIntMN(30, 60))
-        b = (getRandomIntMN(20, 60))
+    while (!Number.isInteger(60*((x**2+s**2)**(1/2))/((a+b)))) {
+        x = (getRandomIntMN(240, 260))
+        s = (getRandomIntMN(140, 160))
         attempts++;
     }
     console.log(attempts)
@@ -47,7 +45,7 @@ export function GenRandomQ5(){
 
     // Anscode
 
-    let result = ((x**2+s**2)**(1/2))/((a+b)/60)
+    let result = 60*((x**2+s**2)**(1/2))/((a+b))
     let choice = [result]
 
     // RandomAnsCode

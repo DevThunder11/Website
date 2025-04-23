@@ -25,9 +25,8 @@ export function GenRandomQ7(){
             t = 2;
             break;
         }
-        console.log(attempts) // check attempts
     }
-
+console.log(attempts) // check attempts
 
     for (let i = 0; i < question_text.length; i++) {
         if (question_text[i] == "name"){
@@ -86,6 +85,5 @@ export function GenRandomQ7(){
         template: "Q7"
     };
     // console.log(box) // check
-    console.log(attempts , "attempts")
     return box ;
 }

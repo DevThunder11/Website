@@ -26,7 +26,6 @@ function generateRandomValues() {
 }
 
 function calculateAnswer() {
-    attempts++;
     // Continuously try until the result is an integer
     do {
         let evalEquation = equation;
@@ -46,6 +45,7 @@ function calculateAnswer() {
                 break;  // If result is an integer, exit the loop
             } else {
                 // If the result is not an integer, generate new random values
+                attempts++;
                 generateRandomValues();
             }
         } catch (error) {

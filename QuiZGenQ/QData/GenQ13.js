@@ -36,11 +36,16 @@ export function GenRandomQ13(){
 
     // Select unused h-t combination
     let h, t;
+    let attempts = 0;
+
     do {
         h = hValues[getRandomInt(hValues.length - 1)];
         let validTValues = hTMapping[h];
         t = validTValues[getRandomInt(validTValues.length - 1)];
+        attempts++;
     } while (usedCombinations.has(`${h}-${t}`));
+
+    console.log(attempts); // Log attempts
 
     // Add the new combination to used set
     usedCombinations.add(`${h}-${t}`);

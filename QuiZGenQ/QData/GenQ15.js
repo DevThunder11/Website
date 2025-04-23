@@ -1,129 +1,59 @@
+
 import { AnsNotIn,getRandomInt,getRandomIntMN,ArrayEqual,ArrayNotIn } from "/QuiZGenQ/QData/GobalFunction.js";
-
-// input
-
-let equation  = "v+(0*m)+(0*s)";
-let limitRandom = {m:[1,25],v:[1,30],s:[1,20]}
-const question_text_Default = "ปล่อยวัตถุ ก มวล m กิโลกรัม และวัตถุ ข มวล 2m กิโลกรัม ให้ตกลงมาตรงๆ พร้อมกันที่ระยะ s เมตร จากที่แห่งหนึ่งที่(อาจ)มีแรงโน้มถ่วงต่างจากโลก และไม่คำนึงถึงแรงต้านอากาศ ก่อนกระทบพื้นดิน วัตถุ ก มีความเร็ว v เมตรต่อวินาที วัตถุ ข จะมี ความเร็วกี่เมตรต่อวินาที"
-
-//--//
-let variables = [];
-let randomValues = {};
-let result;
-
-function generateRandomValues() {
-    // Extract variables (letters) from the equation
-    const variableNames = equation.match(/[a-zA-Z_]\w*/g) || [];
-    variables = Array.from(new Set(variableNames)); // Unique variable names
-    randomValues = {}; // Reset previous random values
-
-    // Generate random values for each variable
-    variables.forEach((variable) => {
-        const randomValue = Math.floor(Math.random() * limitRandom[variable][1]) + limitRandom[variable][0];  // Random value between 1 and 10
-        randomValues[variable] = randomValue;
-        // console.log(variable) //check
-    });
-}
-
-function calculateAnswer() {
-    console.log("Generating new number")
-    // Continuously try until the result is an integer
-    do {
-        let evalEquation = equation;
-
-        // Replace variables with their random values
-        for (const [key, value] of Object.entries(randomValues)) {
-            evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
-        }
-
-        try {
-            // Evaluate the modified equation
-            result = eval(evalEquation);
-
-            // Check if the result is an integer
-            if (Number.isInteger(result)) {
-                break;  // If result is an integer, exit the loop
-            } else {
-                // If the result is not an integer, generate new random values
-                generateRandomValues();
-            }
-        } catch (error) {
-            console.log("There was an error evaluating the equation.");
-            return;
-        }
-    } while (!Number.isInteger(result));  // Loop until an integer result is found
-
-    // variables.forEach((variable) => {   
-    //     console.log(randomValues[variable]) // check
-    //     console.log(variable) // check
-    // }); 
-}
-
-function calculateAnswerNotInt() {
-
-    let evalEquation = equation;
-
-    // Replace variables with their random values
-    for (const [key, value] of Object.entries(randomValues)) {
-        evalEquation = evalEquation.replace(new RegExp(`\\b${key}\\b`, 'g'), value);
-    }
-
-    try {
-        // Evaluate the modified equation
-        result = eval(evalEquation);
-    } catch (error) {
-        console.log("There was an error evaluating the equation.");
-        return;
-    }
-}
 
 export function GenRandomQ15(){
 
-    generateRandomValues();
-    calculateAnswer();
-    // calculateAnswerNotInt()
-    let question_text = question_text_Default.split(" ")
-
     let Ans = [];
-    let textAns ;
+    let TF = [false,false,false,false]
 
-    const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม","แซค"]
+    const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
+    const question_text = "ปล่อยวัตถุ ก มวล a กิโลกรัม และวัตถุ ข มวล b กิโลกรัม ให้ตกลงมาตรงๆ พร้อมกันที่ระยะ s เมตร จากที่แห่งหนึ่งที่(อาจ)มีแรงโน้มถ่วงต่างจากโลก และไม่คำนึงถึงแรงต้านอากาศ ก่อนกระทบพื้นดิน วัตถุ ก มีความเร็ว v เมตรต่อวินาที วัตถุ ข จะมี ความเร็วกี่เมตรต่อวินาที".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
+    let a = (getRandomIntMN(1, 5))
+    let v = (getRandomIntMN(5, 20))
+    let s = (getRandomIntMN(40, 100))
+    let b = a*2
 
-    variables.forEach((variable) => {
-        for (let i = 0; i < question_text.length; i++) {
-            if (question_text[i] == "name"){
-                question_text[i] = ""
-                question_text[i+1] = Name+question_text[i+1]
-            }
-            else if (question_text[i] == variable){
-                question_text[i] = randomValues[variable]
-            }
-            else if (question_text[i] == `2${variable}`) { // Handle the case for 2m
-                question_text[i] = 2 * randomValues[variable];
-            }
+    // QuestionText
+    for (let i = 0; i < question_text.length; i++) {
+        if (question_text[i] == "name"){
+            question_text[i] = Name
         }
-    });
+        else if (question_text[i] == "a"){
+            question_text[i] = a
+        }
+        else if (question_text[i] == "b"){
+            question_text[i] = b
+        }
+        else if (question_text[i] == "v"){
+            question_text[i] = v
+        }
+        else if (question_text[i] == "s"){
+            question_text[i] = s
+        }
+    }
+
+    // Anscode
+
+    let result = v
+    let choice = [result]
 
     // RandomAnsCode
 
-    let choice = [result];
-    let choiceAmount = 4;
+    let choiceAmount = 4
+
     while (choice.length < choiceAmount) {
-        // Generate a random number to add or subtract from the correct answer
-        let randomOffset = getRandomIntMN(1, 150); // Random number between 1 and 5
-        let WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
+        let WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
         
         while (WrongChoice <= 0) {
-            randomOffset = getRandomIntMN(1, 150); // Regenerate random offset if necessary
-            WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
+            WrongChoice = choice[(getRandomIntMN(0,(choice.length)-1))]+(1*((-1)**(getRandomIntMN(0,1))))
         }
-    
-        if (AnsNotIn(choice, WrongChoice)) {
-            choice = [...choice, WrongChoice];
+
+        if (AnsNotIn(choice,WrongChoice)) {
+            choice = [...choice,WrongChoice]
         }
     }
 
@@ -135,7 +65,7 @@ export function GenRandomQ15(){
     
     for (let j = 0; j < choice.length; j++) {
 
-        textAns = ([j+1,choice[j]].join(") "))
+        let textAns = ([j+1,choice[j]].join(") "))
 
         if (choice[j] == result){
             Ans = [...Ans,{ text: textAns, correct: true}]
@@ -150,12 +80,10 @@ export function GenRandomQ15(){
         answers: Ans,
         template: "Q15"
     };
-
     // console.log(box) // check
 
     return box ;
 }
-
 // const questionData = GenRandom();
 
 // document.getElementById('Question').innerText = `${1}) ${questionData.question}`;
