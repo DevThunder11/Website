@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="400" fill="#f8f9fa"/>
+  
+  <!-- Main horizontal line -->
+  <line x1="100" y1="200" x2="700" y2="200" stroke="#333" stroke-width="2"/>
+  
+  <!-- Distance markers -->
+  <line x1="200" y1="190" x2="200" y2="210" stroke="#333" stroke-width="2"/>
+  <line x1="600" y1="190" x2="600" y2="210" stroke="#333" stroke-width="2"/>
+  
+  <!-- Point A -->
+  <circle cx="200" cy="200" r="8" fill="#549abd"/>
+  <text x="190" y="230" font-family="Arial" font-size="16">A</text>
+  
+  <!-- Point B -->
+  <circle cx="600" cy="200" r="8" fill="#549abd"/>
+  <text x="590" y="230" font-family="Arial" font-size="16">B</text>
+  
+  <!-- Distance arrow and label -->
+  <line x1="200" y1="150" x2="600" y2="150" stroke="#075680" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="380" y="140" font-family="Arial" font-size="16" text-anchor="middle">ระยะทาง (s)</text>
+  
+  <!-- Time label -->
+  <text x="380" y="270" font-family="Arial" font-size="16" text-anchor="middle">เวลา (t)</text>
+  
+  <!-- Moving object -->
+  <circle cx="400" cy="200" r="15" fill="#ff6b6b" stroke="#333" stroke-width="2"/>
+  
+  <!-- Direction arrow -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#075680"/>
+    </marker>
+  </defs>
+  
+  <!-- Labels -->
+  <text x="400" y="350" font-family="Arial" font-size="14" text-anchor="middle">การเคลื่อนที่แนวเส้นตรงแบบหนึ่งมิติ</text>
+</svg>
