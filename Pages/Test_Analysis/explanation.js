@@ -14,8 +14,8 @@ export function explanation(template , question_text){
     else if (template == "Q1") {
         let x = extract[3]
         let result = (x/5)**(1/2)
-        explanation_text = `เฉลย จากโจทย์สามารถคำนวณจากสูตร s(แอปเปิ้ล -> พื้น) = ut + (1/2)at^2 
-        แทนค่าจะได้ว่า ${x} = 0 + (1/2)(10)(t^2) จึงได้ค่า t = ${result} วินาที`
+        explanation_text = `เฉลย จากโจทย์สามารถคำนวณจากสูตร s(แอปเปิ้ล -> พื้น) = ut + (1/2)at² 
+        แทนค่าจะได้ว่า ${x} = 0 + (1/2)(10)(t²) จึงได้ค่า t = ${result} วินาที`
     }
     else if (template == "Q2") {
         let v = extract[3]
@@ -30,7 +30,7 @@ export function explanation(template , question_text){
         let t = extract[6]
         let result = Number((5*t)-(x/t)).toFixed(2)
         explanation_text = `เฉลย เนื่องจากเหรียญตกลงไปต่ำกว่าจุดที่โยน จึงแทนค่าได้ว่า s = -${x} เมตร 
-        นำค่าที่ได้มาเข้าสูตร ดังนี้ ${x} = u(${t}) + (1/2)(-10)(${t}^2) เมตร จะได้ค่า u = ${result} เมตร/วินาที
+        นำค่าที่ได้มาเข้าสูตร ดังนี้ ${x} = u(${t}) + (1/2)(-10)(${t}²) เมตร จะได้ค่า u = ${result} เมตร/วินาที
         ; หมายเหตุ g = -10 เมตร/วินาที เพราะโยนเหรียญ (ขึ้น) สวนทางกับแรงโน้มถ่วง (ลง) จึงเลือกใช้ค่า g ที่ติดลบ 
         เพื่อให้ค่า u เป็นบวก`
     }
