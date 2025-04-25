@@ -143,22 +143,28 @@ button:hover{
     color: aliceblue;
 }
 
-.graph{
-    width: 80%;
-    height: 60%;
-    margin-left: 10%;
+/* Graph container styling */
+.graph {
+    width: 90%;
+    height: 70%;
+    margin: 20px auto;
+    background: linear-gradient(to bottom, #e0f7fa, #e6e6fa);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* graph development */
-.middle{
+/* Additional styling for the graph */
+.middle {
     display: flex;
-    align-items: center;     /* Vertically center */
+    align-items: center; /* Vertically center */
     height: 75%;
     width: 95%;
     margin-left: 2.5%;
     margin-top: 2%;
     background-color: #ececec;
     border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .card {
     width: 50%;

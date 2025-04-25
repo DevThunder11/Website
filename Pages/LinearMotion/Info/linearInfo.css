@@ -24,9 +24,6 @@ body {
     transition: transform 0.3s ease;
 }
 
-.concept-card:hover {
-    transform: translateY(-5px);
-}
 
 .concept-list {
     display: grid;

@@ -46,11 +46,7 @@ var chartOptions = {
         data: [],
       },
       {
-        name: 'Circular',
-        data: [],
-      },
-      {
-        name: 'Projectile',
+        name: 'Energy',
         data: [],
       },
     ],

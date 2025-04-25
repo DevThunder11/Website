@@ -84,7 +84,7 @@ document.getElementById("startButton").addEventListener("click", async (event) =
 
         // Redirect to test page
         localStorage.removeItem("your_answer");
-        // window.location.href = "../Test/test.html";
+        window.location.href = "../Test/test.html";
     } catch (error) {
         console.error("Error updating user info: ", error);
         alert("Failed to update number of questions. Please try again.");
