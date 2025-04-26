@@ -1,45 +1,70 @@
 body {
     margin: 0;
-    padding: 0;
+    min-height: 100vh;
     font-family: 'Kanit', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #dee1e2;
 }
 
 .background {
     background-color: #f4f4f4;
-}
-
-.top_bar {
-    background-color: #549abd;
-    padding: 10px 0;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
-
-.top_bar ul {
-    list-style-type: none;
     margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-}
 
-.top_bar li {
-    margin: 0 20px;
+}
+.top_bar ul{
+    list-style-type: none;
+    background-color: #549abd;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .top_bar a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    padding: 15px;
+    display: block;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 400;
 }
 
+.top_bar li {
+    float: left;
+}
+.top_bar a:hover {
+    background-color: #5c9cbc;
+}
+.top_bar li {
+    float: left;
+}
+.home {
+    margin-left: 65%;
+    margin-top: 5px;
+}
+.lesson {
+    margin-top: 5px;
+}
+.analysis {
+    margin-top: 5px;
+}
+.contract {
+    margin-top: 5px;
+}
+.account {
+    margin-top: 5px;
+}
 .logo {
-    height: 40px;
+    width: 76px;
+    height: 45px;
+    margin-top: 5px;
+    margin-left: 5px;
 }
-
+.GenQ {
+    font-size: 25px;
+    margin-left: 10px;
+}
 .content-container {
     max-width: 800px;
     margin: 100px auto 40px;
