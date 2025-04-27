@@ -134,7 +134,7 @@ onAuthStateChanged(auth, (user)=>{
           // Hide loader on error
           toggleLoader(false);
       })
-  }
+    }
   else{
       console.log("User Id not Found in Local storage")
       // Hide loader if no user ID

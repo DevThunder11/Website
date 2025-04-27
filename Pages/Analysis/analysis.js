@@ -51,7 +51,7 @@ var chartOptions = {
       },
     ],
     title: {
-      text: 'Media',
+      text: 'Score',
       align: 'left',
       offsetY: 25,
       offsetX: 5,
