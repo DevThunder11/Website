@@ -160,3 +160,57 @@ body {
         text-align: center;
     }
 }
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .background {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .top_bar ul {
+    background-color: #1f1f1f;
+    border-bottom: 2px solid #549abd;
+}
+
+.dark-mode .top_bar a:hover {
+    background-color: #1a5980;
+}
+
+.dark-mode .content-container {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .content-title {
+    color: #7ed6df;
+    border-bottom-color: #549abd;
+}
+
+.dark-mode .content-section h2 {
+    color: #7ed6df;
+}
+
+.dark-mode .content-section p,
+.dark-mode .content-section li {
+    color: #ffffff;
+}
+
+.dark-mode .content-section li:before {
+    color: #7ed6df;
+}
+
+.dark-mode .navigation-buttons {
+    border-top-color: #3d3d3d;
+}
+
+.dark-mode .nav-button {
+    background-color: #114764;
+}
+
+.dark-mode .nav-button:hover {
+    background-color: #1a5980;
+}
