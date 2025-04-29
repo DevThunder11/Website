@@ -222,3 +222,40 @@ async function addFeedbackToUser(userId, feedbackData) {
       feedbackForm.reset();
     });
   });
+
+// เพิ่มการจัดการอัพโหลดรูปภาพ
+document.getElementById('imageUpload').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        // ตรวจสอบขนาดไฟล์ (ไม่เกิน 5MB)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('ขนาดไฟล์ต้องไม่เกิน 5MB');
+            return;
+        }
+
+        // ตรวจสอบประเภทไฟล์
+        const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+        if (!validImageTypes.includes(file.type)) {
+            alert('กรุณาเลือกไฟล์รูปภาพ (JPEG, PNG, หรือ GIF)');
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const profileImage = document.getElementById('profileImage');
+            profileImage.src = e.target.result;
+            
+            // เก็บรูปภาพใน localStorage (ตัวอย่าง)
+            localStorage.setItem('profileImage', e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+// โหลดรูปภาพจาก localStorage เมื่อโหลดหน้า
+window.addEventListener('load', function() {
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+        document.getElementById('profileImage').src = savedImage;
+    }
+});
