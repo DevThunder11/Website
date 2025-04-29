@@ -6,20 +6,20 @@ export function GenRandomQ7(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "ชายคนหนึ่งขี่จักรยานด้วยอัตราเร็วคงตัว u เมตร/วินาที ไปบนถนนที่มีสัมประสิทธิ์ความเสียดทาน 0.1 ถ้าน้ำหนักตัวของเขา และ จักรยานรวมกันเป็น n นิวตัน จงหาว่าเขาต้องใช้กำลังกี่วัตต์".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let u = (getRandomIntMN(1, 5)) * 5;
+    let n = (getRandomIntMN(2, 15)) * 50;
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(n*u/10)) {
+        u = (getRandomIntMN(1, 5)) * 5;
+        n = (getRandomIntMN(2, 15)) * 50;
         attempts++;
     }
 
@@ -30,17 +30,17 @@ export function GenRandomQ7(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "n"){
+            question_text[i] = n
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "u"){
+            question_text[i] = u
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = n*u/10
     let choice = [result]
 
     // RandomAnsCode

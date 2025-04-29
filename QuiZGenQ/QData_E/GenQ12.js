@@ -6,7 +6,7 @@ export function GenRandomQ12(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "กล่องมวล 30 กิโลกรัม เคลื่อนที่ตามรางโค้งดังรูป ถ้ากล่องมีอัตราเร็ว 1.0 เมตร/วินาที ณ ตำแหน่ง A และ 6 เมตร/วินาที ณ ตำแหน่ง B จงหางานของแรงเสียดทานที่มีทางให้กระทำต่อกล่องในช่วงการเคลื่อนที่จาก A ไปยัง B จะมีค่าเท่าใด".split(" "); // Question text for Q12
 
     // QuestionCode
 

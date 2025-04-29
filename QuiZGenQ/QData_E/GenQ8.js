@@ -6,20 +6,20 @@ export function GenRandomQ8(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "ยิงวัตถุจากหน้าผาด้วยความเร็ว u เมตร/วินาที ทำมุม 30 องศากับแนวระดับ ถ้าหากหน้าผาอยู่สูงจากพื้นดิน h เมตร จงหาความเร็วของวัตถุที่กระทบพื้นดิน".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let u = (getRandomIntMN(2, 10)) * 5;
+    let h = (getRandomIntMN(1, 5)) * 10;
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(((u**2)+20*h)**(1/2))) {
+        u = (getRandomIntMN(2, 10)) * 5;
+        h = (getRandomIntMN(1, 5)) * 10;
         attempts++;
     }
 
@@ -30,8 +30,8 @@ export function GenRandomQ8(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "u"){
+            question_text[i] = u
         }
         else if (question_text[i] == "h"){
             question_text[i] = h
@@ -40,7 +40,7 @@ export function GenRandomQ8(){
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = ((u**2)+20*h)**(1/2)
     let choice = [result]
 
     // RandomAnsCode

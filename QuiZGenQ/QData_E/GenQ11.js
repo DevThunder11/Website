@@ -6,8 +6,7 @@ export function GenRandomQ11(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
-
+    const question_text = "จากรูป วัตถุเคลื่อนตามรางโค้ง รัศมี R ถ้าวัตถุหยุดนิ่งอยู่ที่ A และไถลลงมาถึงจุด B เกิดงานเนื่องจากความฝืดระหว่างพื้นกับวัตถุ 2.75 จูล จงหาความเร็วของวัตถุที่จุด B เป็นเมตรต่อวินาที กำหนด R = 1 เมตร และวัตถุมวล = 0.5 kg".split(" "); // Question text for Q11
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
