@@ -6,20 +6,20 @@ export function GenRandomQ9(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "กล่องมวล m กิโลกรัม เคลื่อนที่ด้วยความเร็ว v เมตร/วินาที บนผิวราบที่ปราศจากความฝืดไปชนกับปลายของสปริงที่เคลื่อนไปมาอย่างอิสระ ถ้าค่านิจของสปริงดังกล่าวเท่ากับ 400 นิวตัน/เมตร อยากทราบว่าสปริงจะถูกอัดตัวเป็นระยะทางกี่เมตร".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let m = (getRandomIntMN(1, 10)) ** 2;
+    let v = (getRandomIntMN(10, 30));
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(v * ((m/400)**(1/2)))) {
+        m = (getRandomIntMN(1, 10)) ** 2;
+        v = (getRandomIntMN(10, 30));
         attempts++;
     }
 
@@ -30,17 +30,17 @@ export function GenRandomQ9(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "v"){
+            question_text[i] = v
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = v * ((m/400)**(1/2))
     let choice = [result]
 
     // RandomAnsCode

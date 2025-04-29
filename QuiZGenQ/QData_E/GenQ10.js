@@ -6,20 +6,20 @@ export function GenRandomQ10(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "กดมวล m กิโลกรัม บนสปริงซึ่งตั้งในแนวดิ่ง ให้สปริงยุบตัวลงไป 10 เซนติเมตร จากนันก็ปล่อยปรากฎว่ามวลถูกดีดให้ลอยสูงขึ้นเป็นระยะ h เซนติเมตรจากจุดที่ปล่อย จงหาค่าคงตัวของสปริง".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let m = (getRandomIntMN(1, 20))
+    let h = (getRandomIntMN(2, 15)) * 5
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(m*h/5)) {
+        m = (getRandomIntMN(1, 20));
+        h = (getRandomIntMN(2, 15)) * 5;
         attempts++;
     }
 
@@ -30,8 +30,8 @@ export function GenRandomQ10(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
         else if (question_text[i] == "h"){
             question_text[i] = h
@@ -40,7 +40,7 @@ export function GenRandomQ10(){
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = m*h/5
     let choice = [result]
 
     // RandomAnsCode
