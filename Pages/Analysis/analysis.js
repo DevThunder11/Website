@@ -13,6 +13,24 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.visibility = 'visible';
   }, 1500);
 });
+// เพิ่มฟังก์ชันสำหรับตรวจสอบและอัพเดท Dark Mode
+function updateDarkMode() {
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  document.body.classList.toggle('dark-mode', isDarkMode);
+  console.log('Updated Dark Mode:', isDarkMode);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ตรวจสอบสถานะเริ่มต้น
+  updateDarkMode();
+
+  // ตรวจจับการเปลี่ยนแปลง
+  window.addEventListener('storage', (e) => {
+      if (e.key === 'darkMode') {
+          updateDarkMode();
+      }
+  });
+});
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -198,7 +216,7 @@ if (loggedInUserId) {
                     } else {
                       document.getElementById("average").style.color = "#880808";
                       document.getElementById("standard").innerText = "ความเข้าใจพื้นฐานยังต้องพัฒนาอย่างมาก";
-                      document.getElementById("analysis_text").innerText = "จากผลการทดสอบที่ได้ ค่าเฉลี่ยอยู่ในช่วง 0-20% ซึ่งบ่งชี้ว่ามีความท้าทายในการทำความเข้าใจเนื้อหาพื้นฐานในระดับที่ต้องได้รับการปรับปรุงอย่างเร่งด่วน ขอแนะนำให้ทบทวนและฝึกฝนเนื้อหาเบื้องต้นอย่างละเอียด พร้อมทั้งปรึกษาครูผู้สอนเพื่อกำหนดแนวทางพัฒนาที่เหมาะสม";
+                      document.getElementById("analysis_text").innerText = "จากผลการทดสอบที่ได้ ค่าเฉลี่ยู่ในช่วง 0-20% ซึ่งบ่งชี้ว่ามีความท้าทายในการทำความเข้าใจเนื้อหาพื้นฐานในระดับที่ต้องได้รับการปรับปรุงอย่างเร่งด่วน ขอแนะนำให้ทบทวนและฝึกฝนเนื้อหาเบื้องต้นอย่างละเอียด พร้อมทั้งปรึกษาครูผู้สอนเพื่อกำหนดแนวทางพัฒนาที่เหมาะสม";
                     }
                     //Average
                     
@@ -235,14 +253,14 @@ const observer_button = new MutationObserver(() => {
     }
 });
 const observer_outer_div = new MutationObserver(() => {
-    // Find all divs with the class 'outer-div'
     const outerDivs = document.querySelectorAll('.outer-div');
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    
     outerDivs.forEach(outerDiv => {
         if (!outerDiv.classList.contains('styled')) {
-            outerDiv.classList.add('styled'); // Add a class to mark it's already styled
+            outerDiv.classList.add('styled');
             
-            // Apply styles dynamically (You can change or extend these styles)
-            outerDiv.style.backgroundColor = "#5295ad";
+            // Base styles
             outerDiv.style.display = "flex";
             outerDiv.style.borderRadius = "20px";
             outerDiv.style.margin = "25px";
@@ -250,19 +268,22 @@ const observer_outer_div = new MutationObserver(() => {
             outerDiv.style.height = "12.5%";
             outerDiv.style.alignItems = "center";
             outerDiv.style.marginLeft = "10%";
+            
+            // Apply dark/light mode specific colors
+            outerDiv.style.backgroundColor = isDarkMode ? "#2d2d2d" : "#5295ad";
+            
+            // Style the inner text
+            const innerText = outerDiv.querySelector('.inner-text');
+            innerText.style.color = isDarkMode ? "#ffffff" : "#f4f4f4";
+            innerText.style.fontSize = "40px";
+            innerText.style.fontFamily = '"Markazi Text", serif';
+            innerText.style.fontWeight = "500";
+            innerText.style.fontStyle = "normal";
+            innerText.style.paddingLeft = "2%";
 
-             // Style the inner text
-             const innerText = outerDiv.querySelector('.inner-text');
-             innerText.style.color = "#f4f4f4";
-             innerText.style.fontSize = "40px";
-             innerText.style.fontFamily = '"Markazi Text", serif';
-             innerText.style.fontWeight = "500";
-             innerText.style.fontStyle = "normal";
-             innerText.style.paddingLeft = "2%";
-
-            // Find the inner button and style it
+            // Style the inner button
             const innerButton = outerDiv.querySelector('.inner-button');
-            innerButton.style.backgroundColor = "#72b5d8";
+            innerButton.style.backgroundColor = isDarkMode ? "#3d3d3d" : "#72b5d8";
             innerButton.style.color = "white";
             innerButton.style.width = "12%";
             innerButton.style.height = "60%";
@@ -278,11 +299,11 @@ const observer_outer_div = new MutationObserver(() => {
             innerButton.style.marginBottom = "0.1%";
 
             innerButton.addEventListener('mouseover', () => {
-                innerButton.style.backgroundColor = "#5295ad"; // Hover effect (color change when mouse over)
+                innerButton.style.backgroundColor = isDarkMode ? "#4d4d4d" : "#5295ad";
             });
             
             innerButton.addEventListener('mouseout', () => {
-                innerButton.style.backgroundColor = "#72b5d8"; // Reset the color when mouse leaves
+                innerButton.style.backgroundColor = isDarkMode ? "#3d3d3d" : "#72b5d8";
             });
         }
     });

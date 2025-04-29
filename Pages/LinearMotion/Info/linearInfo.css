@@ -256,3 +256,161 @@ span.frac > sub {
     display: block;
     font: inherit;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .box {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .info {
+    color: #ffffff;
+}
+
+.dark-mode .concept-card {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .formula-card {
+    background: linear-gradient(135deg, #2d2d2d, #3d3d3d);
+    border-left: 4px solid #ffffff;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .concept-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #2d2d2d, #3d3d3d);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .concept-item {
+    background: #3d3d3d;
+    color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #549abd;
+}
+
+.dark-mode .concept-item:hover {
+    background: #4d4d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(84, 154, 189, 0.2);
+}
+
+.dark-mode .suth {
+    color: #ffffff;
+    background-color: #3d3d3d;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .line {
+    border-color: #3d3d3d;
+}
+
+.dark-mode .concept-list {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .concept-item {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border: 1px solid #4d4d4d;
+}
+
+.dark-mode .concept-item:hover {
+    background-color: #4d4d4d;
+}
+
+.dark-mode .skip,
+.dark-mode #startsetting {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border: 1px solid #4d4d4d;
+}
+
+.dark-mode .skip:hover,
+.dark-mode #startsetting:hover {
+    background-color: #4d4d4d;
+    border-color: #549abd;
+}
+
+.dark-mode .image-container img {
+    filter: brightness(0.8) contrast(1.2);
+}
+
+.dark-mode .image-container p {
+    color: #cccccc;
+}
+
+/* .suth{
+    font-size: 36px;
+    margin-left: 5%;
+} */
+.suth {
+    font-size: 36px;
+    margin-left: 5%;
+    background-color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+}
+
+h1 {
+    color: #075680;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* fraction */
+span.frac {
+    display: inline-block;
+    font-size: 50%;
+    text-align: center;
+}
+
+span.frac > sup {
+    display: block;
+    border-bottom: 1px solid;
+    font: inherit;
+}
+
+span.frac > span {
+    display: none;
+}
+
+span.frac > sub {
+    display: block;
+    font: inherit;
+}
+.dark-mode h1 {
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .top_bar ul {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .top_bar a {
+    color: #ffffff;
+}
+
+.dark-mode .top_bar a:hover {
+    background-color: #3d3d3d;
+}

@@ -121,3 +121,67 @@ label {
     color: #075680;
     font-weight: 500;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .box {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 15px rgba(84, 154, 189, 0.2);
+}
+
+.dark-mode .top {
+    background-color: #2d2d2d;
+    border-bottom: 2px solid #549abd;
+}
+
+.dark-mode .choice {
+    background-color: #3d3d3d;
+    box-shadow: 0 2px 8px rgba(84, 154, 189, 0.2);
+    color: #ffffff;
+}
+
+.dark-mode .choice:hover {
+    background-color: #4d4d4d;
+    border: 1px solid #549abd;
+}
+
+.dark-mode .countdown {
+    color: #7ed6df;
+}
+
+.dark-mode h1 {
+    color: #ffffff;
+}
+
+.dark-mode .test_button {
+    background: #3d3d3d;
+    color: #ffffff;
+    border: 1px solid #549abd;
+    box-shadow: 0 4px 6px rgba(84, 154, 189, 0.2);
+}
+
+.dark-mode .test_button:hover {
+    background: #4d4d4d;
+}
+
+.dark-mode .setting_button {
+    color: #7ed6df;
+}
+
+.dark-mode input {
+    background: #3d3d3d;
+    border: 1px solid #549abd;
+    color: #ffffff;
+}
+
+.dark-mode input:focus {
+    border-color: #7ed6df;
+    box-shadow: 0 0 8px rgba(126, 214, 223, 0.3);
+}
+
+.dark-mode label {
+    color: #7ed6df;
+}

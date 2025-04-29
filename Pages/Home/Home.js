@@ -18,6 +18,24 @@ const firebaseConfig = {
   appId: "1:41268181973:web:acc852fa5e9bacd8665b5c",
   measurementId: "G-Y6D3M3TJGP"
 };
+// เพิ่มฟังก์ชันสำหรับตรวจสอบและอัพเดท Dark Mode
+function updateDarkMode() {
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+  document.body.classList.toggle('dark-mode', isDarkMode);
+  console.log('Updated Dark Mode:', isDarkMode);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ตรวจสอบสถานะเริ่มต้น
+  updateDarkMode();
+
+  // ตรวจจับการเปลี่ยนแปลง
+  window.addEventListener('storage', (e) => {
+      if (e.key === 'darkMode') {
+          updateDarkMode();
+      }
+  });
+});
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -259,3 +259,27 @@ window.addEventListener('load', function() {
         document.getElementById('profileImage').src = savedImage;
     }
 });
+
+// Dark Mode Toggle
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    
+    // โหลดสถานะ Dark Mode จาก localStorage
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    if (isDarkMode) {
+        document.body.classList.add('dark-mode');
+        darkModeToggle.checked = true;
+    }
+
+    // จัดการการเปลี่ยน Dark Mode
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+            document.body.classList.add('dark-mode');
+            localStorage.setItem('darkMode', 'true');
+        } else {
+            document.body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode', 'false');
+        }
+    });
+    
+});

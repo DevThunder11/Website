@@ -90,3 +90,20 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 document.getElementById('cancle').addEventListener("click", () => {
     window.location.href = "../../Home/Home.html";
 });
+function updateDarkMode() {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    console.log('Updated Dark Mode:', isDarkMode);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ตรวจสอบสถานะเริ่มต้น
+    updateDarkMode();
+
+    // ตรวจจับการเปลี่ยนแปลง
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'darkMode') {
+            updateDarkMode();
+        }
+    });
+});

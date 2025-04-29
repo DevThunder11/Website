@@ -220,3 +220,81 @@ body {
 .home:hover {
     background-color: #75b3d3;
 }
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .box {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 15px rgba(84, 154, 189, 0.2);
+}
+
+.dark-mode .top {
+    background-color: #2d2d2d;
+    border-bottom: 2px solid #549abd;
+}
+
+.dark-mode .score-circle {
+    background-color: #3d3d3d;
+    box-shadow: 0 4px 10px rgba(84, 154, 189, 0.2);
+}
+
+.dark-mode #score,
+.dark-mode .total {
+    color: #7ed6df;
+}
+
+.dark-mode .summary-container {
+    background-color: #2d2d2d;
+    color: #454444;
+}
+
+.dark-mode .question-summary {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+.dark-mode .question-text {
+    color: #000000;
+}
+
+.dark-mode .answer {
+    background-color: #4d4d4d;
+    border-color: #549abd;
+    color: #ffffff;
+}
+
+.dark-mode .answer.correct-answer {
+    background-color: #1e4731;
+    border-color: #28a745;
+    color: #ffffff;
+}
+
+.dark-mode .answer.user-answer:not(.correct-answer) {
+    background-color: #471e1e;
+    border-color: #dc3545;
+    color: #ffffff;
+}
+
+.dark-mode .action-button.retry {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border: 1px solid #549abd;
+}
+
+.dark-mode .action-button.home {
+    background-color: #3d3d3d;
+    color: #ffffff;
+    border: 1px solid #6c757d;
+}
+
+.dark-mode .action-button:hover {
+    background-color: #4d4d4d;
+}
+
+.dark-mode h2 {
+    color: #7ed6df;
+}

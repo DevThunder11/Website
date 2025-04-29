@@ -44,6 +44,24 @@ const questionObserver = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
+function updateDarkMode() {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    console.log('Updated Dark Mode:', isDarkMode);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ตรวจสอบสถานะเริ่มต้น
+    updateDarkMode();
+
+    // ตรวจจับการเปลี่ยนแปลง
+    window.addEventListener('storage', (e) => {
+        if (e.key === 'darkMode') {
+            updateDarkMode();
+        }
+    });
+});
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Get the logged-in user's ID and selected test index

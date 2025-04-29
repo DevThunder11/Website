@@ -194,3 +194,160 @@ button:hover{
     margin-left: 5%;
 }
   /* graph development */
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .background {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .top_bar ul {
+    background-color: #2d2d2d;
+    border-bottom: 2px solid #3d3d3d;
+}
+
+.dark-mode .top_bar a {
+    color: #ffffff;
+}
+
+.dark-mode .top_bar a:hover {
+    background-color: #3d3d3d;
+}
+
+.dark-mode .text {
+    color: #ffffff;
+}
+
+.dark-mode .loader {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .loader::after {
+    border: 5px solid #3d3d3d;
+    border-top: 5px solid #ffffff;
+}
+
+.dark-mode .graph {
+    background: linear-gradient(to bottom, #2d2d2d, #3d3d3d);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .middle {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .card {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+.dark-mode .slope_text {
+    color: #ffffff;
+}
+
+.dark-mode button {
+    background: #ffffff;
+    color: #2d2d2d;
+    border: 2px solid #3d3d3d;
+}
+
+.dark-mode button:hover {
+    background: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #549abd;
+}
+
+.dark-mode .topic {
+    color: #ffffff;
+}
+  /* graph development */
+
+/* Dark Mode Chart Styles */
+.dark-mode .apexcharts-canvas {
+    background: transparent !important;
+}
+
+.dark-mode .apexcharts-plot-series {
+    background: transparent !important;
+}
+
+.dark-mode .apexcharts-area {
+    fill-opacity: 0.2;
+}
+
+.dark-mode .apexcharts-tooltip {
+    background: #2d2d2d !important;
+    color: #ffffff !important;
+    border: 1px solid #3d3d3d !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+}
+
+.dark-mode .apexcharts-tooltip-title {
+    background: #3d3d3d !important;
+    border-bottom: 1px solid #4d4d4d !important;
+}
+
+.dark-mode .apexcharts-theme-light {
+    background: transparent !important;
+}
+
+.dark-mode .apexcharts-toolbar {
+    background: transparent !important;
+}
+
+.dark-mode .apexcharts-menu {
+    background: #2d2d2d !important;
+    border: 1px solid #3d3d3d !important;
+}
+
+.dark-mode .apexcharts-menu-item:hover {
+    background: #3d3d3d !important;
+}
+
+.dark-mode .apexcharts-tooltip {
+    background: #3d3d3d !important;
+    color: #ffffff !important;
+    border: 1px solid #4d4d4d !important;
+}
+
+.dark-mode .apexcharts-tooltip-title {
+    background: #4d4d4d !important;
+    border-bottom: 1px solid #5d5d5d !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .apexcharts-xaxis-label,
+.dark-mode .apexcharts-yaxis-label {
+    fill: #ffffff !important;
+}
+
+.dark-mode .apexcharts-legend-text {
+    color: #ffffff !important;
+}
+
+.dark-mode .apexcharts-grid line {
+    stroke: #4d4d4d !important;
+}
+
+.dark-mode .apexcharts-gridlines-horizontal,
+.dark-mode .apexcharts-gridlines-vertical {
+    stroke: #ffffff !important;
+}
+
+.dark-mode .apexcharts-point-annotations line,
+.dark-mode .apexcharts-xaxis-annotations line,
+.dark-mode .apexcharts-yaxis-annotations line {
+    stroke: #4d4d4d !important;
+}
+
+.dark-mode .apexcharts-marker {
+    stroke: #ffffff !important;
+}
+
+.dark-mode .apexcharts-series-markers circle {
+    fill: #549abd !important;
+}

@@ -160,3 +160,94 @@ button:hover {
 }.learnmore:hover {
     background: #075680;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .background {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .top_bar ul {
+    background-color: #2d2d2d;
+    border-bottom: 2px solid #3d3d3d;
+}
+
+.dark-mode .top_bar a {
+    color: #ffffff;
+}
+
+.dark-mode .top_bar a:hover {
+    background-color: #3d3d3d;
+}
+
+.dark-mode .text {
+    color: #ffffff;
+}
+
+.dark-mode .headlesson {
+    color: #ffffff;
+}
+
+.dark-mode .lesson1,
+.dark-mode .lesson2,
+.dark-mode .lesson3 {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .lesson1:hover,
+.dark-mode .lesson2:hover,
+.dark-mode .lesson3:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .pic1 {
+    background-color: #2d2d2d;
+}
+
+.dark-mode .topic,
+.dark-mode .explain {
+    color: #e0e0e0;
+}
+
+.dark-mode .learnmore {
+    background: #2d2d2d;
+    color: #ffffff;
+    border: 1px solid #3d3d3d;
+}
+
+.dark-mode .learnmore:hover {
+    background: #3d3d3d;
+}
+
+.dark-mode button {
+    background: #ffffff;
+    color: #2d2d2d;
+    border: 2px solid #3d3d3d;
+}
+
+.dark-mode button:hover {
+    background: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #549abd;
+}
+
+.dark-mode .learnmore {
+    background: #ffffff;
+    color: #2d2d2d;
+    border: 2px solid #3d3d3d;
+}
+
+.dark-mode .learnmore:hover {
+    background: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #549abd;
+}
+
+.dark-mode button:hover {
+    background: #3d3d3d;
+}

@@ -137,3 +137,67 @@ body {
     transform: translateY(-4px) scale(1.03);    
 }
 
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .background {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .top_bar ul {
+    background-color: #2d2d2d;
+    border-bottom: 2px solid #4d4d4d;
+}
+
+.dark-mode .top_bar a {
+    color: #ffffff;
+}
+
+.dark-mode .top_bar a:hover {
+    background-color: #3d3d3d;
+}
+
+.dark-mode .lesson-container {
+    background: #2d2d2d;
+    box-shadow: 0 4px 24px rgba(84,154,189,0.2);
+}
+
+.dark-mode .lesson-topic {
+    color: #7ed6df;
+}
+
+.dark-mode .lesson-topic:hover {
+    color: #549abd;
+}
+
+.dark-mode .sub-lessons {
+    background: #2d2d2d;
+}
+
+.dark-mode .sub-lesson-block {
+    background: #3d3d3d;
+    box-shadow: 0 2px 8px rgba(84,154,189,0.15);
+}
+
+.dark-mode .sub-lesson-title {
+    color: #7ed6df;
+}
+
+.dark-mode .sub-lesson-desc {
+    color: #ffffff;
+}
+
+.dark-mode .headlesson {
+    background: linear-gradient(90deg, #2d2d2d 0%, #727272 100%);
+    color: #7ed6df;
+    box-shadow: 0 6px 24px 0 rgba(130, 130, 130, 0.25), 0 1.5px 4px 0 rgba(126,214,223,0.15);
+    transform: translateY(-4px) scale(1.03); 
+}
+
+.dark-mode .headlesson:hover {
+    box-shadow: 0 12px 32px 0 rgba(84,154,189,0.35), 0 3px 8px 0 rgba(126,214,223,0.25);
+}
+

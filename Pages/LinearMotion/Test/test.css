@@ -285,3 +285,26 @@ body{
     left: 35%;
     top: 40%;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #384c63;
+}
+
+.dark-mode .box {
+    background-color: #ffffff;
+}
+
+.dark-mode .top {
+    background-color: #114764;
+    border-bottom: 2px solid #000000;
+}
+
+.dark-mode .loader {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .loader::after {
+    border: 5px solid #2d2d2d;
+    border-top: 5px solid #549abd;
+}
