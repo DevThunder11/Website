@@ -6,8 +6,8 @@ body {
 }
 
 .box {
-    width: 80%;
-    height: 90vh;
+    width: 90%; /* ปรับความกว้างเป็น 90% */
+    height: 100%; /* ปรับความสูงเป็น 95vh */
     background-color: #f4f4f4;
     margin: 2% auto;
     border-radius: 20px;
@@ -165,7 +165,7 @@ body {
 }
 
 .summary-container {
-    padding: 20px 40px;
+    padding: 10px 40px;
     flex-grow: 1;
 }
 
@@ -297,4 +297,25 @@ body.dark-mode {
 
 .dark-mode h2 {
     color: #7ed6df;
+}
+
+
+/* Custom Scrollbar Styles */
+.summary-container::-webkit-scrollbar {
+    width: 12px; /* ความกว้างของ scrollbar */
+}
+
+.summary-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* สีพื้นหลังของ track */
+    border-radius: 10px; /* มุมโค้งของ track */
+}
+
+.summary-container::-webkit-scrollbar-thumb {
+    background-color: #000000; /* สีของ scrollbar */
+    border-radius: 10px; /* มุมโค้งของ scrollbar */
+    border: 3px solid #f1f1f1; /* ขอบของ scrollbar */
+}
+
+.summary-container::-webkit-scrollbar-thumb:hover {
+    background-color: #000000; /* สีของ scrollbar เมื่อ hover */
 }
