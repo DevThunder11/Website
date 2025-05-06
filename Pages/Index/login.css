@@ -187,3 +187,29 @@ button:hover{
     opacity: 0;
     animation: fadeOut 7s forwards;
 }
+.google-signin-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 20px;
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 25px;
+    color: #3c4043;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.google-signin-btn i {
+    color: #4285f4;
+    font-size: 1.2rem;
+}
+
+.google-signin-btn:hover {
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+

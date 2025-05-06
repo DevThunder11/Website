@@ -6,9 +6,9 @@
   <title>Register & Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="login.css">
-  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE" />
+  <script type="module" src="firebase-init.js"></script>
+  <script type="module" src="google.js"></script>
   <script type="module" src="firebaseauth.js"></script>
-  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="container" id="signup" style="display:none;">
@@ -69,8 +69,10 @@
         </form>
         <p class="or"></p>
         <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
+          <button id="googleSignInButton" class="google-signin-btn">
+            <i class="fab fa-google"></i>
+            <span>Sign in with Google</span>
+          </button>
         </div>
         <div class="links">
           <p>Don't have account yet?</p>
@@ -78,5 +80,8 @@
         </div>
       </div>
       <script src="login.js"></script>
+<!-- ลบบรรทัดเหล่านี้ออก -->
+<!-- <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app.js"></script> -->
+<!-- <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth.js"></script> -->
 </body>
 </html>
