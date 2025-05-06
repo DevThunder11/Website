@@ -6,20 +6,20 @@ export function GenRandomQ17(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "เครื่องสูบน้ำ สูบน้ำมวล 3900 kg ขึ้นจากบ่อสูง 10 m ในเวลา t นาที แล้วฉีดน้ำออกไปด้วยอัตราเร็ว u m/s จงหากำลังของเครื่องสูบน้ำที่นี้".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let t = (getRandomIntMN(50, 70))
+    let u = (getRandomIntMN(3, 7)) * 10
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger((m*(200+(u**2))/120*t))) {
+        t = (getRandomIntMN(50, 70));
+        u = (getRandomIntMN(3, 7)) * 10;
         attempts++;
     }
 
@@ -33,14 +33,14 @@ export function GenRandomQ17(){
         else if (question_text[i] == "t"){
             question_text[i] = t
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "u"){
+            question_text[i] = u
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = (m*(200+(u**2))/120*t)
     let choice = [result]
 
     // RandomAnsCode

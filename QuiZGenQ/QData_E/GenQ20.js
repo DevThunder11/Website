@@ -6,22 +6,9 @@ export function GenRandomQ20(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "ปล่อยวัตถุก้อนหนึ่งที่ระดับความสูง h กราฟรูปใดที่แสดงค่าพลังงานจลน์ (Ek) และค่าพลังงานศักย์ (Ep) ของวัตถุได้ดีที่สุด"
 
     // QuestionCode
-
-    let Name = namelist[getRandomInt((namelist.length)-1)]
-
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
-
-    let attempts = 0;
-
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
-        attempts++;
-    }
 
     console.log(attempts); // Log attempts
 

@@ -6,20 +6,20 @@ export function GenRandomQ14(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "วัตถุมวล m กิโลกรัม ผูกติดปลายสปริงที่มีค่าคงตัวสปริง 1200 นิวตันต่อเมตร วางอยู่บนพื้นราบ ถ้าค่าสัมประสิทธิ์ความเสียดทานจลน์ระหว่างวัตถุกับพื้นเท่ากับ 0.3 แล้วจงคำนวณทางทางจากแรงจึงจัดออกไปจากตำแหน่งสมดุลเป็นระยะ x เซนติเมตร".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let m = (getRandomIntMN(1, 20))
+    let x = (getRandomIntMN(5, 20)) * 2
 
     let attempts = 0;
 
     while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+        m = (getRandomIntMN(1, 20));
+        x = (getRandomIntMN(5, 20)) * 2;
         attempts++;
     }
 
@@ -30,17 +30,17 @@ export function GenRandomQ14(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "x"){
+            question_text[i] = x
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = (1/2)*1200*x + 3*m
     let choice = [result]
 
     // RandomAnsCode

@@ -6,20 +6,20 @@ export function GenRandomQ15(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "ยิงลูกปืนมวล 12 กรัม ไปยังแผ่นไม้ซึ่งตรึงอยู่กับที่ ปรากฏว่าลูกปืนฝังเข้าไปในเนื้อไม้เป็นระยะ x เซนติเมตร ถ้าความเร็วของลูกปืนคือ u เมตรต่อวินาที จงหาแรงด้านทานเคลื่อนของเนื้อไม้ต่อลูกปืน".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let x = (getRandomIntMN(1, 5)) * 5
+    let u = (getRandomIntMN(15, 25)) * 10
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger((1/2)*(12/1000)*(u**2))) {
+        x = (getRandomIntMN(1, 5)) * 5;
+        u = (getRandomIntMN(15, 25)) * 10;
         attempts++;
     }
 
@@ -30,17 +30,17 @@ export function GenRandomQ15(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "x"){
+            question_text[i] = x
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "u"){
+            question_text[i] = u
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = (1/2)*(12/1000)*(u**2)
     let choice = [result]
 
     // RandomAnsCode
