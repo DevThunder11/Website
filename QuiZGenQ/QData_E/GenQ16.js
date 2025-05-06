@@ -6,20 +6,20 @@ export function GenRandomQ16(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "วัตถุมวล m กิโลกรัม ตกจากที่สูง h เมตร ลงกระทบพื้นทราย พบว่าจมลงไปในทราย 50 เซนติเมตร แล้วหยุด จงหาแรงด้านเฉลี่ยของทรายกระทำต่อวัตถุในหน่วยนิวตัน".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let m = (getRandomIntMN(1, 20))
+    let h = (getRandomIntMN(1, 10))
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(10*m*((2*h+1)))) {
+        m = (getRandomIntMN(1, 20));
+        h = (getRandomIntMN(1, 10));
         attempts++;
     }
 
@@ -30,8 +30,8 @@ export function GenRandomQ16(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
         else if (question_text[i] == "h"){
             question_text[i] = h
@@ -40,7 +40,7 @@ export function GenRandomQ16(){
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = 10*m*((2*h+1))
     let choice = [result]
 
     // RandomAnsCode

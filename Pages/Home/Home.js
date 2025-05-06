@@ -46,33 +46,60 @@ const db = getFirestore();
 
 /////////////////////////////////////////////
 //Show user information in profile window
-onAuthStateChanged(auth, (user)=>{
-    // Show loader while fetching user data
-    const loggedInUserId=localStorage.getItem('loggedInUserId');
-    if(loggedInUserId){
-      const docRef = doc(db, "users", loggedInUserId);
-      getDoc(docRef)
-      .then((docSnap)=>{
-          if(docSnap.exists()){
-              const userData=docSnap.data();
-              const tutorial = userData.tutorial;
-              if (tutorial === false || tutorial === undefined) {
-                window.location.href = '../Tutorial/tutorial.html';
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Page loaded")
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
+    if (loggedInUserId) {
+        const docRef = doc(db, "users", loggedInUserId);
+        getDoc(docRef)
+        .then((docSnap) => {
+            if (docSnap.exists()) {
+                const userData = docSnap.data();
+                const tutorial = userData.tutorial;
+                if (tutorial === false || tutorial === undefined) {
+                  console.log("You haven't done tutorial?")
+                    window.location.href = '../Tutorial/tutorial.html';
+                }
+            } else {
+                console.log("no document found matching id");
             }
-          } else {
-              console.log("no document found matching id")
-          }
-          // Hide loader after data is loaded
-      })
-      .catch((error)=>{
-          console.log("Error getting document");
-          // Hide loader on error
-          toggleLoader(false);
-      })
+        })
+        .catch((error) => {
+            console.log("Error getting document");
+            toggleLoader(false);
+        });
+    } else {
+        console.log("User Id not Found in Local storage");
+        toggleLoader(false);
     }
-  else{
-      console.log("User Id not Found in Local storage")
-      // Hide loader if no user ID
-      toggleLoader(false);
-  }
-})
+});
+
+// // Remove the onAuthStateChanged function as it's no longer needed
+// onAuthStateChanged(auth, (user)=>{
+//     // Show loader while fetching user data
+//     const loggedInUserId=localStorage.getItem('loggedInUserId');
+//     if(loggedInUserId){
+//       const docRef = doc(db, "users", loggedInUserId);
+//       getDoc(docRef)
+//       .then((docSnap)=>{
+//           if(docSnap.exists()){
+//               const userData=docSnap.data();
+//               const tutorial = userData.tutorial;
+//               if (tutorial === false || tutorial === undefined) {
+//                 window.location.href = '../Tutorial/tutorial.html';
+//             }
+//           } else {
+//               console.log("no document found matching id")
+//           }
+//           // Hide loader after data is loaded
+//       })
+//       .catch((error)=>{
+//           console.log("Error getting document");
+//           // Hide loader on error
+//       })
+//     }
+//   else{
+//       console.log("User Id not Found in Local storage")
+//       // Hide loader if no user ID
+//   }
+// })

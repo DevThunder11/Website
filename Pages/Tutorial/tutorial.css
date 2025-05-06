@@ -60,9 +60,9 @@ body {
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: white;
+    color: #549abd;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 24px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -72,7 +72,7 @@ body {
     border-radius: 3px 0 0 3px;
 }
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(226, 226, 226, 0.8);
 }
 .end {
     cursor: pointer;
@@ -83,16 +83,15 @@ body {
     padding: 16px;
     font-weight: bold;
     font-size: 18px;
-    transition: 0.6s ease;
     border-radius: 3px;
     user-select: none;
     z-index: 10;
-    background-color: #549abd;
+    background: linear-gradient(90deg, #549abd 0%, #7ed6df 100%);
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
     border: none;
 }
 .end:hover {
-    background-color: #316e8d;
+    background: #316e8d;
 }

@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Quiz App - GenQ</title>
+        <link rel="stylesheet" href="linearInfo.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
+        <meta http-equiv="Content-Type" content="image/svg+xml">
+        <script src="linearInfo.js"></script>
+    </head>
+    <body>
+        <nav class="top_bar">
+            <ul>
+                <li class="GenQ"><img class="logo" src="../../../Picture/Logo_White.png"></li>
+                <li class="home"><a href="../../Home/Home.html">Home</a></li>
+                <li class="test"><a href="../../Lesson/lesson.html">Lesson</a></li>
+                <li class="about"><a href="../../Analysis/analysis.html">Analysis</a></li>
+                <li class="contract"><a href="../../Contract/contract.html">Contract</a></li>
+                <li class="Accout"><a href="../../Account/account.html">Account</a></li>
+            </ul>
+        </nav>
+        <div class="box">
+            <div class="info">
+                <div style="display: flex;">
+                    <h1>การเคลื่อนที่ในแนวตรง (Rectilinear Motion)</h1>
+                    <a href="#startsetting"><button class="skip">Skip to Setting</button></a>
+                </div>
+                <hr class="line">
+                <div class="concept-card">
+                    <p> <strong>การเคลื่อนที่ในแนวตรง (Rectilinear Motion)</strong> คือ การเคลื่อนที่ของวัตถุตามแนวเส้นตรงอย่างคงที่โดยไม่มีการเปลี่ยนทิศทาง เช่น ผลแอปเปิ้ลที่ร่วงลงสู่พื้นดิน, รถไฟที่วิ่งไปตามราง เป็นต้น </p>
+                    <div class="image-container" style="text-align: center;">
+                        <img src="../../../Picture/linear_motion_1d.svg" alt="การเคลื่อนที่ในแนวตรง" style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
+                        <p style="margin-top: 10px; font-style: italic;">ภาพแสดงการเคลื่อนที่ในแนวเส้นตรงแบบหนึ่งมิติ: วัตถุ (สีแดง) เคลื่อนที่จากจุด A ไปยังจุด B ในแนวเส้นตรง โดยมีระยะทาง s และใช้เวลา t ในการเคลื่อนที่ ลูกศรแสดงทิศทางการเคลื่อนที่</p>
+                    </div>
+                    <p>การเคลื่อนที่ในแนวตรง แบ่งเป็น 2 ประเภท ได้แก่</p>
+                    <ul style="list-style-type: disc; margin-left: 20px;">
+                        <li>การเคลื่อนที่เป็นเส้นตรงในแนวราบ</li>
+                        <li>การเคลื่อนที่ในแนวดิ่งภายใต้ความเร่งโน้มถ่วง</li>
+                    </ul>
+                    <p>โดยมีปริมาณที่เกี่ยวข้องกับการเคลื่อนที่ในแนวตรง ได้แก่</p>
+                    <div class="concept-list">
+                        <div class="concept-item">ระยะทาง (Distance)</div>
+                        <div class="concept-item">การกระจัด (Displacement)</div>
+                        <div class="concept-item">อัตราเร็ว (Speed)</div>
+                        <div class="concept-item">ความเร็ว (Velocity)</div>
+                        <div class="concept-item">ความเร่ง (Acceleration)</div>
+                    </div>
+                </div>
+                    <div class="concept-card">
+                        <h1>1. การเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร็วคงตัว</h1>
+                        <p>ถ้าวัตถุเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร็วคงตัว v โดยเคลื่อนที่ไปเป็นระยะกระจัด s เป็นความเร็วปลาย v ในช่วงเวลา t จะได้สมการ</p>
+                        <div class="formula-card">
+                            <p class="suth">s = vt</p>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h1>2. การเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร่งคงตัว</h1>
+                        <p>ถ้าวัตถุที่เคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร่งคงตัว a ความเร็วของวัตถุเปลี่ยนจากความเร็วต้น u ในช่วงเวลา t และเคลื่อนที่ไปได้ระยะทาง s จะได้สมการ 4 รูปแบบ คือ</p>
+                        <div class="formula-card">
+                            <p class="suth">v = u + at</p>
+                            <p class="suth">S = 1/2(u+v)t</p>
+                            <p class="suth">s = ut + 1/2at²</p>
+                            <p class="suth">v² = u² +2as</p>
+                        </div>
+                    </div>
+                    <a href="../Test_Setting/test_setting.html"><button id="startsetting">Start Setting</button></a>
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>

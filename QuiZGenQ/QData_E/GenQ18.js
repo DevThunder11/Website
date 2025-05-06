@@ -6,20 +6,20 @@ export function GenRandomQ18(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
+    const question_text = "ใช้ปั้นจั่นยกวัตถุมวล m กิโลกรัม ขณะวัตถุหยุดนิ่ง หลังจากนั้น 20 วินาที พบว่าวัตถุอยู่สูงจากตำแหน่งเดิม 20 เมตร และกำลังเคลื่อนที่ด้วยอัตราเร็ว u เมตรต่อวินาที กำลังของปั้นจั่นมีค่าเท่าใด".split(" ")
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let m = (getRandomIntMN(1, 20)) * 10
+    let u = (getRandomIntMN(1, 10)) * 2
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(m*(400+(u**2))/40)) {
+        m = (getRandomIntMN(1, 20)) * 10;
+        u = (getRandomIntMN(1, 10)) * 2;
         attempts++;
     }
 
@@ -40,7 +40,7 @@ export function GenRandomQ18(){
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = m*(400+(u**2))/40
     let choice = [result]
 
     // RandomAnsCode

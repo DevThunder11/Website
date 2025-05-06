@@ -6,70 +6,42 @@ export function GenRandomQ19(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "".split(" ")
-
-    // QuestionCode
-
-    let Name = namelist[getRandomInt((namelist.length)-1)]
-
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
-
-    let attempts = 0;
-
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
-        attempts++;
-    }
-
-    console.log(attempts); // Log attempts
-
-
-    for (let i = 0; i < question_text.length; i++) {
-        if (question_text[i] == "name"){
-            question_text[i] = Name
-        }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
-        }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
-        }
-    }
+    const question_text = "สปริงสองตัวมีค่าคงเป็น k₁ และ k₂ เชื่อมกันดังรูปออกแรง F ผลักให้จุดเชื่อมต่อของสปริงทั้งสองเลื่อนไปจากเดิมเป็นระยะ x ต้องทำงานเท่าไร"
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = "(1/2)x²(k₁+k₂)"
+    let WrongChoice = ["3x²","(1/2)x²(k₁+k₂)","(1/2)x²(k₁-k₂)","x²(k₁+k₂)","x²(k₁-k₂)","(1/2)x²(k₁-k₂)"]
+    
     let choice = [result]
 
-    // RandomAnsCode
-
-    let choiceAmount = 4
-
-    while (choice.length < choiceAmount) {
-        // Generate a random number to add or subtract from the correct answer
-        let randomOffset = getRandomIntMN(10, 30); // Random number between 1 and 5
-        let WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
-        
-        while (WrongChoice <= 0) {
-            randomOffset = getRandomIntMN(10, 30); // Regenerate random offset if necessary
-            WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
-        }
-    
-        if (AnsNotIn(choice, WrongChoice)) {
-            choice = [...choice, WrongChoice];
+    // Shuffle function
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
-
+    
+    // RandomAnsCode
+    while (choice.length < 4) {
+        let randomIndex = getRandomIntMN(0, WrongChoice.length - 1);
+        let selectedChoice = WrongChoice[randomIndex];
+    
+        if (selectedChoice !== result && AnsNotIn(choice, selectedChoice)) {
+            choice.push(selectedChoice);
+        }
+    }
+    
+    // Shuffle the choices before sorting
+    shuffle(choice);
+    
     // PrintCode
-
-    let questionPrint = question_text.join(" ")
+    let questionPrint = question_text
 
     choice.sort()
-    
-    for (let j = 0; j < choice.length; j++) {
 
+    for (let j = 0; j < choice.length; j++) {
         let textAns = ([j+1,choice[j]].join(") "))
 
         if (choice[j] == result){
