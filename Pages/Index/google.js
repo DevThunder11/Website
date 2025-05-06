@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then((result) => {
                     const user = result.user;
                     localStorage.setItem('loggedInUserId', user.uid);
-                    window.location.href = '../Home/home.html';
+                    window.location.replace('../Home/Home.html');
                 })
                 .catch((error) => {
                     console.error('เกิดข้อผิดพลาดในการล็อกอิน:', error);
