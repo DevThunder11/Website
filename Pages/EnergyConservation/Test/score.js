@@ -57,8 +57,8 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 
         // Update Firestore document
 
-        let questionData = userData.linear_1Data || [];
-        const currentData = userData.linear_1Current_Data || {};
+        let questionData = userData.Energy_1Data || [];
+        const currentData = userData.Energy_1Current_Data || {};
 
 
         if (questionData == undefined) {
@@ -71,12 +71,12 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
         }
 
         // Add the new data if it exists
-        if (userData.linear_1Current_Data) {
-            questionData.push(userData.linear_1Current_Data);
+        if (userData.Energy_1Current_Data) {
+            questionData.push(userData.Energy_1Current_Data);
         }
 
         await updateDoc(userDocRef, {
-            linear_1Data: questionData,
+            Energy_1Data: questionData,
         });
 
         // Redirect to test page

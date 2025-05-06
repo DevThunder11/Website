@@ -72,7 +72,7 @@ document.getElementById("startButton").addEventListener("click", async (event) =
 
         // Update Firestore document
         await updateDoc(userDocRef, {
-            linear_1Current_Data: { Question: questions, Answer: [] ,score: 0,Topic: "LinearMotion",Date: thailandDate },
+            Energy_1Current_Data: { Question: questions, Answer: [] ,score: 0,Topic: "Energy",Date: thailandDate },
         });
 
         // Delete timer old data

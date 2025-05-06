@@ -122,7 +122,7 @@ if (localStorage.getItem('from_test_setting') === 'true') {
 
 // Function to update the question and answers based on the current section
 function updateQuestionAndAnswers(userData) {
-    const questionData = userData.linear_1Current_Data.Question[section];
+    const questionData = userData.Energy_1Current_Data.Question[section];
 
     // Update the question and answer elements
     document.getElementById('Question').innerText = `${section + 1}) ${questionData.question}`;
@@ -200,7 +200,7 @@ document.getElementById('nextQbutton').addEventListener('click',()=>{
                 .then((docSnap) => {
                     if (docSnap.exists()) {
                         const userData = docSnap.data();
-                        let limit = userData.linear_1Current_Data.Question.length
+                        let limit = userData.Energy_1Current_Data.Question.length
                         if (section >= limit){
                             section = limit;
                         } 
@@ -444,12 +444,12 @@ document.getElementById('Endbutton').addEventListener('click',()=>{
             .then((docSnap) => {
                 if (docSnap.exists()) {
                     const userData = docSnap.data();
-                    let limit = userData.linear_1Current_Data.Question.length;
+                    let limit = userData.Energy_1Current_Data.Question.length;
                     let score = 0;
                     let summaryHtml = '';
                     
                     for(let i = 0; i < limit; i++){
-                        const question = userData.linear_1Current_Data.Question[i];
+                        const question = userData.Energy_1Current_Data.Question[i];
                         const userAnswer = your_answer[i];
                         const isCorrect = userAnswer > 0 && question.answers[userAnswer-1].correct;
                         if(isCorrect) score++;
@@ -465,7 +465,7 @@ document.getElementById('Endbutton').addEventListener('click',()=>{
                         `;
                     }
                     
-                    const questionData = userData.linear_1Current_Data;
+                    const questionData = userData.Energy_1Current_Data;
                     questionData.Answer = your_answer;
                     questionData.score = score;
 
@@ -475,7 +475,7 @@ document.getElementById('Endbutton').addEventListener('click',()=>{
                     localStorage.setItem('totalQuestions', limit);
 
                     updateDoc(docRef, {
-                        linear_1Current_Data: questionData
+                        Energy_1Current_Data: questionData
                     }).then(() => {
                         // Redirect to score page
                         window.location.href = 'score.html';
@@ -526,7 +526,7 @@ inputField.addEventListener('keydown', (event) => {
                 .then((docSnap) => {
                     if (docSnap.exists()) {
                         const userData = docSnap.data();
-                        let limit = userData.linear_1Current_Data.Question.length;
+                        let limit = userData.Energy_1Current_Data.Question.length;
                         const partselection = inputField.value; // Get value from the input field
 
                         // Convert input to a number
@@ -566,7 +566,7 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 
         // Update Firestore document
 
-        let questionData = userData.linear_1Data;
+        let questionData = userData.Energy_1Data;
 
 
         if (questionData == undefined) {
@@ -579,10 +579,10 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
         }
 
         // Add the new data
-        questionData.push(userData.linear_1Current_Data);
+        questionData.push(userData.Eenrgy_1Current_Data);
 
         await updateDoc(userDocRef, {
-            linear_1Data: questionData,
+            Energy_1Data: questionData,
         });
 
         // Clear the stored array when navigating away
