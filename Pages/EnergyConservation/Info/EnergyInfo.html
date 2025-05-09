@@ -1,13 +1,13 @@
 <html>
     <head>
         <title>Quiz App - GenQ</title>
-        <link rel="stylesheet" href="linearInfo.css">
+        <link rel="stylesheet" href="EnergyInfo.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
         <meta http-equiv="Content-Type" content="image/svg+xml">
-        <script src="linearInfo.js"></script>
+        <script src="EnergyInfo.js"></script>
     </head>
     <body>
         <nav class="top_bar">
@@ -23,50 +23,91 @@
         <div class="box">
             <div class="info">
                 <div style="display: flex;">
-                    <h1>การเคลื่อนที่ในแนวตรง (Rectilinear Motion)</h1>
+                    <h1>พลังงานกล แรง และกำลัง (Mechanical Energy, Force and Power)</h1>
                     <a href="#startsetting"><button class="skip">Skip to Setting</button></a>
                 </div>
                 <hr class="line">
                 <div class="concept-card">
-                    <p> <strong>การเคลื่อนที่ในแนวตรง (Rectilinear Motion)</strong> คือ การเคลื่อนที่ของวัตถุตามแนวเส้นตรงอย่างคงที่โดยไม่มีการเปลี่ยนทิศทาง เช่น ผลแอปเปิ้ลที่ร่วงลงสู่พื้นดิน, รถไฟที่วิ่งไปตามราง เป็นต้น </p>
+                    <p><strong>พลังงานกล (Mechanical Energy)</strong> คือ พลังงานที่เกี่ยวข้องกับการเคลื่อนที่และตำแหน่งของวัตถุ ประกอบด้วยพลังงานศักย์และพลังงานจลน์</p>
                     <div class="image-container" style="text-align: center;">
-                        <img src="../../../Picture/linear_motion_1d.svg" alt="การเคลื่อนที่ในแนวตรง" style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
-                        <p style="margin-top: 10px; font-style: italic;">ภาพแสดงการเคลื่อนที่ในแนวเส้นตรงแบบหนึ่งมิติ: วัตถุ (สีแดง) เคลื่อนที่จากจุด A ไปยังจุด B ในแนวเส้นตรง โดยมีระยะทาง s และใช้เวลา t ในการเคลื่อนที่ ลูกศรแสดงทิศทางการเคลื่อนที่</p>
+                        <img src="../../../Picture/mechanical_energy.png" alt="พลังงานกล" style="width: 100%; max-width: 800px; margin: 20px auto; display: block;">
+                        <p style="margin-top: 10px; font-style: italic;">ภาพแสดงการเปลี่ยนรูประหว่างพลังงานศักย์และพลังงานจลน์ในการเคลื่อนที่ของลูกตุ้ม</p>
                     </div>
-                    <p>การเคลื่อนที่ในแนวตรง แบ่งเป็น 2 ประเภท ได้แก่</p>
+                    <p>พลังงานกลแบ่งออกเป็น 2 ประเภท:</p>
                     <ul style="list-style-type: disc; margin-left: 20px;">
-                        <li>การเคลื่อนที่เป็นเส้นตรงในแนวราบ</li>
-                        <li>การเคลื่อนที่ในแนวดิ่งภายใต้ความเร่งโน้มถ่วง</li>
+                        <li>พลังงานศักย์ (Potential Energy)</li>
+                        <li>พลังงานจลน์ (Kinetic Energy)</li>
                     </ul>
-                    <p>โดยมีปริมาณที่เกี่ยวข้องกับการเคลื่อนที่ในแนวตรง ได้แก่</p>
-                    <div class="concept-list">
-                        <div class="concept-item">ระยะทาง (Distance)</div>
-                        <div class="concept-item">การกระจัด (Displacement)</div>
-                        <div class="concept-item">อัตราเร็ว (Speed)</div>
-                        <div class="concept-item">ความเร็ว (Velocity)</div>
-                        <div class="concept-item">ความเร่ง (Acceleration)</div>
+                </div>
+                <div class="concept-card">
+                    <h1>1. พลังงานศักย์ (Potential Energy)</h1>
+                    <p>พลังงานศักย์โน้มถ่วง คือ พลังงานที่สะสมในวัตถุเนื่องจากตำแหน่งหรือระดับความสูงของวัตถุ คำนวณได้จากสมการ:</p>
+                    <div class="formula-card">
+                        <p class="suth">EP = mgh</p>
+                        <p>เมื่อ:</p>
+                        <ul>
+                            <li>EP คือ พลังงานศักย์โน้มถ่วง (จูล, J)</li>
+                            <li>m คือ มวลของวัตถุ (กิโลกรัม, kg)</li>
+                            <li>g คือ ความเร่งเนื่องจากแรงโน้มถ่วง (9.8 m/s²)</li>
+                            <li>h คือ ความสูงจากระดับอ้างอิง (เมตร, m)</li>
+                        </ul>
                     </div>
                 </div>
-                    <div class="concept-card">
-                        <h1>1. การเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร็วคงตัว</h1>
-                        <p>ถ้าวัตถุเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร็วคงตัว v โดยเคลื่อนที่ไปเป็นระยะกระจัด s เป็นความเร็วปลาย v ในช่วงเวลา t จะได้สมการ</p>
-                        <div class="formula-card">
-                            <p class="suth">s = vt</p>
-                        </div>
+                <div class="concept-card">
+                    <h1>2. พลังงานจลน์ (Kinetic Energy)</h1>
+                    <p>พลังงานจลน์ คือ พลังงานที่วัตถุมีเนื่องจากการเคลื่อนที่ คำนวณได้จากสมการ:</p>
+                    <div class="formula-card">
+                        <p class="suth">EK = ½mv²</p>
+                        <p>เมื่อ:</p>
+                        <ul>
+                            <li>EK คือ พลังงานจลน์ (จูล, J)</li>
+                            <li>m คือ มวลของวัตถุ (กิโลกรัม, kg)</li>
+                            <li>v คือ ความเร็วของวัตถุ (เมตรต่อวินาที, m/s)</li>
+                        </ul>
                     </div>
-                    <div class="concept-card">
-                        <h1>2. การเคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร่งคงตัว</h1>
-                        <p>ถ้าวัตถุที่เคลื่อนที่เป็นเส้นตรงในแนวราบด้วยความเร่งคงตัว a ความเร็วของวัตถุเปลี่ยนจากความเร็วต้น u ในช่วงเวลา t และเคลื่อนที่ไปได้ระยะทาง s จะได้สมการ 4 รูปแบบ คือ</p>
-                        <div class="formula-card">
-                            <p class="suth">v = u + at</p>
-                            <p class="suth">S = 1/2(u+v)t</p>
-                            <p class="suth">s = ut + 1/2at²</p>
-                            <p class="suth">v² = u² +2as</p>
-                        </div>
-                    </div>
-                    <a href="../Test_Setting/test_setting.html"><button id="startsetting">Start Setting</button></a>
                 </div>
-            </div> 
+                <div class="concept-card">
+                    <h1>3. แรง (Force)</h1>
+                    <p>แรง คือ ปริมาณที่ทำให้วัตถุเปลี่ยนแปลงสภาพการเคลื่อนที่หรือเปลี่ยนรูปร่าง มีหน่วยเป็นนิวตัน (N)</p>
+                    <p>ตามกฎข้อที่สองของนิวตัน:</p>
+                    <div class="formula-card">
+                        <p class="suth">F = ma</p>
+                        <p>เมื่อ:</p>
+                        <ul>
+                            <li>F คือ แรง (นิวตัน, N)</li>
+                            <li>m คือ มวล (กิโลกรัม, kg)</li>
+                            <li>a คือ ความเร่ง (เมตรต่อวินาทีกำลังสอง, m/s²)</li>
+                        </ul>
+                    </div>
+                    <p>และงานที่เกิดจากแรงคงที่:</p>
+                    <div class="formula-card">
+                        <p class="suth">W = Fs cosθ</p>
+                        <p>เมื่อ:</p>
+                        <ul>
+                            <li>W คือ งาน (จูล, J)</li>
+                            <li>F คือ แรง (นิวตัน, N)</li>
+                            <li>s คือ ระยะทางที่วัตถุเคลื่อนที่ (เมตร, m)</li>
+                            <li>θ คือ มุมระหว่างทิศของแรงและการกระจัด (องศา)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="concept-card">
+                    <h1>4. กำลัง (Power)</h1>
+                    <p>กำลัง คือ อัตราการทำงานหรืออัตราการใช้พลังงานต่อหน่วยเวลา มีหน่วยเป็นวัตต์ (W)</p>
+                    <div class="formula-card">
+                        <p class="suth">P = W/t = Fv</p>
+                        <p>เมื่อ:</p>
+                        <ul>
+                            <li>P คือ กำลัง (วัตต์, W)</li>
+                            <li>W คือ งาน (จูล, J)</li>
+                            <li>t คือ เวลา (วินาที, s)</li>
+                            <li>F คือ แรง (นิวตัน, N)</li>
+                            <li>v คือ ความเร็ว (เมตรต่อวินาที, m/s)</li>
+                        </ul>
+                    </div>
+                </div>
+                <a href="../Test_Setting/test_setting.html"><button id="startsetting">Start Setting</button></a>
+            </div>
         </div>
     </body>
 </html>

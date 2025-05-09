@@ -300,6 +300,7 @@ body.dark-mode {
 }
 
 
+
 /* Custom Scrollbar Styles */
 .summary-container::-webkit-scrollbar {
     width: 12px; /* ความกว้างของ scrollbar */
@@ -311,11 +312,24 @@ body.dark-mode {
 }
 
 .summary-container::-webkit-scrollbar-thumb {
-    background-color: #000000; /* สีของ scrollbar */
+    background-color: #838383; /* สีของ scrollbar */
     border-radius: 10px; /* มุมโค้งของ scrollbar */
     border: 3px solid #f1f1f1; /* ขอบของ scrollbar */
 }
 
 .summary-container::-webkit-scrollbar-thumb:hover {
-    background-color: #000000; /* สีของ scrollbar เมื่อ hover */
+    background-color: #585858; /* สีของ scrollbar เมื่อ hover */
 }
+/*darkmode scrolling*/
+
+.dark-mode .summary-container::-webkit-scrollbar {
+    width: 12px; /* ความกว้างของ scrollbar */
+}
+.dark-mode.summary-container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* สีพื้นหลังของ track */
+    border-radius: 10px; /* มุมโค้งของ track */
+}
+.dark-mode .summary-container::-webkit-scrollbar-thumb:hover {
+    background-color: #323232; /* สีของ scrollbar เมื่อ hover */
+}
+
