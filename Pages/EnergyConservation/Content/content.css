@@ -214,3 +214,174 @@ body.dark-mode {
 .dark-mode .nav-button:hover {
     background-color: #1a5980;
 }
+
+.key-points h3 {
+    color: #222222;
+    margin-bottom: 15px;    
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* Dark Mode */
+.dark-mode .key-points h3 {
+    color: #87c3ff;
+}
+
+/* สไตล์สำหรับพลังงานประเภทต่างๆ */
+.energy-type {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #68abc4;
+    transition: all 0.3s ease;
+}
+
+.energy-type:hover {
+    background-color: #f1f3f5;
+    transform: translateX(5px);
+}
+
+.energy-type h3 {
+    color: #357a9e;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.energy-type p {
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.energy-type ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.energy-type li {
+    color: #666666;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.energy-type li:before {
+    content: "•";
+    color: #68abc4;
+    position: absolute;
+    left: 0;
+}
+
+/* สไตล์สำหรับส่วนสูตรและการคำนวณ */
+.formula-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #68abc4;
+}
+
+.formula-section h3 {
+    color: #357a9e;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.formula-section p {
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.formula {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.formula p {
+    color: #357a9e;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.formula ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.formula li {
+    color: #666666;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.formula li:before {
+    content: "•";
+    color: #68abc4;
+    position: absolute;
+    left: 0;
+}
+
+/* Dark Mode */
+.dark-mode .energy-type,
+.dark-mode .formula-section {
+    background-color: #292929;
+    border-left-color: #549abd;
+}
+
+.dark-mode .energy-type:hover {
+    background-color: #333333;
+}
+
+.dark-mode .energy-type h3,
+.dark-mode .formula-section h3 {
+    color: #7ed6df;
+}
+
+.dark-mode .energy-type p,
+.dark-mode .energy-type li,
+.dark-mode .formula-section p,
+.dark-mode .formula li {
+    color: #cccccc;
+}
+
+.dark-mode .formula {
+    background-color: #333333;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.dark-mode .formula p {
+    color: #7ed6df;
+}
+
+.dark-mode .energy-type li:before,
+.dark-mode .formula li:before {
+    color: #549abd;
+}
+
+.energy-subsection h3 {
+    color: #3373ae;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+/* Dark Mode */
+.dark-mode .energy-subsection h3 {
+    color: #7ed6df;
+}
+.dark-mode .example-problem h3{
+    color: #7ed6df;
+}
+.formula h4{
+    color: #549abd;
+}
+.dark-mode .formula h4{
+    color: #d2ddde;
+}
