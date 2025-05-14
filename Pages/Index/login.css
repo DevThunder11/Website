@@ -189,10 +189,7 @@ button:hover{
     animation: fadeOut 7s forwards;
 }
 .google-signin-btn {
-<<<<<<< HEAD
     display: flex;
-=======
->>>>>>> 79365f4cab472f2cb12cae61b7a4ea8b5d529f67
     align-items: center;
     justify-content: center;
     gap: 12px;
