@@ -2,6 +2,7 @@ const signUpButton=document.getElementById('signUpButton');
 const signInButton=document.getElementById('signInButton');
 const signInForm=document.getElementById('signIn');
 const signUpForm=document.getElementById('signup');
+const googleSignInButton=document.getElementById('googleSignInButton');
 
 signUpButton.addEventListener('click',function(){
     signInForm.style.display="none";
@@ -10,4 +11,7 @@ signUpButton.addEventListener('click',function(){
 signInButton.addEventListener('click', function(){
     signInForm.style.display="block";
     signUpForm.style.display="none";
+})
+googleSignInButton.addEventListener('click', function(){
+    window.location.href="google.html";
 })

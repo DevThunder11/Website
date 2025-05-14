@@ -193,6 +193,58 @@ button:hover{
     height: 90%;
     margin-left: 5%;
 }
+.score_container {
+    width: 90%;
+    margin: 2.5% auto;
+    padding: 20px;
+    background-color: #ececec;
+    border-radius: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px auto;
+    background: linear-gradient(to right, #549abd, #68abc4);
+    padding: 4px;
+    border-radius: 30px;
+    width: 80%;
+}
+
+.connect-button {
+    font-family: 'Kanit', sans-serif;
+    font-size: 1.2rem;
+    padding: 15px 225px;
+    border: none;
+    background: #68abc4;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    position: relative;
+}
+
+.connect-button:hover {
+    background: linear-gradient(to right, #5c9cbc, #5a96ab);
+}
+
+.connect-button:first-child {
+    border-top-left-radius: 23px;
+    border-bottom-left-radius: 23px;
+}
+
+.connect-button:last-child {
+    border-top-right-radius: 23px;
+    border-bottom-right-radius: 23px;
+}
+
+.connect-button:not(:last-child) {
+    margin-right: 5px;
+}
   /* graph development */
 
 /* Dark Mode Styles */

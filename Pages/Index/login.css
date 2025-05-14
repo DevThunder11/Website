@@ -189,17 +189,6 @@ button:hover{
     animation: fadeOut 7s forwards;
 }
 .google-signin-btn {
-    /* display: flex;
-    gap: 10px;
-    width: 100%;
-    padding: 12px 20px;
-    background-color: #ffffff;
-    border: 1px solid #dadce0;
-    border-radius: 25px;
-    color: #3c4043;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease; */
     align-items: center;
     justify-content: center;
     font-size:1.1rem;
@@ -226,4 +215,3 @@ button:hover{
     color: #4a90a8;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
