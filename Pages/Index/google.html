@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Google Sign-In</title>
+  <!-- Font Awesome สำหรับ icon Google -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <!-- CSS ของหน้า Google -->
+  <link rel="stylesheet" href="google.css"/>
+  <!-- Firebase init (export app, auth, db) -->
+  <script type="module" src="firebase-init.js"></script>
+  <!-- JS สำหรับ flow Google -->
+  <script type="module" src="google.js"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="googleSignInButton" class="google-btn">
+      <i class="fab fa-google"></i>
+      <span>Sign in with Google</span>
+    </button>
+  </div>
+
+  <!-- Modal ขอรหัสผ่าน (ถ้าจำเป็นต้องผูกบัญชี) -->
+  <div id="pw-modal" class="modal">
+    <div class="modal-content">
+      <h3>กรุณากรอกรหัสผ่านเดิม</h3>
+      <input type="password" id="pw-input" placeholder="รหัสผ่านเก่า" />
+      <button id="pw-confirm-btn">ยืนยัน</button>
+    </div>
+  </div>
+</body>
+</html>

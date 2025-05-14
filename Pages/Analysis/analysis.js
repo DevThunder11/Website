@@ -139,17 +139,18 @@ if (loggedInUserId) {
                 const userData = docSnap.data();
                 console.log("User Data from Firestore:", userData); // Debug Firestore data
 
-                let length = userData.linear_1Data?.length || 0; // ✅ Prevent errors
+                let length = userData.linear_1Data?.length || 0;
+                let Energy_length = userData.Energy_1Data?.length || 0; // ✅ Prevent errors
                 console.log("Length of linear_1Data:", length);
 
                 function generateDivs() {
-                    const container = document.getElementById("container");
-                    if (!container) {
+                    const linear_container = document.getElementById("linear_container");
+                    if (!linear_container) {
                         console.error("Container element not found in the HTML!");
                         return;
                     }
 
-                    container.innerHTML = ""; // Clear previous divs
+                    linear_container.innerHTML = ""; // Clear previous divs
 
                     for (let i = 0; i < length; i++) {
 
@@ -169,7 +170,7 @@ if (loggedInUserId) {
                 
                         outerDiv.appendChild(inner_Text);
                         outerDiv.appendChild(inner_button);
-                        container.appendChild(outerDiv);
+                        linear_container.appendChild(outerDiv);
                         ///Auth get scored and date//
                         let score = userData.linear_1Data[number].score;
                         let full_score = userData.linear_1Data[number].Question.length;
@@ -310,8 +311,8 @@ const observer_outer_div = new MutationObserver(() => {
 });
 
 // Start observing changes in the container
-observer_button.observe(document.getElementById("container"), { childList: true, subtree: true });
+observer_button.observe(document.getElementById("linear_container"), { childList: true, subtree: true });
 
 // Start observing changes in the container
-observer_outer_div.observe(document.getElementById("container"), { childList: true, subtree: true });
+observer_outer_div.observe(document.getElementById("linear_container"), { childList: true, subtree: true });
 

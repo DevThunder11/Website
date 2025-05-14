@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Kanit&subset=thai,latin' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400..700&display=swap" rel="stylesheet">
-    <script src="analysis.js"></script>
+    <script type="module" src="analysis.js"></script>
 </head>
 <body class="background" style="visibility: hidden;">
 <div id="loader" class="loader"></div>
@@ -45,6 +45,13 @@
             </div>
         </div>
     </div>
-    <div id="container"></div>
+    <div class="score_container">  
+        <div class="button-container">
+            <button id="linearButton" class="connect-button">Linear</button>
+            <button id="energyButton" class="connect-button">Energy</button>
+        </div>
+        <div id="linear_container"></div>
+        <div id="energy_container" style="display: none;"></div>
+    </div>
 </body>
 </html>
