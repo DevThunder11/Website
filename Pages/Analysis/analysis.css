@@ -116,7 +116,7 @@
     font-size: 40;
     margin-top: 50px;
 }
-button{
+.linear_container button .energy_container button {
     font-size: 1rem;
     margin-top: 0.5rem;
     padding: 10px 0;
@@ -128,7 +128,7 @@ button{
     color: white;
     margin-left: 46%;
 }
-button:hover{
+.linear_container button:hover .energy_container button:hover{
     background: #5a96ab;
 }
 .topic{
@@ -207,17 +207,16 @@ button:hover{
     display: flex;
     justify-content: center;
     margin: 15px auto;
-    background: linear-gradient(to right, #549abd, #68abc4);
+    background: #ececec;
     padding: 4px;
     border-radius: 30px;
     width: 80%;
 }
 
-.connect-button {
+.button-container button  {
     font-family: 'Kanit', sans-serif;
     font-size: 1.2rem;
     padding: 15px 225px;
-    border: none;
     background: #68abc4;
     color: white;
     cursor: pointer;
@@ -228,24 +227,19 @@ button:hover{
     letter-spacing: 0.5px;
     font-weight: 500;
     position: relative;
+    border: none;
 }
 
-.connect-button:hover {
+.button-container button:hover {
     background: linear-gradient(to right, #5c9cbc, #5a96ab);
 }
-
-.connect-button:first-child {
-    border-top-left-radius: 23px;
-    border-bottom-left-radius: 23px;
+.LB{
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
 }
-
-.connect-button:last-child {
-    border-top-right-radius: 23px;
-    border-bottom-right-radius: 23px;
-}
-
-.connect-button:not(:last-child) {
-    margin-right: 5px;
+.EB{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
   /* graph development */
 
@@ -255,34 +249,16 @@ button:hover{
     box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
 }
 
-.dark-mode .connect-button {
+.dark-mode .button-container button {
     background: #3d3d3d;
     color: #ffffff;
     border: 1px solid #4d4d4d;
 }
 
-.dark-mode .connect-button:hover {
+.dark-mode .button-container button:hover {
     background: #4d4d4d;
     border-color: #549abd;
     box-shadow: 0 0 10px rgba(84, 154, 189, 0.3);
-}
-
-.connect-button:hover {
-    background: linear-gradient(to right, #5c9cbc, #5a96ab);
-}
-
-.connect-button:first-child {
-    border-top-left-radius: 23px;
-    border-bottom-left-radius: 23px;
-}
-
-.connect-button:last-child {
-    border-top-right-radius: 23px;
-    border-bottom-right-radius: 23px;
-}
-
-.connect-button:not(:last-child) {
-    margin-right: 5px;
 }
   /* graph development */
 
@@ -447,4 +423,10 @@ body.dark-mode {
     box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
     border: 1px solid #3d3d3d;
     color: #ffffff;
+}
+.button-container button.active {
+    outline: 3px solid #4489a2;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 2px #68abc4;
+    z-index: 1;
 }

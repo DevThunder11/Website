@@ -140,17 +140,23 @@ if (loggedInUserId) {
                 console.log("User Data from Firestore:", userData); // Debug Firestore data
 
                 let length = userData.linear_1Data?.length || 0;
-                let Energy_length = userData.Energy_1Data?.length || 0; // ✅ Prevent errors
+                let energy_length = userData.Energy_1Data?.length || 0;
                 console.log("Length of linear_1Data:", length);
 
                 function generateDivs() {
                     const linear_container = document.getElementById("linear_container");
+                    const energy_container = document.getElementById("energy_container");
                     if (!linear_container) {
+                        console.error("Container element not found in the HTML!");
+                        return;
+                    }
+                    if (!energy_container) {
                         console.error("Container element not found in the HTML!");
                         return;
                     }
 
                     linear_container.innerHTML = ""; // Clear previous divs
+                    energy_container.innerHTML = ""; // Clear previous divs
 
                     for (let i = 0; i < length; i++) {
 
@@ -186,6 +192,41 @@ if (loggedInUserId) {
                         console.log(chartOptions.series[0].data)
                         ///End///
                     }
+                    for (let i = 0; i < energy_length; i++) {
+
+                      let current_length = i + 1;
+                      let outerDiv = document.createElement("div");
+                      outerDiv.className = "outer-div";
+                      let number = i;
+              
+                      let inner_Text = document.createElement("span");
+                      inner_Text.className = "inner-text";
+                      const thailandDate = userData.Energy_1Data[number].Date;
+                      inner_Text.innerText = `${current_length}. Energy Conservation (${thailandDate})`;
+
+                      let inner_button = document.createElement("button");
+                      inner_button.className = "inner-button";
+                      inner_button.id = `inner_button_${i}`
+              
+                      outerDiv.appendChild(inner_Text);
+                      outerDiv.appendChild(inner_button);
+                      energy_container.appendChild(outerDiv);
+                      ///Auth get scored and date//
+                      let score = userData.Energy_1Data[number].score;
+                      let full_score = userData.Energy_1Data[number].Question.length;
+                      inner_button.innerText = `${score} / ${full_score}`;
+                      
+                      // graph
+                      let percent = ((score/full_score)*100).toFixed(2)
+                      console.log(percent)
+
+                      chartOptions.series[1].data.push(parseFloat(percent));
+
+                      // graph
+                      console.log(chartOptions.series[1].data)
+                      ///End///
+                    }
+
                     //Average
                     function calculateAverage(dataArray) {
                       if (dataArray.length === 0) return 0; // Handle empty array case
@@ -194,23 +235,23 @@ if (loggedInUserId) {
                       let average = sum / dataArray.length;
                       return average;
                     }
-                    let averagePercent = calculateAverage(chartOptions.series[0].data);
+                    let averagePercent_linear = calculateAverage(chartOptions.series[0].data);
                     // console.log("Average Percent:", averagePercent);
                     
-                    document.getElementById("average").innerText = `${averagePercent.toFixed(2)}%`;
-                    if (averagePercent >= 80) {
+                    document.getElementById("average").innerText = `${averagePercent_linear.toFixed(2)}%`;
+                    if (averagePercent_linear >= 80) {
                       document.getElementById("average").style.color = "#90D5FF";
                       document.getElementById("standard").innerText = "ผลการเรียนยอดเยี่ยม";
                       document.getElementById("analysis_text").innerText = "จากผลการทดสอบ ค่าเฉลี่ยของคุณอยู่ในช่วง 80-100% ซึ่งแสดงให้เห็นถึงความเป็นเลิศในการเข้าใจและประยุกต์ใช้เนื้อหาอย่างยอดเยี่ยม ขอแสดงความยินดีในความสำเร็จและความทุ่มเทที่คุณมีต่อการเรียนรู้ พร้อมทั้งขอให้คุณรักษามาตรฐานนี้ไว้และมองหาความท้าทายใหม่ ๆ เพื่อก้าวหน้าต่อไป";
-                    } else if (averagePercent >= 60) {
+                    } else if (averagePercent_linear >= 60) {
                       document.getElementById("average").style.color = "#008000";
                       document.getElementById("standard").innerText = "ผลการเรียนที่ดี";
                       document.getElementById("analysis_text").innerText = "ผลการทดสอบที่ได้แสดงให้เห็นว่าค่าเฉลี่ยอยู่ในช่วง 60-80% ซึ่งบ่งบอกถึงความพยายามและความเข้าใจในเนื้อหาที่ดี คุณมีพื้นฐานที่มั่นคงและสามารถประยุกต์ใช้ความรู้ได้อย่างเหมาะสม ขอให้รักษามาตรฐานนี้ไว้และมองหาวิธีการพัฒนาเพิ่มเติมเพื่อเสริมสร้างความรู้ในระดับที่สูงขึ้น";
-                    } else if (averagePercent >= 40) {
+                    } else if (averagePercent_linear >= 40) {
                       document.getElementById("average").style.color = "#FFFF00";
                       document.getElementById("standard").innerText = "ผลการเรียนระดับปานกลาง";
                       document.getElementById("analysis_text").innerText = "ค่าเฉลี่ยในช่วง 40-60%สะท้อนให้เห็นว่าคุณมีพื้นฐานความรู้ที่ค่อนข้างมั่นคง แต่ยังมีช่องว่างในการพัฒนาเพิ่มเติม ขอให้พยายามทบทวนเนื้อหาที่มีความซับซ้อนและปรับปรุงเทคนิคการเรียนรู้ เพื่อให้ผลการทดสอบในครั้งต่อไปมีแนวโน้มที่ดีขึ้น";
-                    } else if (averagePercent >= 20) {
+                    } else if (averagePercent_linear >= 20) {
                       document.getElementById("average").style.color = "#FF5733";
                       document.getElementById("standard").innerText = "ยังต้องปรับปรุงและพัฒนาความรู้เพิ่มเติม";
                       document.getElementById("analysis_text").innerText = "ผลการทดสอบที่ได้แสดงให้เห็นว่าค่าเฉลี่ยอยู่ในช่วง 20-40% ซึ่งหมายความว่ายังมีพื้นที่ให้พัฒนาอย่างมากในด้านความเข้าใจเนื้อหา ขอให้คุณทบทวนและฝึกฝนในส่วนที่ยังไม่ชัดเจนอย่างต่อเนื่อง และไม่ลังเลที่จะขอคำแนะนำหรือความช่วยเหลือจากผู้เชี่ยวชาญเพื่อก้าวข้ามความท้าทายนี้";
@@ -312,7 +353,22 @@ const observer_outer_div = new MutationObserver(() => {
 
 // Start observing changes in the container
 observer_button.observe(document.getElementById("linear_container"), { childList: true, subtree: true });
+observer_button.observe(document.getElementById("energy_container"), { childList: true, subtree: true });
 
 // Start observing changes in the container
 observer_outer_div.observe(document.getElementById("linear_container"), { childList: true, subtree: true });
+observer_outer_div.observe(document.getElementById("energy_container"), { childList: true, subtree: true });
 
+document.getElementById('linearButton').addEventListener('click', function() {
+  document.getElementById('linear_container').style.display = 'block';
+  document.getElementById('energy_container').style.display = 'none';
+  this.classList.add('active');
+  document.getElementById('energyButton').classList.remove('active');
+});
+
+document.getElementById('energyButton').addEventListener('click', function() {
+  document.getElementById('linear_container').style.display = 'none';
+  document.getElementById('energy_container').style.display = 'block';
+  this.classList.add('active');
+  document.getElementById('linearButton').classList.remove('active');
+});
