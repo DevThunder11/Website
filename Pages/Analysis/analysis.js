@@ -206,7 +206,7 @@ if (loggedInUserId) {
 
                       let inner_button = document.createElement("button");
                       inner_button.className = "inner-button";
-                      inner_button.id = `inner_button_${i}`
+                      inner_button.id = `inner_button_2${i}`
               
                       outerDiv.appendChild(inner_Text);
                       outerDiv.appendChild(inner_button);
@@ -289,10 +289,24 @@ const observer_button = new MutationObserver(() => {
             button.addEventListener("click", () => {
                 console.log("Button clicked:", i);
                 localStorage.setItem('selectedTestIndex', i);
-                window.location.href = '../Test_Analysis/test_analysis.html';
+                window.location.href = '../Test_Analysis_linear/test_analysis_linear.html';
             });
         }
     }
+});
+
+const observer_button_energy = new MutationObserver(() => {
+  for (let i = 0; i < 10; i++) {
+      let button = document.getElementById(`inner_button_2${i}`);
+      if (button && !button.dataset.listener) {  // Avoid duplicate listeners
+          button.dataset.listener = "true";
+          button.addEventListener("click", () => {
+              console.log("Button clicked:", i);
+              localStorage.setItem('selectedTestIndex', i);
+              window.location.href = '../Test_Analysis_energy/test_analysis_energy.html';
+          });
+      }
+  }
 });
 const observer_outer_div = new MutationObserver(() => {
     const outerDivs = document.querySelectorAll('.outer-div');
@@ -353,7 +367,7 @@ const observer_outer_div = new MutationObserver(() => {
 
 // Start observing changes in the container
 observer_button.observe(document.getElementById("linear_container"), { childList: true, subtree: true });
-observer_button.observe(document.getElementById("energy_container"), { childList: true, subtree: true });
+observer_button_energy.observe(document.getElementById("energy_container"), { childList: true, subtree: true });
 
 // Start observing changes in the container
 observer_outer_div.observe(document.getElementById("linear_container"), { childList: true, subtree: true });

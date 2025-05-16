@@ -2,7 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
 import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import {explanation} from "/Pages/Test_Analysis/explanation.js"
+import {explanation} from "/Pages/Test_Analysis_linear/explanation_linear.js"
 
 // Loader functionality
 document.addEventListener('DOMContentLoaded', function() {
