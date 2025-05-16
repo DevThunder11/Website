@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((docSnap) => {
             if (docSnap.exists()) {
                 const userData = docSnap.data();
-                const testData = userData.linear_1Data[selectedTestIndex];
+                const testData = userData.Energy_1Data[selectedTestIndex];
                 
                 // Display test details
                 const testDateElement = document.getElementById('test-date');

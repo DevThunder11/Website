@@ -40,7 +40,7 @@ export function GenRandomQ10(){
 
     // Anscode
 
-    let result = m*h/5
+    let result = m*h*20/0.01
     let choice = [result]
 
     // RandomAnsCode
