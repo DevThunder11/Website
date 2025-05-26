@@ -589,7 +589,7 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
         localStorage.removeItem('your_answer');
 
         // Redirect to test page
-        window.location.href = "../../Home/Home.html";
+        window.location.replace = "../../Home/Home.html";
     } catch (error) {
         console.error("Error updating user info: ", error);
         alert("Failed to update number of questions. Please try again.");
@@ -598,7 +598,7 @@ document.getElementById('confirm').addEventListener("click", async (event) => {
 
 document.getElementById('cancle').addEventListener("click", () => {
     // No need to clear localStorage for your_answer as we're not using it anymore
-    window.location.href = "Home.html";
+    window.location.replace = "Home.html";
 });
 function updateDarkMode() {
     const isDarkMode = localStorage.getItem('darkMode') === 'true';

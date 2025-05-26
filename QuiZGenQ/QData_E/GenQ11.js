@@ -6,19 +6,19 @@ export function GenRandomQ11(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "จากรูป วัตถุเคลื่อนตามรางโค้ง รัศมี R ถ้าวัตถุหยุดนิ่งอยู่ที่ A และไถลลงมาถึงจุด B เกิดงานเนื่องจากความฝืดระหว่างพื้นกับวัตถุ 2.75 จูล จงหาความเร็วของวัตถุที่จุด B เป็นเมตรต่อวินาที กำหนด R = 1 เมตร และวัตถุมวล = m กิโลกรัม".split(" "); // Question text for Q11
+    const question_text = "จากรูป วัตถุเคลื่อนตามรางโค้ง รัศมี R ถ้าวัตถุหยุดนิ่งอยู่ที่ A และไถลลงมาถึงจุด B เกิดงานเนื่องจากความฝืดระหว่างพื้นกับวัตถุ w จูล จงหาความเร็วของวัตถุที่จุด B เป็นเมตรต่อวินาที กำหนด R = 1 เมตร และวัตถุมวล = m กิโลกรัม".split(" "); // Question text for Q11
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let w = (getRandomIntMN(5, 20))
+    let m = (getRandomIntMN(5, 10))
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger((20-(w/m))**(1/2))) {
+        w = (getRandomIntMN(5, 20));
+        m = (getRandomIntMN(5, 10));
         attempts++;
     }
 
@@ -29,17 +29,17 @@ export function GenRandomQ11(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "w"){
+            question_text[i] = w
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = (20-(w/m))**(1/2)
     let choice = [result]
 
     // RandomAnsCode

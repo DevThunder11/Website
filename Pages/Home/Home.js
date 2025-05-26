@@ -66,11 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch((error) => {
             console.log("Error getting document");
-            toggleLoader(false);
         });
     } else {
         console.log("User Id not Found in Local storage");
-        toggleLoader(false);
     }
 });
 
