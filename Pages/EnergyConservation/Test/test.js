@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(function() {
     document.getElementById('loader').style.display = 'none';
     document.body.style.visibility = 'visible';
-  }, 1500);
+  }, 2500);
 });
 
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-analytics.js";
@@ -132,11 +132,47 @@ function updateQuestionAndAnswers(userData) {
     document.getElementById('Ans4').innerText = questionData.answers[3].text;
     makeItDarker()
     TopQuestion()
+    ShowPicture()
 
     console.log("section:",section)
 }
 
+function ShowPicture(){
+    const loggedInUserId = localStorage.getItem('loggedInUserId');
 
+    if (loggedInUserId) {
+        const docRef = doc(db, "users", loggedInUserId);
+
+        getDoc(docRef)
+            .then((docSnap) => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    const questionData = userData.Energy_1Current_Data.Question[section];
+                    let template_num = questionData.template;
+                    let image_div = document.getElementById('Question_Image');
+                    let picture_div = document.getElementById('Picture_div');
+                    console.log(template_num)
+                    if (template_num == "Q11"){
+                        picture_div.style.display = "flex";
+                        image_div.style.display = "flex";
+                        image_div.src = '../../../Picture/Test_Picture/Question_11.png';
+                    }
+                    else{
+                        image_div.style.display = "none";
+                        picture_div.style.display = "none";
+                    }
+                    // Load the first question
+                } else {
+                    console.error("No document found matching the user ID.");
+                }
+            })
+            .catch((error) => {
+                console.error("Error fetching document:", error);
+            });
+    } else {
+        console.error("User ID not found in localStorage.");
+    }
+}
 
 // Firebase Authentication listener
 onAuthStateChanged(auth, (user) => {
@@ -617,3 +653,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+

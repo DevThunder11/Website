@@ -6,20 +6,22 @@ export function GenRandomQ13(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "วัตถุมวล m กิโลกรัม เคลื่อนที่ลงมาตามพื้นเอียงที่มีความฝืด ณ จุดที่สูงจากพื้น 4 เมตร วัตถุมีอัตราเร็ว u เมตร/วินาที เมื่อถึงจุดพื้นผิว ยังมีความเร็วเท่าเดิม จงหางานที่เนื่องจากความฝืดระหว่างเส้นสองจะมีค่าเป็นกี่จูล".split(" "); // Question text for Q13
+    const question_text = "วัตถุมวล m กิโลกรัม เคลื่อนที่ลงมาตามพื้นเอียงที่มีความฝืด ณ จุดที่สูงจากพื้น h เมตร วัตถุมีอัตราเร็ว u เมตร/วินาที เมื่อถึงจุดพื้นผิว ยังมีความเร็วเท่าเดิม จงหางานที่เนื่องจากความฝืดระหว่างเส้นสองจะมีค่าเป็นกี่จูล".split(" "); // Question text for Q13
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
     let m = (getRandomIntMN(1, 10)) * 2;
-    let u = (getRandomIntMN(5, 20)) * 2
+    let u = (getRandomIntMN(5, 20)) * 2;
+    let h = (getRandomIntMN(5, 20));
 
     let attempts = 0;
 
-    while (!Number.isInteger(m*10*h)) {
+    while (!Number.isInteger(m*10*4)) {
         m = (getRandomIntMN(1, 10)) * 2;
-        u = (getRandomIntMN(5, 20)) * 2
+        u = (getRandomIntMN(5, 20)) * 2;
+        h = (getRandomIntMN(5, 20));
         attempts++;
     }
 
@@ -36,11 +38,14 @@ export function GenRandomQ13(){
         else if (question_text[i] == "u"){
             question_text[i] = u
         }
+        else if (question_text[i] == "h"){
+            question_text[i] = h
+        }
     }
 
     // Anscode
 
-    let result = m*10*h
+    let result = m*10*4
     let choice = [result]
 
     // RandomAnsCode

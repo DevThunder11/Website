@@ -6,7 +6,7 @@ export function GenRandomQ10(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "กดมวล m กิโลกรัม บนสปริงซึ่งตั้งในแนวดิ่ง ให้สปริงยุบตัวลงไป 10 เซนติเมตร จากนันก็ปล่อยปรากฎว่ามวลถูกดีดให้ลอยสูงขึ้นเป็นระยะ h เซนติเมตรจากจุดที่ปล่อย จงหาค่าคงตัวของสปริง".split(" ")
+    const question_text = "กดมวล m กิโลกรัม บนสปริงซึ่งตั้งในแนวดิ่ง ให้สปริงยุบตัวลงไป 10 เซนติเมตร จากนั้นก็ปล่อยปรากฎว่ามวลถูกดีดให้ลอยสูงขึ้นเป็นระยะ h เซนติเมตรจากจุดที่ปล่อย จงหาค่าคงตัวของสปริง".split(" ")
 
     // QuestionCode
 
@@ -17,7 +17,7 @@ export function GenRandomQ10(){
 
     let attempts = 0;
 
-    while (!Number.isInteger(m*h/5)) {
+    while (!Number.isInteger(m*h*20)) {
         m = (getRandomIntMN(1, 20));
         h = (getRandomIntMN(2, 15)) * 5;
         attempts++;
@@ -40,7 +40,7 @@ export function GenRandomQ10(){
 
     // Anscode
 
-    let result = m*h*20/0.01
+    let result = m*h*20
     let choice = [result]
 
     // RandomAnsCode
