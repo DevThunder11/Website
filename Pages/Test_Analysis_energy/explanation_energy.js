@@ -72,27 +72,57 @@ export function explanation(template , question_text){
         explanation_text = `จากกฏอนุรักษ์พลังงาน พิจารณาจากจุดที่ถูกกดด้วยสปริงเป็นจุดอ้างอิง และจุดสุดท้ายคือจุดที่สูงสุด จะได้เท่ากับ ½kx² = mgh จะได้ว่า ½k×${x1}² = ${m}×10×0.1 จะได้ k = ${ans} N/m `
     }
     else if (template == "Q11") {
-        explanation_text = `Q11`
+        let j = extract[9];
+        let m  = extract[21];
+        let ans = Number((2*10*1-(j/m))**(1/2)).toFixed(2);
+        explanation_text = `เฉลย จากกฏอนุรักษ์พลังงานจะได้ว่า mgh - w = 1/2mv² โดยพิจารณาจากจุดที่อยู่บนยอดสุดและให้จุดอ้างอิงอยู่จุดที่ต่ำที่สุด ซึ่ง h = R และ w คือพลังงานที่สูญเสียไปโดยแรงเสียดทานจลน์ เมื่อแก้สมการออกมาจะได้ v = ${ans} m/s `
     }
     else if (template == "Q12") {
-        explanation_text = `Q12`
+        let u = extract[5];
+        let v = extract[11];
+        let h = extract[24];
+        let ans = Number(10*((v**2)/2-(u**2)/2)-10*h).toFixed(2);
+        explanation_text = `เฉลย จากกฏอนุรักษ์พลังงาน พิจารณาที่จุด A และจุด B จะได้ว่า ½mv₁² + mgh + W = ½mv² เมื่อทำการแก้สมการออกมา จะได้ W = -${ans} ซึ่งสังเกตว่า ติดลบเพราะจะสูญเสียพลังงานไปโดยแรงเสียดทานจลน์ แต่โจทย์ถามเพียงแค่ พลังงานจลน์ที่สูญเสียไปเท่ากับเท่าไหร่ จะต้องตอบว่า ${ans} J `
     }
     else if (template == "Q13") {
-        explanation_text = `Q13`
+        let m = extract[1];
+        let h = extract[6];
+        explanation_text = `เฉลย จากกฏอนุรักษ์พลังงาน  ½mv₁² + mgh + W = ½mv² แต่เนื่องจากความเร็วตอนแรกกับตอนท้ายเท่ากัน จึงเหลือแค่ W = -mgh แต่เนื่องจากรู้ว่า งานจากแรงเสีดทานเป็นลบ จึงคิดแบบเป็นบวกได้เลย
+        W = ${m}×10×${h} = ${m*10*h} J `
     }
     else if (template == "Q14") {
-        explanation_text = `Q14`
+        let m = extract[1];
+        let k = extract[4];
+        let x = extract[10];
+        let F = Number((1/20000)*k*x*x).toFixed(2);
+        let a = Number(0.3*m*10*x/100).toFixed(2);
+        explanation_text = `เฉลย จากโจทย์นั้ถามงานที่สปริงสุทธิทำ เนื่องจากว่า พลังงานที่เกิดขึ้นมีสองอย่างได้แก่ 1. งานที่ออกแรงดึง F 2. งานจากแรงเสียดทาน f  เมื่อพิจารณาแรง F ที่กระทำก่อนจะได้ WF = ½kx² = ${F} J
+        และ หากพิจารณา แรง f ที่กระทำหลังจะได้ Wf = μmgx = 0.3×${m}×10×${x/100} = ${a} J เมื่อรวมกันจะได้ W = ${F} + ${a} = ${Number(F)+Number(a)} J `
     }
     else if (template == "Q15") {
-        explanation_text = 'Q15'
+        let u = extract[8];
+        let x = extract[5];
+        let ans = (1/2*(12/1000)*u*u)/(x/100)
+         explanation_text = `เฉลย จากกฏอนุรักษ์พลังงาน จากจุดปล่อยไปยังในเนื้อไม้ จะได้ว่า ½mv² = fs และหาแรงเสียดทานได้เท่ากับ f = ${ans} `
 
 
     }
     else if (template == "Q16") {
-        explanation_text = `Q16`
+        let m = extract[1];
+        let h = extract[4];
+        let ans = Number(10*m*((h/0.5)+1)).toFixed(2);
+        explanation_text = `เฉลย จากกฏอนุรักษ์พลังงาน เมื่อพิจารณาจากจุดปล่อย และ จุดที่หยุดนิ้งแล้ว จากกฏอนุรักษ์พลังงาน จะไม่เกิดการสูญเสียพลังงานเกิดขึ้น จะได้ว่า mg(h+0.5) = F(0.5)
+        เมื่อแก้ออกมาจะได้ F = ${ans} N  `
     }
     else if (template == "Q17") {
-        explanation_text = `Q17`
+        let t = extract[8];
+        let v = extract[11];
+        let w = 3900*(100+0.5*v*v);
+        let ans = Number(w/(60*t)).toFixed(2);
+
+
+
+        explanation_text = `เฉลย จากสูตร กำลัง p = W/t  และ จากกฎอนุรักษ์พลังงาน W = mgh+½mv²  = ${w} จากนั้นนำไปใส่ในสมการกำลัง จะได้ p = ${w}/(60×${t}) = ${ans} watt`
     }
     else if (template == "Q18") {
         explanation_text = `Q18` 

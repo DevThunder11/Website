@@ -12,14 +12,14 @@ export function GenRandomQ15(){
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let x = (getRandomIntMN(1, 5)) * 5
-    let u = (getRandomIntMN(15, 25)) * 10
+    let x = (getRandomIntMN(5, 50));
+    let u = (getRandomIntMN(10, 250)) ;
 
     let attempts = 0;
 
-    while (!Number.isInteger((1/2)*(12/1000)*(u**2))) {
-        x = (getRandomIntMN(1, 5)) * 5;
-        u = (getRandomIntMN(15, 25)) * 10;
+    while (!Number.isInteger(((1/2)*(12/1000)*(u*u))/(0.01*x))) {
+        x = (getRandomIntMN(5, 50));
+        u = (getRandomIntMN(10, 250));
         attempts++;
     }
 
@@ -40,7 +40,7 @@ export function GenRandomQ15(){
 
     // Anscode
 
-    let result = (1/2)*(12/1000)*(u**2)
+    let result = ((1/2)*(12/1000)*(u*u))/(0.01*x)
     let choice = [result]
 
     // RandomAnsCode
