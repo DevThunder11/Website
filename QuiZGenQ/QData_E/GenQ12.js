@@ -6,20 +6,22 @@ export function GenRandomQ12(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "กล่องมวล 30 กิโลกรัม เคลื่อนที่ตามรางโค้งดังรูป ถ้ากล่องมีอัตราเร็ว 1.0 เมตร/วินาที ณ ตำแหน่ง A และ 6 เมตร/วินาที ณ ตำแหน่ง B จงหางานของแรงเสียดทานที่มีทางให้กระทำต่อกล่องในช่วงการเคลื่อนที่จาก A ไปยัง B จะมีค่าเท่าใด".split(" "); // Question text for Q12
+    const question_text = "กล่องมวล 50 กิโลกรัม เคลื่อนที่ตามรางโค้งดังรูป ถ้ากล่องมีอัตราเร็ว u เมตร/วินาที ณ ตำแหน่ง A และ v เมตร/วินาที ณ ตำแหน่ง B จงหางานของแรงเสียดทานที่มีทางให้กระทำต่อกล่องในช่วงการเคลื่อนที่จาก A ไปยัง B จะมีค่าเท่าใด กำหนดให้ความสูง h = a เมตร".split(" "); // Question text for Q12
 
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
 
-    let t = (getRandomIntMN(1, 20))
-    let h = (getRandomIntMN(1, 100))
+    let a = (getRandomIntMN(1, 50))
+    let u = (getRandomIntMN(1, 20))
+    let v = (getRandomIntMN(1, 100))
 
     let attempts = 0;
 
-    while (!Number.isInteger(10*t*((5/h)**(1/2)))) {
-        t = (getRandomIntMN(1, 20));
-        h = (getRandomIntMN(1, 100));
+    while (!Number.isInteger(10*((v**2)/2-(u**2)/2)-10*a)) {
+        let a = (getRandomIntMN(1, 50))
+        let u = (getRandomIntMN(1, 20))
+        let v = (getRandomIntMN(1, 100))
         attempts++;
     }
 
@@ -30,17 +32,20 @@ export function GenRandomQ12(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "a"){
+            question_text[i] = a
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "u"){
+            question_text[i] = u
+        }
+        else if (question_text[i] == "v"){
+            question_text[i] = v
         }
     }
 
     // Anscode
 
-    let result = 10*t*((5/h)**(1/2))
+    let result = 10*((v**2)/2-(u**2)/2-10*a)
     let choice = [result]
 
     // RandomAnsCode

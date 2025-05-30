@@ -18,7 +18,7 @@ export function GenRandomQ13(){
 
     let attempts = 0;
 
-    while (!Number.isInteger(m*10*4)) {
+    while (!Number.isInteger(m*10*h)) {
         m = (getRandomIntMN(1, 10)) * 2;
         u = (getRandomIntMN(5, 20)) * 2;
         h = (getRandomIntMN(5, 20));
@@ -45,7 +45,7 @@ export function GenRandomQ13(){
 
     // Anscode
 
-    let result = m*10*4
+    let result = m*10*h
     let choice = [result]
 
     // RandomAnsCode
