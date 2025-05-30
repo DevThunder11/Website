@@ -353,6 +353,9 @@ const observer_outer_div = new MutationObserver(() => {
             innerButton.style.fontWeight = "bold";
             innerButton.style.transition = "0.3s ease";
             innerButton.style.marginBottom = "0.1%";
+            innerButton.style.outline = "none";
+            innerButton.style.border = "none";
+            innerButton.style.cursor = "pointer"; // Add this line to change the cursor to a pointer when hovering over the men
 
             innerButton.addEventListener('mouseover', () => {
                 innerButton.style.backgroundColor = isDarkMode ? "#4d4d4d" : "#5295ad";
