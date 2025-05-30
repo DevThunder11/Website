@@ -5,7 +5,6 @@ import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
-  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import {
   getFirestore,
@@ -30,7 +29,6 @@ getAnalytics(app);
 const auth     = getAuth(app);
 const db       = getFirestore(app);
 const provider = new GoogleAuthProvider();
-provider.addScope('email');
 
 document.getElementById('googleSignInButton').addEventListener('click', () => {
   signInWithPopup(auth, provider)
@@ -50,14 +48,16 @@ document.getElementById('googleSignInButton').addEventListener('click', () => {
             })
              .then(() => {
               console.log('User document created');
+              localStorage.setItem('loggedInUserId', user.uid);
+              window.location.replace("/Pages/Home/Home.html")
              })
           }
           else {
             console.log('User document exists');
+            localStorage.setItem('loggedInUserId', user.uid);
+            window.location.replace("/Pages/Home/Home.html")
           }
       })
-      localStorage.setItem('loggedInUserId', user.uid);
-      window.location.replace("/Pages/Home/Home.html")
     })
     .catch((error) => {
       console.error(error);
