@@ -30,11 +30,11 @@ export function GenRandomQ18(){
         if (question_text[i] == "name"){
             question_text[i] = Name
         }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
+        else if (question_text[i] == "m"){
+            question_text[i] = m
         }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
+        else if (question_text[i] == "u"){
+            question_text[i] = u
         }
     }
 

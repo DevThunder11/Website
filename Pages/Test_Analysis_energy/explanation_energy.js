@@ -125,12 +125,15 @@ export function explanation(template , question_text){
         explanation_text = `เฉลย จากสูตร กำลัง p = W/t  และ จากกฎอนุรักษ์พลังงาน W = mgh+½mv²  = ${w} จากนั้นนำไปใส่ในสมการกำลัง จะได้ p = ${w}/(60×${t}) = ${ans} watt`
     }
     else if (template == "Q18") {
-        explanation_text = `Q18` 
+        let m = extract[1];
+        let v = extract[11];
+        let ans = m*(400+(v**2))/40
+        explanation_text = `เฉลย จากสูตร กำลัง p = W/t  และ จากกฎอนุรักษ์พลังงาน W = mgh+½mv² จะได้ว่า  p = m(2gh+u²)/2t = ${m}×(400+${v}²)/40 = ${ans} ` 
         
     }
 
     else if (template == "Q19") {
-        explanation_text = `Q19`
+        explanation_text = `เฉลย จากรูป จะพบว่า สปริงสองตัวได้มีการยืดจากสมดุลหนึ่งตัว แล้วก็หดอีกตัวนึง แต่จากนิยามของสปริงสุทธิ จะได้ว่า สปริงสุทธิจะมีแรงที่เท่ากับ สปริงทั้งสองตัวรวมกัน นั้นจึงตอบว่า (1/2)x²(k₁+k₂)`
     }
   
     else if (template == "Q20") {
