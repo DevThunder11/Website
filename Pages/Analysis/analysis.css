@@ -170,7 +170,6 @@
 
 /* Additional styling for the graph */
 .middle {
-    display: flex;
     align-items: center; /* Vertically center */
     height: 75%;
     width: 95%;
@@ -179,6 +178,7 @@
     background-color: #ececec;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px 0px 40px 0px;
 }
 .card {
     width: 50%;
@@ -214,6 +214,7 @@
     background-color: #ececec;
     border-radius: 30px;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Dark Mode Styles */
@@ -234,7 +235,6 @@
     background: #68abc4;
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
     width: auto;
     margin: 0;
     text-transform: uppercase;
@@ -254,6 +254,11 @@
 .EB{
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
+}
+.slope_energy{
+    width: 90%;
+    height: 90%;
+    margin-left: 5%;
 }
   /* graph development */
 
@@ -443,4 +448,9 @@ body.dark-mode {
     outline-offset: 2px;
     box-shadow: 0 0 0 2px #68abc4;
     z-index: 1;
+}
+
+.set_center{
+    display: flex;
+    justify-content: center;
 }

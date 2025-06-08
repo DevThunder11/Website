@@ -157,6 +157,16 @@ function ShowPicture(){
                         image_div.style.display = "flex";
                         image_div.src = '../../../Picture/Test_Picture/Question_11.png';
                     }
+                    else if (template_num == "Q13"){
+                        picture_div.style.display = "flex";
+                        image_div.style.display = "flex";
+                        image_div.src = '../../../Picture/Test_Picture/Question_13.png';
+                    }
+                    else if (template_num == "Q19"){
+                        picture_div.style.display = "flex";
+                        image_div.style.display = "flex";
+                        image_div.src = '../../../Picture/Test_Picture/Question_19.png';
+                    }
                     else{
                         image_div.style.display = "none";
                         picture_div.style.display = "none";

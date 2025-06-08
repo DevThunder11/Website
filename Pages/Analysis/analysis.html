@@ -26,20 +26,37 @@
         </ul>
     </nav>
     <div class="middle">
-        <div class="card">
-            <div class="card-content">
-                <div id="line-chart"></div>
-            </div>
+        <div class="button-container">
+            <button id="linearButton_analysis" class="LB active">Linear</button>
+            <button id="energyButton_analysis" class="EB">Energy</button>
         </div>
-        <div class="slope_info">
-            <div class="slope">
-                <div class="slope_text">
-                    <p>ค่าเฉลี่ย: <span id="average"></span></p>
+        <div class="set_center">
+            <div class="card">
+                <div class="card-content">
+                    <div id="line-chart"></div>
                 </div>
-                <div class="slope_text">
+            </div>
+            <div class="slope_info">
+                <div class="slope" id="slope">
                     <div class="slope_text">
-                        <p>เกณฑ์: <span id="standard"></span></p>
-                        <p>บทวิเคราะห์: <span id="analysis_text"></span></p>
+                        <p>ค่าเฉลี่ย: <span id="average"></span></p>
+                    </div>
+                    <div class="slope_text">
+                        <div class="slope_text">
+                            <p>เกณฑ์: <span id="standard"></span></p>
+                            <p>บทวิเคราะห์: <span id="analysis_text"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slope_energy" id="slope_energy" style="display: none;">
+                    <div class="slope_text">
+                        <p>ค่าเฉลี่ย: <span id="average_energy"></span></p>
+                    </div>
+                    <div class="slope_text">
+                        <div class="slope_text">
+                            <p>เกณฑ์: <span id="standard_energy"></span></p>
+                            <p>บทวิเคราะห์: <span id="analysis_text_energy"></span></p>
+                        </div>
                     </div>
                 </div>
             </div>

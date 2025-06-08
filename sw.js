@@ -11,15 +11,13 @@ self.addEventListener('install', event => {
   self.addEventListener('fetch', event => {
     const url = new URL(event.request.url);
   
-    // Only intercept navigation to .js files under /QuiZGenQ/QData/
+    // Redirect if navigating to /QuiZGenQ/QData/ or any .js file
     if (
-      url.pathname.startsWith('/QuiZGenQ/QData/') &&
-      event.request.mode === 'navigate'
+      (url.pathname.startsWith('/QuiZGenQ/QData/') && event.request.mode === 'navigate') ||
+      (url.pathname.endsWith('.js') && event.request.mode === 'navigate')
     ) {
-      // Redirect to your app's main page
       event.respondWith(Response.redirect('/unauthorized.html'));
       return;
     }
-  
     // Otherwise, allow default network handling
-  });
+});

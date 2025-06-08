@@ -23,14 +23,14 @@ import { GenRandomQ20 } from "/QuiZGenQ/QData_E/GenQ20.js";
 
 export function RunAll(NumberOfQuestion) {
     let questions = [];
-    let availableNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15, 16,17, 18, 19]; 
+    let availableNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]; 
     // let availableNumbers = [18,19] // The available numbers to choose from
 
     for (let k = 0; k < NumberOfQuestion; k++) {
         // Check if there are any unused numbers
         if (availableNumbers.length === 0) {
             // Reset available numbers
-            availableNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18, 19];
+            availableNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
             // availableNumbers = [18,19];
         }
 
