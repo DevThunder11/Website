@@ -4,7 +4,7 @@ import { getAnalytics }  from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 import {
   getAuth,
   GoogleAuthProvider,
-  signInWithPopup,
+  signInWithPopup
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import {
   getFirestore,
@@ -29,6 +29,21 @@ getAnalytics(app);
 const auth     = getAuth(app);
 const db       = getFirestore(app);
 const provider = new GoogleAuthProvider();
+provider.addScope('profile');
+provider.addScope('email');
+
+// function splitDisplayName(displayName) {
+//   if (!displayName) {
+//     return { firstName: "", lastName: "" };
+//   }
+//   const parts = displayName.trim().split(" ");
+//   if (parts.length === 1) {
+//     return { firstName: parts[0], lastName: "" };
+//   }
+//   const first = parts[0];
+//   const last = parts.slice(1).join(" ");
+//   return { firstName: first, lastName: last };
+// }
 
 document.getElementById('googleSignInButton').addEventListener('click', () => {
   signInWithPopup(auth, provider)
@@ -63,3 +78,4 @@ document.getElementById('googleSignInButton').addEventListener('click', () => {
       console.error(error);
     });
 });
+

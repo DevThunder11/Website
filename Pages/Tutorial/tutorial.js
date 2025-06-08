@@ -73,7 +73,7 @@ endButton.addEventListener('click', function() {
               updateDoc(docRef, { tutorial: true })
               .then(() => {
                   console.log("Tutorial status updated successfully");
-                  window.location.href = '../Home/Home.html';
+                  window.location.replace('../Home/Home.html');
               })
               .catch((error) => {
                   console.error("Error updating document", error);
