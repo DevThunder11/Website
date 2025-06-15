@@ -6,57 +6,47 @@ export function GenRandomQ20(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "ปล่อยวัตถุก้อนหนึ่งที่ระดับความสูง h กราฟรูปใดที่แสดงค่าพลังงานจลน์ (Ek) และค่าพลังงานศักย์ (Ep) ของวัตถุได้ดีที่สุด"
+    const question_text = "ปล่อยวัตถุก้อนหนึ่งที่ระดับความสูง h ข้อใดอธิบายถูกต้อง".split(" ") // Question text for Q19
 
-    // QuestionCode
-
-    console.log(attempts); // Log attempts
-
-
-    for (let i = 0; i < question_text.length; i++) {
-        if (question_text[i] == "name"){
-            question_text[i] = Name
-        }
-        else if (question_text[i] == "t"){
-            question_text[i] = t
-        }
-        else if (question_text[i] == "h"){
-            question_text[i] = h
-        }
-    }
-
-    // Anscode
-
-    let result = 10*t*((5/h)**(1/2))
+    let result = "เมื่อเวลาผ่านไป พลังงานจลย์ของวัตถุเพิ่มขึ้น แต่พลังงานศักย์ของวัตถุลดลง"
+    let WrongChoice = [
+   "เมื่อเวลาผ่านไป พลังงานจลน์ของวัตถุลดลง แต่พลังงานศักย์ของวัตถุเพิ่มขึ้น",
+   "เมื่อเวลาผ่านไป พลังงานจลน์ของวัตถุและพลังงานศักย์ของวัตถุเพิ่มขึ้นทั้งคู่",
+   "เมื่อเวลาผ่านไป พลังงานจลน์ของวัตถุและพลังงานศักย์ของวัตถุลดลงทั้งคู่",
+   "เมื่อเวลาผ่านไป พลังงานศักย์ของวัตถุคงที่ แต่พลังงานจลน์ของวัตถุเปลี่ยนแปลง",
+   "เมื่อเวลาผ่านไป พลังงานจลน์ของวัตถุเพิ่มขึ้น แต่พลังงานศักย์ของวัตถุคงที่",
+   "เมื่อเวลาผ่านไป พลังงานศักย์เพิ่มขึ้นเรื่อยๆ"
+    ]
+    
     let choice = [result]
 
-    // RandomAnsCode
-
-    let choiceAmount = 4
-
-    while (choice.length < choiceAmount) {
-        // Generate a random number to add or subtract from the correct answer
-        let randomOffset = getRandomIntMN(10, 30); // Random number between 1 and 5
-        let WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
-        
-        while (WrongChoice <= 0) {
-            randomOffset = getRandomIntMN(10, 30); // Regenerate random offset if necessary
-            WrongChoice = choice[getRandomIntMN(0, choice.length - 1)] + (randomOffset * ((-1) ** getRandomIntMN(0, 1)));
-        }
-    
-        if (AnsNotIn(choice, WrongChoice)) {
-            choice = [...choice, WrongChoice];
+    // Shuffle function
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
         }
     }
-
+    
+    // RandomAnsCode
+    while (choice.length < 4) {
+        let randomIndex = getRandomIntMN(0, WrongChoice.length - 1);
+        let selectedChoice = WrongChoice[randomIndex];
+    
+        if (selectedChoice !== result && AnsNotIn(choice, selectedChoice)) {
+            choice.push(selectedChoice);
+        }
+    }
+    
+    // Shuffle the choices before sorting
+    shuffle(choice);
+    
     // PrintCode
-
-    let questionPrint = question_text.join(" ")
+    let questionPrint = question_text
 
     choice.sort()
-    
-    for (let j = 0; j < choice.length; j++) {
 
+    for (let j = 0; j < choice.length; j++) {
         let textAns = ([j+1,choice[j]].join(") "))
 
         if (choice[j] == result){

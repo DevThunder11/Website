@@ -10,7 +10,7 @@ export function setLinearAnalysisResult(averagePercent_linear) {
   } else if (averagePercent_linear >= 40) {
     document.getElementById("average").style.color = "#FFFF00";
     document.getElementById("standard").innerText = "ผลการทดสอบระดับปานกลาง";
-    document.getElementById("analysis_text").innerText = "ค่าเฉลี่ยในช่วง 40-60%สะท้อนให้เห็นว่าคุณมีพื้นฐานความรู้ที่ค่อนข้างมั่นคง แต่ยังมีช่องว่างในการพัฒนาเพิ่มเติม ขอให้พยายามทบทวนเนื้อหาที่มีความซับซ้อนและปรับปรุงเทคนิคการเรียนรู้ เพื่อให้ผลการทดสอบในครั้งต่อไปมีแนวโน้มที่ดีขึ้น";
+    document.getElementById("analysis_text").innerText = "ค่าเฉลี่ยในช่วง 40-60% สะท้อนให้เห็นว่าคุณมีพื้นฐานความรู้ที่ค่อนข้างมั่นคง แต่ยังมีช่องว่างในการพัฒนาเพิ่มเติม ขอให้พยายามทบทวนเนื้อหาที่มีความซับซ้อนและปรับปรุงเทคนิคการเรียนรู้ เพื่อให้ผลการทดสอบในครั้งต่อไปมีแนวโน้มที่ดีขึ้น";
   } else if (averagePercent_linear >= 20) {
     document.getElementById("average").style.color = "#FF5733";
     document.getElementById("standard").innerText = "ยังต้องปรับปรุงและพัฒนาความรู้เพิ่มเติม";
