@@ -38,11 +38,13 @@ body{
 }
 .box{
     width: 82%;
-    height: 90%;
     background-color: #f4f4f4;
     margin: auto;
     margin-top: 2%;
     border-radius: 20px;
+    position: relative;
+    padding-bottom: 20px;
+    margin-bottom: 2%;
 }
 .top{
     border-top-left-radius: 20px;
@@ -52,7 +54,6 @@ body{
     height: 10%;
     display: flex;
     justify-content: left;
-
 }
 .choice{
     font-family: "Markazi Text", serif;
@@ -82,7 +83,7 @@ body{
     color: white;
     position: absolute;
     font-size: 25px;
-    left: 85%;
+    right: 2.5%;
 }
 .icon{
     margin-left: 2%;

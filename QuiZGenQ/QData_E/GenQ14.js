@@ -21,7 +21,7 @@ export function GenRandomQ14(){
 
 
 
-    while (!Number.isInteger(((1/20000)*k*x + 3*m) * x)) {
+    while (!Number.isInteger(((k*x/20000) + 3*m/100) * x)) {
         m = (getRandomIntMN(1, 20));
         x = (getRandomIntMN(50, 200));
         k = (getRandomIntMN(500,1500)) ;
@@ -48,7 +48,7 @@ export function GenRandomQ14(){
 
     // Anscode
 
-    let result = (((1/20000)*k*x + 3*m/100) * x)
+    let result = (((k*x/20000) + 3*m/100) * x)
     let choice = [result]
 
     // RandomAnsCode

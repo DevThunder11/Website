@@ -49,7 +49,7 @@ document.getElementById('googleSignInButton').addEventListener('click', () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      console.log(user);
+      console.log(user);  
 
       const userDocRef = doc(db, 'users', user.uid);
       getDoc(userDocRef)
@@ -76,6 +76,7 @@ document.getElementById('googleSignInButton').addEventListener('click', () => {
     })
     .catch((error) => {
       console.error(error);
+      alert("Error logging in with Google. Please try again.");
     });
 });
 
