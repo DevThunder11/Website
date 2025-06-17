@@ -11,14 +11,14 @@ export function GenRandomQ21(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
-    let x = (getRandomIntMN(1, 125))
-    let t = (getRandomIntMN(1, 4))
+    let x = ((getRandomIntMN(1, 8))**2) * 5
+    let t = (getRandomIntMN(1, 10))
 
     let attempts = 0;
 
     while (!Number.isInteger(x/(t-((2*x/10)**(1/2))))) {
-        x = (getRandomIntMN(1, 100));
-        t = (getRandomIntMN(1, 100));
+        x = ((getRandomIntMN(1, 8))**2) * 5
+        t = (getRandomIntMN(1, 10));
         attempts++;
     }
     console.log(attempts);

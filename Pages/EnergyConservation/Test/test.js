@@ -155,17 +155,17 @@ function ShowPicture(){
                     if (template_num == "Q11"){
                         picture_div.style.display = "flex";
                         image_div.style.display = "flex";
-                        image_div.src = '../../../Picture/Test_Picture/Question_11.png';
+                        image_div.src = '../../../Picture/Test_Picture/Question_11.jpg';
                     }
                     else if (template_num == "Q13"){
                         picture_div.style.display = "flex";
                         image_div.style.display = "flex";
-                        image_div.src = '../../../Picture/Test_Picture/Question_13.png';
+                        image_div.src = '../../../Picture/Test_Picture/Question_13.jpg';
                     }
                     else if (template_num == "Q19"){
                         picture_div.style.display = "flex";
                         image_div.style.display = "flex";
-                        image_div.src = '../../../Picture/Test_Picture/Question_19.png';
+                        image_div.src = '../../../Picture/Test_Picture/Question_19.jpg';
                     }
                     else{
                         image_div.style.display = "none";

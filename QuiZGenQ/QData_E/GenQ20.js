@@ -6,7 +6,7 @@ export function GenRandomQ20(){
     let TF = [false,false,false,false]
 
     const namelist = ["ชิ","วิน","สายฟ้า","โฟ","ต้นตาล","ภีม"]
-    const question_text = "ปล่อยวัตถุก้อนหนึ่งที่ระดับความสูง h ข้อใดอธิบายถูกต้อง".split(" ") // Question text for Q19
+    const question_text = "ปล่อยวัตถุก้อนหนึ่งที่ระดับความสูง h ข้อใดอธิบายถูกต้อง"// Question text for Q19
 
     let result = "เมื่อเวลาผ่านไป พลังงานจลย์ของวัตถุเพิ่มขึ้น แต่พลังงานศักย์ของวัตถุลดลง"
     let WrongChoice = [

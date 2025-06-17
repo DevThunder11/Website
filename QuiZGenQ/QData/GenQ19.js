@@ -11,14 +11,14 @@ export function GenRandomQ19(){
     // QuestionCode
 
     let Name = namelist[getRandomInt((namelist.length)-1)]
-    let x = (getRandomIntMN(1, 100))
-    let t = (getRandomIntMN(1, 100))
+    let x = (getRandomIntMN(20, 150))
+    let t = (getRandomIntMN(1, 4))
 
     let attempts = 0;
 
     while (!Number.isInteger(x+((((x/t)-(5*t))**2)/20))) {
-        x = (getRandomIntMN(1, 100));
-        t = (getRandomIntMN(1, 100));
+        x = (getRandomIntMN(20, 150));
+        t = (getRandomIntMN(1, 4));
         attempts++;
     }
     console.log(attempts);
